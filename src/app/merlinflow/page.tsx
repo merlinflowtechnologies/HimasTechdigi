@@ -458,13 +458,13 @@ export default function MerlinflowPortfolioPage() {
 
               <div className="pt-4 border-t border-slate-200">
                 <a
-                  href="https://wa.me/918374373753?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20book%20a%20product%20demo%20for%20your%20SaaS%20ERP%20solutions."
+                  href="https://wa.me/916304989071?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20book%20a%20product%20demo%20for%20your%20SaaS%20ERP%20solutions."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Direct WhatsApp Inquiries: +91 8374373753</span>
+                  <span>Direct WhatsApp Inquiries: +91 6304989071</span>
                 </a>
               </div>
             </div>

@@ -85,10 +85,10 @@ export function AIChatbot() {
       q.includes("location")
     ) {
       return {
-        text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 8374373753\n• **WhatsApp Direct Desk:** +91 8374373753\n• **Official Email:** info@himastech.com\n• **Operational Hub:** Merlinflow Technologies & HimasTech, HITEC City, Hyderabad, Telangana 500081, India\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
+        text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 6304989071\n• **WhatsApp Direct Desk:** +91 6304989071\n• **Official Email:** info@himastech.com\n• **Operational Hub:** Merlinflow Technologies & HimasTech, Nagole, Hyderabad, Telangana 500068, India\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
         cta: { 
-          label: "Chat Directly on WhatsApp (+91 8374373753)", 
-          href: "https://wa.me/918374373753?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20marketing%20growth%20strategy", 
+          label: "Chat Directly on WhatsApp (+91 6304989071)", 
+          href: "https://wa.me/916304989071?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20marketing%20growth%20strategy", 
           isExternal: true 
         },
         options: ["📊 Request Free 48-Hr Audit", "🎓 Explore Training Academy", "⚡ What ROAS can you achieve?"]
@@ -126,7 +126,7 @@ export function AIChatbot() {
       return {
         text: "🚀 **Strategic Collaboration with Merlinflow Technologies Private Limited:**\n\nHimastech collaborates with Merlinflow Technologies (https://www.merlinflow.in/) to provide enterprise-grade SaaS and automated cloud OS suites:\n\n1️⃣ **School IMS** (Education): Admissions, fee collection, gradebooks, parent portal, timetable sync.\n2️⃣ **Medical ERP** (Healthcare): Batch/expiry tracking, instant barcode POS billing, GST compliance.\n3️⃣ **Restaurant ERP** (Hospitality): Smart QR digital menus, real-time KOT kitchen sync, table booking.\n4️⃣ **E-Commerce Platform** (Commerce): Automated 1-click checkout, COD fraud filtering, Shiprocket logistics.\n\nAll systems feature real-time cloud sync, WhatsApp/SMS automation, and India GST/UPI compliance.",
         cta: { label: "Visit Merlinflow.in", href: "https://www.merlinflow.in/", isExternal: true },
-        options: ["🏢 About Leadership", "💼 9 Marketing Services", "📞 Contact Desk (+91 8374373753)"]
+        options: ["🏢 About Leadership", "💼 9 Marketing Services", "📞 Contact Desk (+91 6304989071)"]
       };
     }
 
@@ -206,7 +206,7 @@ export function AIChatbot() {
       return {
         text: "📊 **Complimentary 48-Hour Growth & Ad Audit (Under Mutual NDA):**\n\nWe perform a forensic diagnostic of your current marketing stack:\n✓ **Server-Side Tracking Audit**: Identifying lost iOS/Android conversion telemetry.\n✓ **Creative Fatigue Index**: Pinpointing decaying ads and high-converting hook gaps.\n✓ **Audience Cannibalization**: Eliminating wasted ad spend across overlapping ad sets.\n✓ **Landing Page Drop-off Teardown**: Identifying exact form and checkout bottlenecks.\n\n100% free with zero obligation.",
         cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
-        options: ["⚡ Calculate ROI Potential", "📞 Call +91 8374373753", "🎓 Explore Training Academy"]
+        options: ["⚡ Calculate ROI Potential", "📞 Call +91 6304989071", "🎓 Explore Training Academy"]
       };
     }
 
@@ -254,13 +254,13 @@ export function AIChatbot() {
       return {
         text: "⚙️ **The 4-Step Revenue Multiplication Engine:**\n\n1. **Deep Forensic Audit (Day 1-7)**: Fix broken CAPI telemetry and map unit economics.\n2. **High-Velocity Creative Sprint (Day 8-14)**: Produce 10+ direct response UGC hooks & landing page variants.\n3. **Algorithmic Media Buying (Day 15-30)**: Deploy Broad AI targeting, P-Max feeds, and Dynamic Creative Testing.\n4. **Compounding Scale & Retention (Day 30+)**: Automated email/SMS retention flows and multivariate CRO.",
         cta: { label: "View Our 4-Step Process", href: "#process" },
-        options: ["📊 Claim 48-Hr Growth Audit", "📈 Case Studies & Results", "📞 Call +91 8374373753"]
+        options: ["📊 Claim 48-Hr Growth Audit", "📈 Case Studies & Results", "📞 Call +91 6304989071"]
       };
     }
 
     // Default Comprehensive Fallback
     return {
-      text: "⚡ **Himastech Digital Marketing & Academy:**\n\nWe specialize in:\n• **Full-Funnel Paid Media** (Meta, Google P-Max, TikTok)\n• **Generative Engine SEO & GEO** (ChatGPT, Perplexity, Google AI)\n• **High-Converting Landing Pages & CRO**\n• **Elite 5-Track Marketing Academy** with curved roadmaps & job placement.\n\n📞 Phone & WhatsApp: **+91 8374373753**\n✉️ Email: **info@himastech.com**\n\nHow can we help your business today?",
+      text: "⚡ **Himastech Digital Marketing & Academy:**\n\nWe specialize in:\n• **Full-Funnel Paid Media** (Meta, Google P-Max, TikTok)\n• **Generative Engine SEO & GEO** (ChatGPT, Perplexity, Google AI)\n• **High-Converting Landing Pages & CRO**\n• **Elite 5-Track Marketing Academy** with curved roadmaps & job placement.\n\n📞 Phone & WhatsApp: **+91 6304989071**\n✉️ Email: **info@himastech.com**\n\nHow can we help your business today?",
       cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
       options: [
         "📞 What is your phone / WhatsApp?",
@@ -347,7 +347,7 @@ export function AIChatbot() {
                   </h3>
                   <span className="text-[11px] text-emerald-600 font-medium flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                    Live Desk • +91 8374373753
+                    Live Desk • +91 6304989071
                   </span>
                 </div>
               </div>
@@ -470,7 +470,7 @@ export function AIChatbot() {
                 </button>
               </div>
               <div className="flex items-center justify-between text-[10px] text-slate-500 mt-1.5 px-1">
-                <span>⚡ Call / WhatsApp: +91 8374373753</span>
+                <span>⚡ Call / WhatsApp: +91 6304989071</span>
                 <Link href="#contact" onClick={() => setIsOpen(false)} className="text-blue-600 hover:underline font-medium">
                   Free 48h Audit →
                 </Link>

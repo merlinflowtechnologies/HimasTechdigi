@@ -68,13 +68,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+918374373753" className="flex items-center gap-2 text-slate-700 hover:text-purple-600 transition-colors">
-                  <Phone className="w-3.5 h-3.5 text-purple-600" /> +91 8374373753
+                <a href="tel:+916304989071" className="flex items-center gap-2 text-slate-700 hover:text-purple-600 transition-colors">
+                  <Phone className="w-3.5 h-3.5 text-purple-600" /> +91 6304989071
                 </a>
               </li>
               <li className="flex items-start gap-2 text-slate-700">
                 <MapPin className="w-3.5 h-3.5 text-pink-600 shrink-0 mt-0.5" />
-                <span>Merlinflow Technologies & HimasTech,<br />HITEC City, Hyderabad, Telangana 500081, India</span>
+                <span>Merlinflow Technologies & HimasTech,<br />Nagole, Hyderabad, Telangana 500068, India</span>
               </li>
             </ul>
             

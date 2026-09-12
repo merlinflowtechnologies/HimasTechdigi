@@ -45,108 +45,116 @@ export function ContactSection() {
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        {/* Modern 2-Column Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        {/* Modern 2-Column Equal Size Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
 
-          {/* Left Column: Headline, Info & Trust Guarantees */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs uppercase tracking-wider font-bold mb-3 shadow-xs">
-                <Sparkles className="w-3.5 h-3.5" /> High-Growth Partnership
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mb-3 leading-tight">
-                Let's Scale Your <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
-                  Next Growth Milestone
-                </span>
-              </h2>
-
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                Tell us about your brand goals. Our senior strategists will analyze your ad accounts and prepare a custom growth roadmap within 24 hours.
-              </p>
-            </div>
-
-            {/* Compact Direct Contact Cards */}
-            <div className="space-y-3">
-              <div className="glass-card rounded-xl p-3.5 flex items-center gap-3.5 border border-slate-200 hover:border-blue-300 transition-all group shadow-xs">
-                <div className="w-9 h-9 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <Mail className="h-4 w-4 text-blue-600" />
-                </div>
-                <div>
-                  <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Direct Email</div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">info@himastech.com</div>
-                </div>
-              </div>
-
-              <a 
-                href="tel:+918374373753" 
-                className="glass-card rounded-xl p-3.5 flex items-center justify-between border border-slate-200 hover:border-purple-300 transition-all group cursor-pointer shadow-xs"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-purple-50 border border-purple-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <Phone className="h-4 w-4 text-purple-600" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Strategy Desk & Call</div>
-                    <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-purple-600 transition-colors">+91 8374373753</div>
-                  </div>
-                </div>
-                <span className="text-[10px] text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200">Call Now →</span>
-              </a>
-
-              <a 
-                href="https://wa.me/918374373753?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20growth%20strategy" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card rounded-xl p-3.5 flex items-center justify-between border border-emerald-200 hover:border-emerald-300 bg-emerald-50/40 transition-all group cursor-pointer shadow-xs"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-9 h-9 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-emerald-600">
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-emerald-700 font-medium uppercase tracking-wider">WhatsApp Desk</div>
-                    <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">+91 8374373753</div>
-                  </div>
-                </div>
-                <span className="text-[10px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold">Chat 💬</span>
-              </a>
-
-              <div className="glass-card rounded-xl p-3.5 flex items-center gap-3.5 border border-slate-200 hover:border-pink-300 transition-all group shadow-xs">
-                <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <MapPin className="h-4 w-4 text-pink-600" />
-                </div>
-                <div>
-                  <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Operational Center</div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900">HITEC City, Hyderabad, India</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="pt-2 border-t border-slate-200 space-y-2 text-[11px] text-slate-600">
-              <div className="flex items-center gap-2">
-                <Shield className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>100% Strict NDA Protection. Zero Spam Guarantee.</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                <span>Average strategy audit turnaround: 4 hours</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Compact Form Card */}
-          <div className="lg:col-span-7">
+          {/* Left Column: Equal Height Partner Desk Card */}
+          <div className="lg:col-span-5 flex flex-col">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="glass-card rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md relative overflow-hidden"
+              className="glass-card rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md relative overflow-hidden flex flex-col justify-between h-full bg-white/95"
+            >
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs uppercase tracking-wider font-bold mb-3 shadow-2xs">
+                  <Sparkles className="w-3.5 h-3.5" /> High-Growth Partnership
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight mb-2.5 leading-tight">
+                  Let's Scale Your <br />
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+                    Next Growth Milestone
+                  </span>
+                </h2>
+
+                <p className="text-xs text-slate-600 leading-relaxed mb-5">
+                  Tell us about your brand goals. Our senior strategists will analyze your ad accounts and prepare a custom growth roadmap within 24 hours.
+                </p>
+
+                {/* Direct Contact Cards */}
+                <div className="space-y-2.5">
+                  <div className="rounded-xl p-3 flex items-center gap-3 border border-slate-200 bg-slate-50/70 hover:border-blue-300 hover:bg-blue-50/40 transition-all group shadow-2xs">
+                    <div className="w-8 h-8 rounded-lg bg-blue-100/80 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Mail className="h-4 w-4 text-blue-600" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[9px] text-slate-500 font-medium uppercase tracking-wider">Direct Email</div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors truncate">info@himastech.com</div>
+                    </div>
+                  </div>
+
+                  <a 
+                    href="tel:+916304989071" 
+                    className="rounded-xl p-3 flex items-center justify-between border border-slate-200 bg-slate-50/70 hover:border-purple-300 hover:bg-purple-50/40 transition-all group cursor-pointer shadow-2xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-purple-100/80 border border-purple-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <Phone className="h-4 w-4 text-purple-600" />
+                      </div>
+                      <div>
+                        <div className="text-[9px] text-slate-500 font-medium uppercase tracking-wider">Strategic Call Desk</div>
+                        <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-purple-600 transition-colors">+91 6304989071</div>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-bold text-purple-700 bg-purple-100/80 px-2 py-0.5 rounded-full border border-purple-200">Call Now →</span>
+                  </a>
+
+                  <a 
+                    href="https://wa.me/916304989071?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20growth%20strategy" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl p-3 flex items-center justify-between border border-emerald-200 bg-emerald-50/60 hover:border-emerald-300 hover:bg-emerald-50 transition-all group cursor-pointer shadow-2xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-emerald-600">
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-[9px] text-emerald-800 font-medium uppercase tracking-wider">WhatsApp Desk</div>
+                        <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">+91 6304989071</div>
+                      </div>
+                    </div>
+                    <span className="text-[9px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-200 font-bold">Chat 💬</span>
+                  </a>
+
+                  <div className="rounded-xl p-3 flex items-center gap-3 border border-slate-200 bg-slate-50/70 hover:border-pink-300 hover:bg-pink-50/40 transition-all group shadow-2xs">
+                    <div className="w-8 h-8 rounded-lg bg-pink-100/80 border border-pink-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <MapPin className="h-4 w-4 text-pink-600" />
+                    </div>
+                    <div>
+                      <div className="text-[9px] text-slate-500 font-medium uppercase tracking-wider">Operational Center</div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900">Nagole, Hyderabad, India</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="pt-4 mt-5 border-t border-slate-200 space-y-2 text-[11px] text-slate-600">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>100% Strict NDA Protection. Zero Spam Guarantee.</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                  <span>Average strategy audit turnaround: 4 hours</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Equal Height Form Card */}
+          <div className="lg:col-span-7 flex flex-col">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="glass-card rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md relative overflow-hidden flex flex-col justify-between h-full bg-white/95"
             >
               <AnimatePresence mode="wait">
                 {!isSuccess ? (

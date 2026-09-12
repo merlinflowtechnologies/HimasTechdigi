@@ -8,9 +8,9 @@ export function WhatsAppWidget() {
   const [isHovered, setIsHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const phoneNumber = "+918374373753"; // Verified business WhatsApp desk
+  const phoneNumber = "+916304989071"; // Verified business WhatsApp desk
   const defaultMessage = "Hi Himastech team, I would like to learn more about your data-driven marketing services and training tracks.";
-  const whatsappUrl = `https://wa.me/918374373753?text=${encodeURIComponent(defaultMessage)}`;
+  const whatsappUrl = `https://wa.me/916304989071?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
     <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start font-sans">
