@@ -16,6 +16,7 @@ import { MarketingChannelsSection } from "@/components/MarketingChannelsSection"
 import { TrainingSection } from "@/components/TrainingSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { AboutSection } from "@/components/AboutSection";
+import { MerlinflowSection } from "@/components/MerlinflowSection";
 import { FaqSection } from "@/components/FaqSection";
 import { ContactSection } from "@/components/ContactSection";
 
@@ -160,10 +161,13 @@ export default function Home() {
       {/* 10. About Us & Strategic Vision */}
       <AboutSection />
 
-      {/* 11. Frequently Asked Questions */}
+      {/* 11. Strategic Alliance with Merlinflow Technologies Private Limited */}
+      <MerlinflowSection />
+
+      {/* 12. Frequently Asked Questions */}
       <FaqSection />
 
-      {/* 12. Contact & Free Marketing Audit Consultation */}
+      {/* 13. Contact & Free Marketing Audit Consultation */}
       <ContactSection />
     </div>
   );

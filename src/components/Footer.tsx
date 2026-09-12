@@ -56,6 +56,7 @@ export function Footer() {
               <li><Link href="#process" className="hover:text-cyan-400 transition-colors">The 4-Step Revenue Engine</Link></li>
               <li><Link href="#training" className="hover:text-cyan-400 transition-colors">Marketing Training Academy</Link></li>
               <li><Link href="#about" className="hover:text-cyan-400 transition-colors">About Himastech</Link></li>
+              <li><Link href="#merlinflow" className="hover:text-cyan-400 transition-colors text-cyan-300 font-semibold">Merlinflow Enterprise OS</Link></li>
               <li><Link href="#faq" className="hover:text-cyan-400 transition-colors">Frequently Asked Questions</Link></li>
             </ul>
           </div>

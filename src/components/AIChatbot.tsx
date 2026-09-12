@@ -104,13 +104,29 @@ export function AIChatbot() {
       q.includes("about") || 
       q.includes("aravind") || 
       q.includes("priya") || 
-      q.includes("rohit") ||
-      q.includes("merlinflow")
+      q.includes("rohit")
     ) {
       return {
-        text: "🏢 **Himastech Executive Leadership:**\n\n• **Aravind Reddy** (Founder & Chief Growth Officer): Ex-Meta performance marketing specialist who has scaled ₹100Cr+ in client ad spend across D2C, B2B, and Real Estate.\n• **Priya Sharma** (Head of AI Search & GEO): Former Google Search engineer specializing in Generative Engine Optimization & LLM knowledge graph indexing.\n• **Rohit Verma** (Head of Creative & UGC Production): Direct-response creative director with 50M+ organic views generated.\n\nCertified in Meta Blueprint, Google Ads, and HubSpot Inbound.",
+        text: "🏢 **Himastech Executive Leadership:**\n\n• **Aravind Reddy** (Founder & Chief Growth Officer): Ex-Meta performance marketing specialist who has scaled ₹100Cr+ in client ad spend across D2C, B2B, and Real Estate.\n• **Priya Sharma** (Head of AI Search & GEO): Former Google Search engineer specializing in Generative Engine Optimization & LLM knowledge graph indexing.\n• **Rohit Verma** (Head of Creative & UGC Production): Direct-response creative director with 50M+ organic views generated.\n\nIn strategic collaboration with **Merlinflow Technologies Private Limited** for enterprise technology.",
         cta: { label: "Learn More in About Section", href: "#about" },
-        options: ["💼 What services do you offer?", "📊 Book Free Audit with Founders", "📞 WhatsApp the Team"]
+        options: ["🚀 What is Merlinflow ERP?", "💼 What services do you offer?", "📊 Book Free Audit"]
+      };
+    }
+
+    // 2b. Merlinflow Technologies / SaaS Products / Cloud ERP
+    if (
+      q.includes("merlinflow") || 
+      q.includes("merlin") || 
+      q.includes("erp") || 
+      q.includes("school ims") || 
+      q.includes("medical erp") || 
+      q.includes("restaurant erp") ||
+      q.includes("saas")
+    ) {
+      return {
+        text: "🚀 **Strategic Collaboration with Merlinflow Technologies Private Limited:**\n\nHimastech collaborates with Merlinflow Technologies (https://www.merlinflow.in/) to provide enterprise-grade SaaS and automated cloud OS suites:\n\n1️⃣ **School IMS** (Education): Admissions, fee collection, gradebooks, parent portal, timetable sync.\n2️⃣ **Medical ERP** (Healthcare): Batch/expiry tracking, instant barcode POS billing, GST compliance.\n3️⃣ **Restaurant ERP** (Hospitality): Smart QR digital menus, real-time KOT kitchen sync, table booking.\n4️⃣ **E-Commerce Platform** (Commerce): Automated 1-click checkout, COD fraud filtering, Shiprocket logistics.\n\nAll systems feature real-time cloud sync, WhatsApp/SMS automation, and India GST/UPI compliance.",
+        cta: { label: "Visit Merlinflow.in", href: "https://www.merlinflow.in/", isExternal: true },
+        options: ["🏢 About Leadership", "💼 9 Marketing Services", "📞 Contact Desk (+91 8374373753)"]
       };
     }
 
