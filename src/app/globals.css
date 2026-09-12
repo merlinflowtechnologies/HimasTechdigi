@@ -57,14 +57,21 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+}
+
+html, body, button, input, select, textarea, p, h1, h2, h3, h4, h5, h6, span, a, li, label, div {
+  font-family: "Times New Roman", Times, Georgia, serif;
 }
 
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  font-family: "Times New Roman", Times, Georgia, serif;
 }
 
 body {
+  font-family: "Times New Roman", Times, Georgia, serif;
   background-color: #f8fafc;
   background-image: 
     radial-gradient(ellipse 100% 60% at 50% -10%, rgba(56, 189, 248, 0.12), transparent 70%),

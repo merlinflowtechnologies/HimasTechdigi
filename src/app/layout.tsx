@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 import { AIChatbot } from "@/components/AIChatbot";
 import { SplashScreen } from "@/components/SplashScreen";
-
-const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://himastech.com"),
@@ -61,7 +58,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${outfit.className} antialiased min-h-screen flex flex-col relative`}>
+      <body className="antialiased min-h-screen flex flex-col relative font-serif">
         {/* Animated Brand Splash Screen */}
         <SplashScreen />
 
