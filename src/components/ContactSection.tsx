@@ -120,8 +120,8 @@ export function ContactSection() {
                   <MapPin className="h-4 w-4 text-pink-400" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Global Headquarters</div>
-                  <div className="text-xs sm:text-sm font-bold text-white">123 Innovation Drive, Tech City</div>
+                  <div className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Operational Center</div>
+                  <div className="text-xs sm:text-sm font-bold text-white">HITEC City, Hyderabad, India</div>
                 </div>
               </div>
             </div>

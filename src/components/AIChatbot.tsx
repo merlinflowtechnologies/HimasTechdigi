@@ -85,7 +85,7 @@ export function AIChatbot() {
       q.includes("location")
     ) {
       return {
-        text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 8374373753\n• **WhatsApp Direct Desk:** +91 8374373753\n• **Official Email:** info@himastech.com\n• **Headquarters:** 123 Innovation Drive, Tech City, TC 10010\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
+        text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 8374373753\n• **WhatsApp Direct Desk:** +91 8374373753\n• **Official Email:** info@himastech.com\n• **Operational Hub:** Merlinflow Technologies & HimasTech, HITEC City, Hyderabad, Telangana 500081, India\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
         cta: { 
           label: "Chat Directly on WhatsApp (+91 8374373753)", 
           href: "https://wa.me/918374373753?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20marketing%20growth%20strategy", 

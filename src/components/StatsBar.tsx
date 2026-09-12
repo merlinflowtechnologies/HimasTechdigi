@@ -8,7 +8,8 @@ export function StatsBar() {
     {
       value: "$28.4M+",
       label: "Managed Ad Spend",
-      sublabel: "Across Meta, Google & TikTok",
+      sublabel: "Across Meta, Google & TikTok campaigns",
+      badge: "Portfolio Benchmark",
       icon: <DollarSign className="w-5 h-5 text-emerald-400" />,
       accent: "from-emerald-500/25 to-teal-500/5",
       border: "hover:border-emerald-500/50",
@@ -16,7 +17,8 @@ export function StatsBar() {
     {
       value: "4.85x",
       label: "Average Client ROAS",
-      sublabel: "Verified across all client tiers",
+      sublabel: "Aggregated across e-commerce & lead gen case audits",
+      badge: "Case Study Metric",
       icon: <TrendingUp className="w-5 h-5 text-cyan-400" />,
       accent: "from-cyan-500/25 to-indigo-500/5",
       border: "hover:border-cyan-500/50",
@@ -24,7 +26,8 @@ export function StatsBar() {
     {
       value: "1.24M+",
       label: "Qualified Leads Generated",
-      sublabel: "High-intent conversions",
+      sublabel: "Multi-channel high-intent acquisition",
+      badge: "Historical Total",
       icon: <Users className="w-5 h-5 text-purple-400" />,
       accent: "from-purple-500/25 to-pink-500/5",
       border: "hover:border-purple-500/50",
@@ -32,7 +35,8 @@ export function StatsBar() {
     {
       value: "98.6%",
       label: "Client Retention Rate",
-      sublabel: "Long-term growth partnerships",
+      sublabel: "Based on ongoing multi-quarter contracts",
+      badge: "Partner Retention",
       icon: <ShieldCheck className="w-5 h-5 text-pink-400" />,
       accent: "from-pink-500/25 to-rose-500/5",
       border: "hover:border-pink-500/50",
@@ -42,7 +46,7 @@ export function StatsBar() {
   return (
     <section className="w-full py-16 bg-transparent relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-4">
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
@@ -59,8 +63,8 @@ export function StatsBar() {
                 <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 shadow-inner">
                   {stat.icon}
                 </div>
-                <span className="text-[11px] font-semibold text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded-full border border-cyan-500/25">
-                  Verified Data
+                <span className="text-[10px] font-semibold text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded-full border border-cyan-500/25">
+                  {stat.badge}
                 </span>
               </div>
 
@@ -78,7 +82,13 @@ export function StatsBar() {
             </motion.div>
           ))}
         </div>
+
+        {/* Responsible Context Footnote */}
+        <p className="text-center text-[11px] text-slate-500 italic max-w-2xl mx-auto">
+          *Figures reflect aggregated historical campaign portfolio results and client case study benchmarks across Meta, Google, TikTok, and SEO ecosystems. Individual client results may vary based on market dynamics, ad spend, and offer mechanics.
+        </p>
       </div>
     </section>
   );
 }
+

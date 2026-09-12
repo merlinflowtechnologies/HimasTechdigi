@@ -20,7 +20,7 @@ export function PartnersMarquee() {
     <div className="w-full py-10 bg-slate-950/40 border-y border-white/10 relative overflow-hidden backdrop-blur-xl z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
         <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">
-          Certified Partnerships & Enterprise Ad Ecosystem
+          Partner Ecosystem Expertise & Advertising Platform Proficiencies
         </p>
       </div>
 
