@@ -37,103 +37,11 @@ export default function MerlinflowPortfolioPage() {
     email: "",
     phone: "",
     organization: "",
-    product: "School IMS",
+    product: "Real Estate ERP",
     requirements: ""
   });
 
   const products = [
-    {
-      id: "school-ims",
-      category: "education",
-      name: "School IMS",
-      tagline: "Education, Simplified",
-      badge: "EdTech OS",
-      description: "Next-generation school information management platform designed to automate administrative chaos. Covers admissions, fee collection with automated receipt generation, examination grading, parent communication, and teacher timetable scheduling.",
-      icon: GraduationCap,
-      color: "from-blue-500/20 to-cyan-500/5",
-      accent: "text-blue-400",
-      border: "hover:border-blue-500/40",
-      badgeBg: "bg-blue-500/15 text-blue-300 border-blue-500/30",
-      href: "https://www.merlinflow.in/products/edu",
-      features: [
-        "Automated Student Admission & Enrollment Funnel",
-        "Online Fee Collection, Dues Tracking & Instant Receipts",
-        "Examination Schedule, Marks Entry & Report Card Generation",
-        "Conflict-Free Automated Timetable & Faculty Scheduling",
-        "Dedicated Parent-Teacher Portal & Mobile Attendance",
-        "Bank-Grade Student Record Encryption & Data Privacy"
-      ],
-      metrics: "50% Time Saved in Fee Operations"
-    },
-    {
-      id: "medical-erp",
-      category: "healthcare",
-      name: "Medical ERP",
-      tagline: "Healthcare, Digitized",
-      badge: "HealthTech ERP",
-      description: "Advanced ERP built specifically for retail pharmacies, medical distributors, and clinic chains. Features real-time batch & expiry alerts, rapid barcode scanner POS billing, automatic vendor purchase order generation, and 100% GST-compliant invoicing.",
-      icon: Hospital,
-      color: "from-emerald-500/20 to-teal-500/5",
-      accent: "text-emerald-400",
-      border: "hover:border-emerald-500/40",
-      badgeBg: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
-      href: "https://www.merlinflow.in/products/health",
-      features: [
-        "Smart Expiry & Near-Expiry Alerts to Eliminate Losses",
-        "High-Speed Barcode POS Billing with Prescription Sync",
-        "Multi-Store Stock Transfer & Centralized Inventory",
-        "Automated Low-Stock Vendor Purchase Orders",
-        "Instant GST e-Invoicing & B2B Tax Filing Reports",
-        "Doctor Commission & Referral Analytics Matrix"
-      ],
-      metrics: "Zero Stock Expiry Wastage"
-    },
-    {
-      id: "restaurant-erp",
-      category: "hospitality",
-      name: "Restaurant ERP",
-      tagline: "Hospitality, Automated",
-      badge: "Hospitality OS",
-      description: "Smart QR-powered restaurant management ecosystem. Delivers contactless digital menus, real-time Kitchen Order Ticketing (KOT) sync to chef screens, captain ordering apps, table reservations, and split-bill UPI checkout.",
-      icon: UtensilsCrossed,
-      color: "from-orange-500/20 to-amber-500/5",
-      accent: "text-orange-400",
-      border: "hover:border-orange-500/40",
-      badgeBg: "bg-orange-500/15 text-orange-300 border-orange-500/30",
-      href: "https://www.merlinflow.in/products/stay",
-      features: [
-        "QR Tabletop Digital Ordering with High-Res Visual Menu",
-        "Real-Time Kitchen Order Ticketing (KOT) Screen Sync",
-        "Captain Mobile App for Rapid Table & Waiter Management",
-        "Split-Bill, Dynamic Discounts & Instant UPI QR Payments",
-        "Raw Material Recipe Mapping & Daily Inventory Depletion",
-        "Customer Loyalty CRM with Automated WhatsApp Offers"
-      ],
-      metrics: "3.2x Faster Table Turnover"
-    },
-    {
-      id: "ecommerce-platform",
-      category: "commerce",
-      name: "E-Commerce Platform",
-      tagline: "Commerce, on Autopilot",
-      badge: "D2C Engine",
-      description: "High-performance direct-to-consumer e-commerce engine optimized for Indian brands. Engineered with sub-second page loads, 1-click checkout, automated Cash on Delivery (COD) verification, Shiprocket API sync, and WhatsApp marketing workflows.",
-      icon: ShoppingCart,
-      color: "from-purple-500/20 to-pink-500/5",
-      accent: "text-purple-400",
-      border: "hover:border-purple-500/40",
-      badgeBg: "bg-purple-500/15 text-purple-300 border-purple-500/30",
-      href: "https://www.merlinflow.in/products/ecommerce",
-      features: [
-        "1-Click Sub-Second Mobile Checkout Architecture",
-        "Automated WhatsApp COD Order Confirmation & RTO Defense",
-        "Deep Shiprocket, Delhivery & BlueDart Courier Logistics API",
-        "Automated Cart Recovery Sequences via WhatsApp & SMS",
-        "Multi-Tier Product Catalog Feeds for Meta & Google DPA",
-        "Dynamic Upsells, Order Bumps & Post-Purchase Bundling"
-      ],
-      metrics: "Up to +38% Page Conversion Rate"
-    },
     {
       id: "real-estate-erp",
       category: "enterprise",
@@ -179,6 +87,98 @@ export default function MerlinflowPortfolioPage() {
         "Executive Revenue Forecasting & Team Productivity Analytics"
       ],
       metrics: "4x Faster Lead Response Time"
+    },
+    {
+      id: "ecommerce-platform",
+      category: "commerce",
+      name: "E-Commerce Platform",
+      tagline: "Commerce, on Autopilot",
+      badge: "D2C Engine",
+      description: "High-performance direct-to-consumer e-commerce engine optimized for Indian brands. Engineered with sub-second page loads, 1-click checkout, automated Cash on Delivery (COD) verification, Shiprocket API sync, and WhatsApp marketing workflows.",
+      icon: ShoppingCart,
+      color: "from-purple-500/20 to-pink-500/5",
+      accent: "text-purple-400",
+      border: "hover:border-purple-500/40",
+      badgeBg: "bg-purple-500/15 text-purple-300 border-purple-500/30",
+      href: "https://www.merlinflow.in/products/ecommerce",
+      features: [
+        "1-Click Sub-Second Mobile Checkout Architecture",
+        "Automated WhatsApp COD Order Confirmation & RTO Defense",
+        "Deep Shiprocket, Delhivery & BlueDart Courier Logistics API",
+        "Automated Cart Recovery Sequences via WhatsApp & SMS",
+        "Multi-Tier Product Catalog Feeds for Meta & Google DPA",
+        "Dynamic Upsells, Order Bumps & Post-Purchase Bundling"
+      ],
+      metrics: "Up to +38% Page Conversion Rate"
+    },
+    {
+      id: "school-ims",
+      category: "education",
+      name: "School IMS",
+      tagline: "Education, Simplified",
+      badge: "EdTech OS",
+      description: "Next-generation school information management platform designed to automate administrative chaos. Covers admissions, fee collection with automated receipt generation, examination grading, parent communication, and teacher timetable scheduling.",
+      icon: GraduationCap,
+      color: "from-blue-500/20 to-cyan-500/5",
+      accent: "text-blue-400",
+      border: "hover:border-blue-500/40",
+      badgeBg: "bg-blue-500/15 text-blue-300 border-blue-500/30",
+      href: "https://www.merlinflow.in/products/edu",
+      features: [
+        "Automated Student Admission & Enrollment Funnel",
+        "Online Fee Collection, Dues Tracking & Instant Receipts",
+        "Examination Schedule, Marks Entry & Report Card Generation",
+        "Conflict-Free Automated Timetable & Faculty Scheduling",
+        "Dedicated Parent-Teacher Portal & Mobile Attendance",
+        "Bank-Grade Student Record Encryption & Data Privacy"
+      ],
+      metrics: "50% Time Saved in Fee Operations"
+    },
+    {
+      id: "restaurant-erp",
+      category: "hospitality",
+      name: "Restaurant ERP",
+      tagline: "Hospitality, Automated",
+      badge: "Hospitality OS",
+      description: "Smart QR-powered restaurant management ecosystem. Delivers contactless digital menus, real-time Kitchen Order Ticketing (KOT) sync to chef screens, captain ordering apps, table reservations, and split-bill UPI checkout.",
+      icon: UtensilsCrossed,
+      color: "from-orange-500/20 to-amber-500/5",
+      accent: "text-orange-400",
+      border: "hover:border-orange-500/40",
+      badgeBg: "bg-orange-500/15 text-orange-300 border-orange-500/30",
+      href: "https://www.merlinflow.in/products/stay",
+      features: [
+        "QR Tabletop Digital Ordering with High-Res Visual Menu",
+        "Real-Time Kitchen Order Ticketing (KOT) Screen Sync",
+        "Captain Mobile App for Rapid Table & Waiter Management",
+        "Split-Bill, Dynamic Discounts & Instant UPI QR Payments",
+        "Raw Material Recipe Mapping & Daily Inventory Depletion",
+        "Customer Loyalty CRM with Automated WhatsApp Offers"
+      ],
+      metrics: "3.2x Faster Table Turnover"
+    },
+    {
+      id: "medical-erp",
+      category: "healthcare",
+      name: "Medical ERP",
+      tagline: "Healthcare, Digitized",
+      badge: "HealthTech ERP",
+      description: "Advanced ERP built specifically for retail pharmacies, medical distributors, and clinic chains. Features real-time batch & expiry alerts, rapid barcode scanner POS billing, automatic vendor purchase order generation, and 100% GST-compliant invoicing.",
+      icon: Hospital,
+      color: "from-emerald-500/20 to-teal-500/5",
+      accent: "text-emerald-400",
+      border: "hover:border-emerald-500/40",
+      badgeBg: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
+      href: "https://www.merlinflow.in/products/health",
+      features: [
+        "Smart Expiry & Near-Expiry Alerts to Eliminate Losses",
+        "High-Speed Barcode POS Billing with Prescription Sync",
+        "Multi-Store Stock Transfer & Centralized Inventory",
+        "Automated Low-Stock Vendor Purchase Orders",
+        "Instant GST e-Invoicing & B2B Tax Filing Reports",
+        "Doctor Commission & Referral Analytics Matrix"
+      ],
+      metrics: "Zero Stock Expiry Wastage"
     }
   ];
 
@@ -568,12 +568,12 @@ export default function MerlinflowPortfolioPage() {
                       onChange={(e) => setFormData({...formData, product: e.target.value})}
                       className="w-full px-3.5 py-2.5 rounded-xl bg-[#090d16] border border-white/15 text-white text-xs focus:outline-none focus:border-cyan-400 transition-colors cursor-pointer"
                     >
-                      <option value="School IMS">School IMS (Education OS)</option>
-                      <option value="Medical ERP">Medical ERP (Pharmacy & Clinic OS)</option>
-                      <option value="Restaurant ERP">Restaurant ERP (Hospitality OS)</option>
-                      <option value="E-Commerce Platform">E-Commerce Platform (D2C Commerce OS)</option>
-                      <option value="Real Estate ERP">Real Estate & Brokerage ERP</option>
+                      <option value="Real Estate ERP">Real Estate & Brokerage ERP (PropTech OS)</option>
                       <option value="Enterprise CRM">Enterprise CRM & Workflow Automation</option>
+                      <option value="E-Commerce Platform">E-Commerce Platform (D2C Commerce OS)</option>
+                      <option value="School IMS">School IMS (EdTech OS)</option>
+                      <option value="Restaurant ERP">Restaurant ERP (Hospitality OS)</option>
+                      <option value="Medical ERP">Medical ERP (Pharmacy & Clinic OS)</option>
                     </select>
                   </div>
 
