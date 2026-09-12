@@ -82,11 +82,6 @@ export function StatsBar() {
             </motion.div>
           ))}
         </div>
-
-        {/* Responsible Context Footnote */}
-        <p className="text-center text-[11px] text-slate-500 italic max-w-2xl mx-auto">
-          *Figures reflect aggregated historical campaign portfolio results and client case study benchmarks across Meta, Google, TikTok, and SEO ecosystems. Individual client results may vary based on market dynamics, ad spend, and offer mechanics.
-        </p>
       </div>
     </section>
   );
