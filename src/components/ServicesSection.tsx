@@ -187,23 +187,23 @@ export function ServicesSection() {
               whileHover={{ y: -4 }}
               className={`glass-card rounded-2xl p-5 sm:p-6 relative overflow-hidden border border-white/10 transition-all duration-300 ${service.border} group flex flex-col justify-between`}
             >
-              <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${service.accent} rounded-bl-full blur-xl pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity`} />
+              {/* Background Image Layer (Behind the Text) */}
+              {service.image && (
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 rounded-2xl">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover object-center opacity-25 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070913] via-[#070913]/85 to-[#070913]/65" />
+                </div>
+              )}
 
-              <div>
-                {/* Visual Image Banner for Search SEO card */}
-                {service.image && (
-                  <div className="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden mb-4 border border-white/10 group-hover:border-cyan-400/40 transition-all shadow-lg bg-black/40">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#070913]/80 via-transparent to-transparent pointer-events-none" />
-                  </div>
-                )}
+              <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${service.accent} rounded-bl-full blur-xl pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity z-0`} />
 
+              <div className="relative z-10">
                 {/* Header row */}
                 <div className="flex items-center justify-between gap-2 mb-3.5">
                   <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/15 shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-inner">
@@ -241,7 +241,7 @@ export function ServicesSection() {
               </div>
 
               {/* Action Button */}
-              <div className="pt-3.5 mt-4 border-t border-white/10 flex items-center justify-between">
+              <div className="pt-3.5 mt-4 border-t border-white/10 flex items-center justify-between relative z-10">
                 <Link
                   href="#contact"
                   className="text-xs font-bold text-cyan-300 hover:text-white flex items-center gap-1 transition-colors group/link"
