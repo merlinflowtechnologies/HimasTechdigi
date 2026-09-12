@@ -30,7 +30,6 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function MerlinflowPortfolioPage() {
-  const [activeTab, setActiveTab] = useState<string>("all");
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [formData, setFormData] = useState({
@@ -216,10 +215,6 @@ export default function MerlinflowPortfolioPage() {
     }
   ];
 
-  const filteredProducts = activeTab === "all" 
-    ? products 
-    : products.filter(p => p.category === activeTab);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -321,33 +316,9 @@ export default function MerlinflowPortfolioPage() {
           </div>
         </div>
 
-        {/* Interactive Category Filter Tabs */}
-        <div className="flex items-center justify-center gap-2 flex-wrap mb-10">
-          {[
-            { id: "all", label: "All Software Products (6)" },
-            { id: "education", label: "Education (School IMS)" },
-            { id: "healthcare", label: "Healthcare (Medical ERP)" },
-            { id: "hospitality", label: "Hospitality (Restaurant ERP)" },
-            { id: "commerce", label: "E-Commerce OS" },
-            { id: "enterprise", label: "Real Estate & Enterprise CRM" },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer border ${
-                activeTab === tab.id
-                  ? "bg-gradient-to-r from-cyan-500/20 via-indigo-600/20 to-pink-500/20 border-cyan-400 text-white shadow-[0_0_15px_rgba(6,182,212,0.3)]"
-                  : "bg-white/5 border-white/10 text-slate-300 hover:text-white hover:bg-white/10"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
         {/* 6 Flagship Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {filteredProducts.map((product, idx) => {
+          {products.map((product, idx) => {
             const IconComp = product.icon;
             return (
               <motion.div
