@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { 
   CheckCircle2, 
   GraduationCap, 
@@ -20,9 +21,16 @@ import {
   Layers,
   Zap,
   DollarSign,
-  ChevronRight
+  ChevronRight,
+  X,
+  Send,
+  Phone,
+  Mail,
+  Building,
+  User,
+  ShieldCheck,
+  Calendar
 } from "lucide-react";
-import Link from "next/link";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 
 interface Milestone {
@@ -428,7 +436,43 @@ export function TrainingSection() {
   ];
 
   const [selectedTrack, setSelectedTrack] = useState<TrainingTrack>(trainingTracks[0]);
+  const [mounted, setMounted] = useState(false);
   const roadmapContainerRef = useRef<HTMLDivElement>(null);
+
+  // Modals
+  const [showStudentModal, setShowStudentModal] = useState(false);
+  const [showAgencyModal, setShowAgencyModal] = useState(false);
+
+  // Form states
+  const [studentSubmitted, setStudentSubmitted] = useState(false);
+  const [studentSubmitting, setStudentSubmitting] = useState(false);
+  const [studentForm, setStudentForm] = useState({ name: "", email: "", phone: "", experience: "Beginner (0-1 yr)", goal: "" });
+
+  const [agencySubmitted, setAgencySubmitted] = useState(false);
+  const [agencySubmitting, setAgencySubmitting] = useState(false);
+  const [agencyForm, setAgencyForm] = useState({ company: "", email: "", phone: "", rolesNeeded: "Media Buyer (Meta/Google)", spendRange: "$10k - $50k/mo" });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleStudentSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStudentSubmitting(true);
+    setTimeout(() => {
+      setStudentSubmitting(false);
+      setStudentSubmitted(true);
+    }, 600);
+  };
+
+  const handleAgencySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setAgencySubmitting(true);
+    setTimeout(() => {
+      setAgencySubmitting(false);
+      setAgencySubmitted(true);
+    }, 600);
+  };
 
   // Scroll-Driven Road Filling Animation
   const { scrollYProgress } = useScroll({
@@ -451,7 +495,7 @@ export function TrainingSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 text-purple-700 mb-3 text-xs font-bold border border-purple-200 uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 text-purple-700 mb-3 text-xs font-bold border border-purple-200 uppercase tracking-wider shadow-xs">
             <GraduationCap className="h-3.5 w-3.5" /> Specialized Career Tracks & Academy
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 mb-3 tracking-tight">
@@ -566,7 +610,7 @@ export function TrainingSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 max-w-6xl mx-auto mb-12 relative overflow-hidden shadow-sm"
+            className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 max-w-6xl mx-auto mb-12 relative overflow-hidden shadow-xs"
           >
             <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${selectedTrack.accentGradient} opacity-10 rounded-full blur-2xl pointer-events-none`} />
 
@@ -611,23 +655,23 @@ export function TrainingSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* ----------------- VERTICAL SERPENTINE CURVED ROADMAP ----------------- */}
+        {/* ----------------- VERTICAL ROADMAP (OPTIMIZED FOR DESKTOP & MOBILE) ----------------- */}
         <div ref={roadmapContainerRef} className="max-w-5xl mx-auto mb-16 relative">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200 mb-2">
-              <Compass className="w-3.5 h-3.5 animate-spin" /> Vertical Curved Highway Map
+              <Compass className="w-3.5 h-3.5" /> Progressive Mastery Roadmap
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-slate-950">
-              {selectedTrack.duration} Curated Roadmap Journey
+              {selectedTrack.duration} Curated Progression Journey
             </h3>
             <p className="text-xs text-slate-500 mt-1 max-w-xl mx-auto">
-              Follow the 4 milestone checkpoints sequentially along the vertical curved highway as you scroll through the program.
+              Follow the 4 milestone checkpoints sequentially as you master the curriculum and deploy live ad budgets.
             </p>
           </div>
 
-          {/* Vertical Highway Visualization Container */}
+          {/* Road Visual Container */}
           <div className="relative">
-            {/* Desktop Center S-Curved SVG Highway */}
+            {/* Desktop Center Curved Highway */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-48 pointer-events-none z-0">
               <svg 
                 className="w-full h-full overflow-visible" 
@@ -642,129 +686,86 @@ export function TrainingSection() {
                     <stop offset="70%" stopColor="#db2777" stopOpacity="0.95" />
                     <stop offset="100%" stopColor="#059669" stopOpacity="0.95" />
                   </linearGradient>
-                  <filter id="vertGlow" x="-30%" y="-10%" width="160%" height="120%">
-                    <feGaussianBlur stdDeviation="8" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
                 </defs>
 
-                {/* 1. Base Slate Roadbed */}
                 <path
                   d="M 100,20 C 20,160 180,300 100,440 C 20,580 180,720 100,860 C 20,960 180,1040 100,1080"
                   stroke="#e2e8f0"
-                  strokeWidth="20"
+                  strokeWidth="18"
                   strokeLinecap="round"
                 />
-
-                {/* 2. Ambient Outer Glow on Scroll */}
                 <motion.path
                   d="M 100,20 C 20,160 180,300 100,440 C 20,580 180,720 100,860 C 20,960 180,1040 100,1080"
                   stroke={`url(#vertRoadGradient-${selectedTrack.id})`}
-                  strokeWidth="24"
-                  strokeLinecap="round"
-                  opacity="0.15"
-                  filter="url(#vertGlow)"
-                  style={{ pathLength: scrollYProgress }}
-                />
-
-                {/* 3. Neon Laser Rail Track */}
-                <motion.path
-                  d="M 100,20 C 20,160 180,300 100,440 C 20,580 180,720 100,860 C 20,960 180,1040 100,1080"
-                  stroke={`url(#vertRoadGradient-${selectedTrack.id})`}
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  style={{ pathLength: scrollYProgress }}
-                />
-
-                {/* 4. Center Dashed Divider Line */}
-                <motion.path
-                  d="M 100,20 C 20,160 180,300 100,440 C 20,580 180,720 100,860 C 20,960 180,1040 100,1080"
-                  stroke="#ffffff"
-                  strokeWidth="1.5"
-                  strokeDasharray="6 8"
+                  strokeWidth="4"
                   strokeLinecap="round"
                   style={{ pathLength: scrollYProgress }}
                 />
               </svg>
             </div>
 
-            {/* Mobile Left-Aligned Curved SVG Path */}
-            <div className="md:hidden absolute left-5 top-0 bottom-0 w-8 pointer-events-none z-0">
-              <svg 
-                className="w-full h-full overflow-visible" 
-                viewBox="0 0 32 1100" 
-                fill="none" 
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M 16,10 C 28,150 4,300 16,450 C 28,600 4,750 16,900 C 28,1000 4,1060 16,1090"
-                  stroke="#e2e8f0"
-                  strokeWidth="12"
-                  strokeLinecap="round"
-                />
-                <motion.path
-                  d="M 16,10 C 28,150 4,300 16,450 C 28,600 4,750 16,900 C 28,1000 4,1060 16,1090"
-                  stroke={`url(#vertRoadGradient-${selectedTrack.id})`}
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                  style={{ pathLength: scrollYProgress }}
-                />
-              </svg>
+            {/* Mobile Left-Aligned Glowing Spine Line (100% Reliable & Fully Visible on Mobile) */}
+            <div className="md:hidden absolute left-4 sm:left-6 top-4 bottom-4 w-1 pointer-events-none z-0">
+              <div className="w-full h-full bg-slate-200 rounded-full" />
+              <motion.div 
+                className="absolute top-0 left-0 w-full bg-gradient-to-b from-cyan-500 via-purple-500 to-emerald-500 rounded-full shadow-[0_0_12px_rgba(6,182,212,0.8)]"
+                style={{ height: "100%", originY: 0, scaleY: scrollYProgress }}
+              />
             </div>
 
-            {/* Vertical Milestone Cards Alternating Left / Right */}
+            {/* Vertical Milestone Cards Alternating Left / Right on Desktop, Left-Rail on Mobile */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedTrack.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.35 }}
-                className="space-y-8 sm:space-y-12 relative z-10"
+                transition={{ duration: 0.3 }}
+                className="space-y-6 sm:space-y-10 relative z-10"
               >
                 {selectedTrack.milestones.map((milestone, idx) => {
                   const isEven = idx % 2 === 0;
                   return (
                     <motion.div
                       key={milestone.step}
-                      initial={{ opacity: 0.3, y: 25 }}
+                      initial={{ opacity: 0.4, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false, margin: "-40px" }}
-                      transition={{ duration: 0.45, delay: idx * 0.08 }}
+                      transition={{ duration: 0.4, delay: idx * 0.06 }}
                       className={`flex flex-col md:flex-row items-center ${
                         isEven ? "md:flex-row-reverse" : ""
-                      } gap-6 md:gap-12 relative`}
+                      } gap-4 md:gap-12 relative`}
                     >
                       {/* Left or Right Card */}
-                      <div className="w-full md:w-1/2 pl-12 md:pl-0">
-                        <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 hover:border-blue-300 transition-all duration-300 group relative overflow-hidden shadow-sm hover:shadow-md">
+                      <div className="w-full md:w-1/2 pl-12 sm:pl-16 md:pl-0">
+                        <div className="glass-card rounded-2xl p-4 sm:p-6 border border-slate-200 hover:border-blue-300 transition-all duration-300 group relative overflow-hidden shadow-xs hover:shadow-md bg-white/95">
                           {/* Card Ambient Glow */}
                           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-transparent rounded-full blur-xl pointer-events-none group-hover:opacity-100 transition-opacity" />
 
                           {/* Phase Capsule & Step */}
-                          <div className="flex items-center justify-between gap-2 mb-3">
-                            <span className={`text-[11px] font-bold px-3 py-0.5 rounded-full bg-gradient-to-r ${selectedTrack.accentGradient} text-white shadow-xs`}>
+                          <div className="flex items-center justify-between gap-2 mb-2.5">
+                            <span className={`text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full bg-gradient-to-r ${selectedTrack.accentGradient} text-white shadow-xs`}>
                               {milestone.phase}
                             </span>
-                            <span className="text-[10px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200">
+                            <span className="text-[10px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
                               {milestone.milestone}
                             </span>
                           </div>
 
                           {/* Title */}
-                          <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
+                          <h4 className="text-sm sm:text-base md:text-lg font-bold text-slate-900 mb-1.5 leading-snug group-hover:text-blue-600 transition-colors">
                             {milestone.title}
                           </h4>
 
                           {/* Description */}
-                          <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                          <p className="text-xs text-slate-600 leading-relaxed mb-3">
                             {milestone.desc}
                           </p>
 
                           {/* Key Topics List */}
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-slate-100 mb-3.5">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-2.5 border-t border-slate-100 mb-3">
                             {milestone.topics.map((topic, tIdx) => (
-                              <div key={tIdx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                              <div key={tIdx} className="flex items-start gap-1.5 text-[11px] sm:text-xs text-slate-600">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                                 <span className="leading-tight">{topic}</span>
                               </div>
@@ -772,12 +773,12 @@ export function TrainingSection() {
                           </div>
 
                           {/* Tools taught pills */}
-                          <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5">
+                          <div className="pt-2.5 border-t border-slate-100 flex flex-wrap items-center gap-1.5">
                             <span className="text-[10px] text-slate-500 font-semibold mr-1">Tools:</span>
                             {milestone.tools.map((tool, toolIdx) => (
                               <span 
                                 key={toolIdx} 
-                                className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-mono"
+                                className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-mono"
                               >
                                 {tool}
                               </span>
@@ -786,13 +787,13 @@ export function TrainingSection() {
                         </div>
                       </div>
 
-                      {/* Center Node Badge on the Highway */}
-                      <div className="absolute left-1 md:left-1/2 -translate-x-0 md:-translate-x-1/2 flex items-center justify-center z-20">
+                      {/* Milestone Number Badge (Centered on Desktop Highway, Left-Pinned on Mobile Line) */}
+                      <div className="absolute left-0 sm:left-2 md:left-1/2 top-4 md:top-1/2 -translate-y-0 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 flex items-center justify-center z-20">
                         <div 
-                          style={{ boxShadow: `0 0 15px ${selectedTrack.glowColor}` }}
-                          className="w-10 h-10 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0 group hover:scale-110 transition-transform shadow-sm"
+                          style={{ boxShadow: `0 0 12px ${selectedTrack.glowColor}` }}
+                          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0 group hover:scale-110 transition-transform shadow-sm"
                         >
-                          <div className={`w-8 h-8 rounded-full bg-gradient-to-tr ${selectedTrack.accentGradient} flex items-center justify-center text-white font-black text-xs`}>
+                          <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr ${selectedTrack.accentGradient} flex items-center justify-center text-white font-black text-[10px] sm:text-xs`}>
                             {milestone.step}
                           </div>
                         </div>
@@ -807,53 +808,382 @@ export function TrainingSection() {
             </AnimatePresence>
 
             {/* Vertical Finish Line / Graduation Flag Banner */}
-            <div className="mt-12 text-center relative z-10">
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold shadow-sm">
+            <div className="mt-10 sm:mt-12 text-center relative z-10">
+              <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold shadow-xs">
                 <Flag className="w-4 h-4 text-emerald-600 animate-bounce" /> {selectedTrack.title} Certified Graduation & Placement Summit
               </div>
             </div>
           </div>
         </div>
 
-        {/* Dual Application CTA */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {/* For Students / Career Switchers */}
-          <div className="glass-card rounded-2xl p-6 sm:p-7 border border-purple-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/5 rounded-bl-full blur-xl pointer-events-none" />
+        {/* ----------------- DUAL EQUAL-SIZE APPLICATION & HIRING CTA CARDS ----------------- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto items-stretch">
+          
+          {/* Card 1: For Students / Career Switchers */}
+          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-purple-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md bg-white/95 h-full">
+            <div className="absolute top-0 right-0 w-44 h-44 bg-purple-500/5 rounded-bl-full blur-xl pointer-events-none" />
+            
             <div>
-              <span className="text-xs font-bold text-purple-700 uppercase tracking-wider block mb-1.5">For Students & Growth Marketers</span>
-              <h4 className="text-xl font-bold text-slate-950 mb-2">Enroll in {selectedTrack.shortTitle}</h4>
-              <p className="text-xs text-slate-600 leading-relaxed mb-5">
+              <span className="text-xs font-bold text-purple-700 uppercase tracking-wider block mb-2">
+                FOR STUDENTS & GROWTH MARKETERS
+              </span>
+              <h4 className="text-xl sm:text-2xl font-black text-slate-950 mb-2.5 leading-tight">
+                Enroll in {selectedTrack.shortTitle}
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                 Master real-world campaigns under senior mentorship. Limited to 25 seats per cohort with live portfolio building and direct hiring introductions.
               </p>
             </div>
-            <Link
-              href="#contact"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-purple to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:shadow-md transition-all cursor-pointer shadow-xs"
+
+            <button
+              onClick={() => setShowStudentModal(true)}
+              className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-brand-purple to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer shadow-xs border border-white/20"
             >
-              Apply for {selectedTrack.shortTitle} Cohort <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+              <span>Apply for {selectedTrack.shortTitle} Cohort</span> 
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
 
-          {/* For Brands Looking to Hire */}
-          <div className="glass-card rounded-2xl p-6 sm:p-7 border border-blue-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/5 rounded-bl-full blur-xl pointer-events-none" />
+          {/* Card 2: For Brands & Agencies Looking to Hire */}
+          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-blue-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md bg-white/95 h-full">
+            <div className="absolute top-0 right-0 w-44 h-44 bg-blue-500/5 rounded-bl-full blur-xl pointer-events-none" />
+            
             <div>
-              <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-1.5">For Agencies & Scale-Ups</span>
-              <h4 className="text-xl font-bold text-slate-950 mb-2">Hire Pre-Trained Specialists</h4>
-              <p className="text-xs text-slate-600 leading-relaxed mb-5">
+              <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-2">
+                FOR AGENCIES & SCALE-UPS
+              </span>
+              <h4 className="text-xl sm:text-2xl font-black text-slate-950 mb-2.5 leading-tight">
+                Hire Pre-Trained Specialists
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                 Skip 3-month onboarding ramps. Hire pre-vetted specialists certified in {selectedTrack.shortTitle} with live account experience.
               </p>
             </div>
-            <Link
-              href="#contact"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:shadow-md transition-all cursor-pointer shadow-xs"
+
+            <button
+              onClick={() => setShowAgencyModal(true)}
+              className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer shadow-xs border border-white/20"
             >
-              Request Trained Graduate Roster <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+              <span>Request Trained Graduate Roster</span> 
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
+
         </div>
       </div>
+
+      {/* ========================================================================= */}
+      {/* MODAL 1: STUDENT ENROLLMENT & WHAT COMES NEXT BLUEPRINT (Portal to body) */}
+      {/* ========================================================================= */}
+      {mounted && showStudentModal && createPortal(
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-5 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="relative w-full max-w-2xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-gradient-to-r from-purple-50 via-white to-pink-50">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-purple-600 text-white flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base font-black text-slate-950">
+                    Apply for {selectedTrack.shortTitle} Cohort
+                  </h3>
+                  <p className="text-[11px] text-slate-500 font-medium">What Comes Next: 4-Phase Admission & Live Mentorship Journey</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowStudentModal(false)}
+                className="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-6 overflow-y-auto space-y-5">
+              {/* 4-Phase What Comes Next Flow */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-purple-700 block mb-2">
+                  YOUR 4-PHASE ONBOARDING & CAREER ROADMAP
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {[
+                    { phase: "1. Diagnostic Profile Assessment", desc: "Our academic committee evaluates your skill baseline within 12 hours.", tag: "Within 12h" },
+                    { phase: "2. Live Ad Sandbox Provisioning", desc: "Gain credentialed access to live Meta CAPI, Google Ads, and analytics stacks.", tag: "Day 1" },
+                    { phase: "3. Weekly Sprints & Account Audits", desc: "Manage real media spend with 1-on-1 feedback from senior media buyers.", tag: "Weeks 1-8" },
+                    { phase: "4. Direct Agency Placement Summit", desc: "Defend your portfolio directly in front of partner agency hiring directors.", tag: "Graduation" },
+                  ].map((st, i) => (
+                    <div key={i} className="p-3 rounded-xl bg-purple-50/50 border border-purple-100 text-left">
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="text-xs font-bold text-slate-900">{st.phase}</span>
+                        <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-purple-200/70 text-purple-800">{st.tag}</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 leading-snug">{st.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Form View */}
+              {!studentSubmitted ? (
+                <form onSubmit={handleStudentSubmit} className="space-y-3.5 pt-2 border-t border-slate-100">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">Full Name *</label>
+                      <input
+                        type="text"
+                        required
+                        value={studentForm.name}
+                        onChange={(e) => setStudentForm({ ...studentForm, name: e.target.value })}
+                        placeholder="e.g. Priya Sharma"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-purple-500 focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">Email Address *</label>
+                      <input
+                        type="email"
+                        required
+                        value={studentForm.email}
+                        onChange={(e) => setStudentForm({ ...studentForm, email: e.target.value })}
+                        placeholder="priya@gmail.com"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-purple-500 focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">WhatsApp / Phone *</label>
+                      <input
+                        type="tel"
+                        required
+                        value={studentForm.phone}
+                        onChange={(e) => setStudentForm({ ...studentForm, phone: e.target.value })}
+                        placeholder="+91 98765 43210"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-purple-500 focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">Experience Level *</label>
+                      <select
+                        value={studentForm.experience}
+                        onChange={(e) => setStudentForm({ ...studentForm, experience: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-purple-500 focus:outline-none"
+                      >
+                        <option value="Beginner (0-1 yr)">Beginner / Student (0-1 yr)</option>
+                        <option value="Junior Marketer (1-3 yrs)">Junior Marketer (1-3 yrs)</option>
+                        <option value="Freelancer / Agency Owner">Freelancer / Agency Owner</option>
+                        <option value="Career Switcher">Career Switcher</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-bold text-slate-900 block mb-1">Your Career Goal / What you want to achieve *</label>
+                    <textarea
+                      required
+                      rows={2}
+                      value={studentForm.goal}
+                      onChange={(e) => setStudentForm({ ...studentForm, goal: e.target.value })}
+                      placeholder="e.g. Master Meta & Google ads to land a Senior Media Buyer role at a top digital agency..."
+                      className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-purple-500 focus:outline-none resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={studentSubmitting}
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 text-white font-bold text-xs sm:text-sm hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    {studentSubmitting ? "Submitting Application..." : "Submit Admission Application →"}
+                  </button>
+                </form>
+              ) : (
+                <div className="py-8 text-center space-y-3">
+                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900">Application Registered Successfully!</h4>
+                  <p className="text-xs text-slate-600 max-w-md mx-auto">
+                    Thank you <strong>{studentForm.name}</strong>. Our admissions counselor will review your profile and reach out on WhatsApp/Phone at <strong>{studentForm.phone}</strong> within 12 hours with your cohort onboarding syllabus.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setStudentSubmitted(false);
+                      setShowStudentModal(false);
+                    }}
+                    className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold"
+                  >
+                    Done
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div className="px-6 py-3 border-t border-slate-200 bg-slate-50 flex items-center justify-between text-xs text-slate-500">
+              <span className="flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Meta Blueprint & Google Partner Accredited</span>
+              <button onClick={() => setShowStudentModal(false)} className="font-bold text-slate-700 hover:text-slate-900">Close</button>
+            </div>
+          </motion.div>
+        </div>,
+        document.body
+      )}
+
+      {/* ========================================================================= */}
+      {/* MODAL 2: AGENCY HIRING ROSTER & WHAT COMES NEXT BLUEPRINT (Portal to body) */}
+      {/* ========================================================================= */}
+      {mounted && showAgencyModal && createPortal(
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-5 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="relative w-full max-w-2xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-gradient-to-r from-blue-50 via-white to-indigo-50">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center">
+                  <Briefcase className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base font-black text-slate-950">
+                    Request Pre-Trained Talent Roster
+                  </h3>
+                  <p className="text-[11px] text-slate-500 font-medium">What Comes Next: 4-Step Agency Talent Matching Protocol</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowAgencyModal(false)}
+                className="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-6 overflow-y-auto space-y-5">
+              {/* 4-Step Agency Matching Roadmap */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-blue-700 block mb-2">
+                  OUR ZERO-FRICTION TALENT PLACEMENT WORKFLOW
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {[
+                    { step: "1. Media Buying Scope Intake", desc: "We map your required channels (Meta, Google, TikTok, GEO) and ad budget scale.", tag: "Instant" },
+                    { step: "2. Receive 3 Vetted Portfolios", desc: "Get direct access to live case audits, ROAS performance metrics, and video intros.", tag: "Within 24h" },
+                    { step: "3. Direct Technical Interview", desc: "Schedule 1-click interviews with pre-qualified talent ready to drive immediate ROI.", tag: "48h Ramp" },
+                    { step: "4. 90-Day Placement Guarantee", desc: "Hire confidently with zero placement recruiter fees and our 90-day retention warranty.", tag: "Guaranteed" },
+                  ].map((st, i) => (
+                    <div key={i} className="p-3 rounded-xl bg-blue-50/50 border border-blue-100 text-left">
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="text-xs font-bold text-slate-900">{st.step}</span>
+                        <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-blue-200/70 text-blue-800">{st.tag}</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 leading-snug">{st.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Form View */}
+              {!agencySubmitted ? (
+                <form onSubmit={handleAgencySubmit} className="space-y-3.5 pt-2 border-t border-slate-100">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">Company / Agency Name *</label>
+                      <input
+                        type="text"
+                        required
+                        value={agencyForm.company}
+                        onChange={(e) => setAgencyForm({ ...agencyForm, company: e.target.value })}
+                        placeholder="e.g. Apex Media Group"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">Work Email *</label>
+                      <input
+                        type="email"
+                        required
+                        value={agencyForm.email}
+                        onChange={(e) => setAgencyForm({ ...agencyForm, email: e.target.value })}
+                        placeholder="hiring@apexmedia.com"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">Role / Specialization Needed *</label>
+                      <select
+                        value={agencyForm.rolesNeeded}
+                        onChange={(e) => setAgencyForm({ ...agencyForm, rolesNeeded: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none"
+                      >
+                        <option value="Media Buyer (Meta/Google)">Media Buyer (Meta & Google ROAS)</option>
+                        <option value="SEO & AI Search Specialist">SEO & AI Search (GEO) Specialist</option>
+                        <option value="Short-Form Video UGC Producer">Short-Form Video UGC Producer</option>
+                        <option value="Full-Stack Growth Marketer">Full-Stack Growth Marketer / Lead</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold text-slate-900 block mb-1">Monthly Ad Spend Managed *</label>
+                      <select
+                        value={agencyForm.spendRange}
+                        onChange={(e) => setAgencyForm({ ...agencyForm, spendRange: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none"
+                      >
+                        <option value="$5k - $20k/mo">$5,000 - $20,000 / month</option>
+                        <option value="$20k - $100k/mo">$20,000 - $100,000 / month</option>
+                        <option value="$100k+/mo">$100,000+ / month (Enterprise)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={agencySubmitting}
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600 text-white font-bold text-xs sm:text-sm hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    {agencySubmitting ? "Generating Candidate Roster..." : "Request Vetted Specialist Roster →"}
+                  </button>
+                </form>
+              ) : (
+                <div className="py-8 text-center space-y-3">
+                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900">Roster Request Dispatched!</h4>
+                  <p className="text-xs text-slate-600 max-w-md mx-auto">
+                    Thank you <strong>{agencyForm.company}</strong>. Our placement desk is matching 3 certified specialists with proven account records in <strong>{agencyForm.rolesNeeded}</strong> and will email their profiles to <strong>{agencyForm.email}</strong> within 24 hours.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setAgencySubmitted(false);
+                      setShowAgencyModal(false);
+                    }}
+                    className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold"
+                  >
+                    Done
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div className="px-6 py-3 border-t border-slate-200 bg-slate-50 flex items-center justify-between text-xs text-slate-500">
+              <span className="flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> 100% Pre-Vetted Live Ad Account Experience</span>
+              <button onClick={() => setShowAgencyModal(false)} className="font-bold text-slate-700 hover:text-slate-900">Close</button>
+            </div>
+          </motion.div>
+        </div>,
+        document.body
+      )}
     </section>
   );
 }
