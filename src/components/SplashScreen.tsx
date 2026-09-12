@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Sparkles, 
@@ -132,39 +133,41 @@ export function SplashScreen() {
               {/* Luminous Core Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-indigo-500 to-pink-500 rounded-3xl blur-2xl opacity-60 animate-pulse" />
 
-              {/* Main 3D Monogram Tile */}
+              {/* Main 3D Logo Tile */}
               <motion.div
                 initial={{ scale: 0.7, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-pink-500 p-0.5 shadow-[0_0_40px_rgba(99,102,241,0.5)] flex items-center justify-center"
+                className="relative p-0.5 rounded-3xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-pink-500 shadow-[0_0_40px_rgba(99,102,241,0.5)] flex items-center justify-center"
               >
-                <div className="w-full h-full bg-[#080c1b] rounded-[22px] flex items-center justify-center border border-white/20 relative overflow-hidden">
+                <div className="bg-white px-5 py-3 rounded-[22px] flex items-center justify-center border border-white/20 relative overflow-hidden shadow-2xl">
                   {/* Subtle Shimmer Sweep */}
                   <motion.div
                     animate={{ x: ["-100%", "200%"] }}
                     transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 pointer-events-none"
+                    className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 pointer-events-none"
                   />
-                  <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-pink-400 tracking-tighter">
-                    H
-                  </span>
+                  <Image
+                    src="/logo.png"
+                    alt="Himastech Digital Reality Marketing"
+                    width={260}
+                    height={70}
+                    priority
+                    className="h-12 sm:h-14 w-auto object-contain"
+                  />
                 </div>
               </motion.div>
             </div>
 
-            {/* Brand Title with High-Contrast Typography */}
+            {/* Brand Tagline */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white flex items-center justify-center gap-2">
-                <span>Himastech</span>
-              </h1>
-              <div className="inline-flex items-center gap-1.5 mt-1 px-3 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] sm:text-[11px] font-bold text-cyan-300 uppercase tracking-widest">
-                <Sparkles className="w-3 h-3 text-cyan-400" />
-                <span>Performance Marketing & Academy</span>
+              <div className="inline-flex items-center gap-1.5 mt-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[11px] sm:text-xs font-bold text-cyan-300 uppercase tracking-widest">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Performance Marketing • Generative Search • Talent Academy</span>
               </div>
             </motion.div>
 

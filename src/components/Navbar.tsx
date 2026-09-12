@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,19 +46,16 @@ export function Navbar() {
         <div className="flex justify-between h-20 items-center">
           {/* Brand Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-pink-500 flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(99,102,241,0.35)] group-hover:scale-105 transition-transform">
-                <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center shadow-inner">
-                  <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-indigo-600 text-lg">H</span>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-slate-900 group-hover:text-cyan-600 transition-colors duration-300">
-                  Himastech
-                </span>
-                <span className="text-[10px] text-cyan-600 font-bold uppercase tracking-widest -mt-1">
-                  Digital Marketing
-                </span>
+            <Link href="/" className="flex items-center group py-1">
+              <div className="relative h-10 sm:h-12 w-auto max-w-[220px] transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/logo.png"
+                  alt="Himastech Digital Reality Marketing"
+                  width={240}
+                  height={64}
+                  priority
+                  className="h-10 sm:h-12 w-auto object-contain"
+                />
               </div>
             </Link>
           </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, ArrowRight, ShieldCheck, Sparkles, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
@@ -8,19 +9,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Col 1: Brand info */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-6 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-blue via-brand-purple to-pink-500 flex items-center justify-center p-0.5 shadow-xs">
-                <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
-                  <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-brand-purple text-base">H</span>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black text-slate-950">
-                  Himastech
-                </span>
-                <span className="text-[9px] text-blue-600 font-bold uppercase tracking-widest -mt-0.5">
-                  Digital Marketing
-                </span>
+            <Link href="/" className="inline-block mb-6 group">
+              <div className="relative h-11 w-auto max-w-[220px] transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/logo.png"
+                  alt="Himastech Digital Reality Marketing"
+                  width={240}
+                  height={64}
+                  className="h-11 w-auto object-contain"
+                />
               </div>
             </Link>
 
