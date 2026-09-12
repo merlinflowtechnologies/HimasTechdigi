@@ -146,6 +146,22 @@ export function AboutSection() {
                 <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> Google Ads Certified</span>
                 <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> HubSpot Inbound Certified</span>
               </div>
+
+              {/* Collaboration with Merlinflow Technologies Private Limited */}
+              <div className="pt-3 mt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                  <span className="text-xs font-medium text-slate-300">
+                    Strategic Collaboration with{" "}
+                    <strong className="text-white font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-indigo-300 to-pink-300">
+                      Merlinflow Technologies Private Limited
+                    </strong>
+                  </span>
+                </div>
+                <span className="text-[10px] text-cyan-300 bg-cyan-500/10 border border-cyan-500/25 px-2.5 py-0.5 rounded-full font-semibold shadow-sm">
+                  Enterprise Technology & AI Growth Ecosystem
+                </span>
+              </div>
             </div>
           </div>
         </motion.div>
