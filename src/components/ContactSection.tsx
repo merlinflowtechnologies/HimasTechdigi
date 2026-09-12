@@ -45,6 +45,19 @@ export function ContactSection() {
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        {/* Main Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs uppercase tracking-wider font-extrabold mb-3 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" /> Direct Communication & Audits
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight mb-3">
+            Reach Us <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">Through</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium max-w-xl mx-auto">
+            Connect directly with our senior media strategists for personalized marketing roadmaps, growth audits, and academy enrollments.
+          </p>
+        </div>
+
         {/* Modern 2-Column Equal Size Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
 
@@ -62,20 +75,21 @@ export function ContactSection() {
                   <Sparkles className="w-3.5 h-3.5" /> High-Growth Partnership
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight mb-2.5 leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight mb-2.5 leading-tight">
                   Let's Scale Your <br />
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
                     Next Growth Milestone
                   </span>
-                </h2>
+                </h3>
 
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
                   Tell us about your brand goals. Our senior strategists will analyze your ad accounts and prepare a custom growth roadmap within 24 hours.
                 </p>
 
                 {/* Reach Us Through Heading & Direct Contact Cards */}
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5">
+                <div className="pt-1">
+                  <div className="text-xs font-black uppercase tracking-wider text-slate-900 mb-2.5 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
                     Reach Us Through:
                   </div>
 
