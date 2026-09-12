@@ -571,7 +571,7 @@ export function ServicesSection() {
       {/* ----------------- INTERACTIVE STRATEGY DEEP-DIVE MODAL ----------------- */}
       <AnimatePresence>
         {selectedService && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -581,44 +581,44 @@ export function ServicesSection() {
               className="fixed inset-0 bg-black/85 backdrop-blur-md"
             />
 
-            {/* Modal Dialog Card */}
+            {/* Modal Dialog Card - Compact & Sleek */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              initial={{ opacity: 0, scale: 0.95, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ type: "spring", duration: 0.4, bounce: 0.12 }}
-              className="glass-card rounded-2xl sm:rounded-3xl max-w-3xl w-full relative z-10 border border-white/20 shadow-[0_0_80px_rgba(0,0,0,0.9)] max-h-[92vh] flex flex-col overflow-hidden my-auto"
+              exit={{ opacity: 0, scale: 0.95, y: 12 }}
+              transition={{ type: "spring", duration: 0.35, bounce: 0.1 }}
+              className="glass-card rounded-2xl max-w-xl w-full relative z-10 border border-white/20 shadow-[0_0_60px_rgba(0,0,0,0.9)] max-h-[85vh] flex flex-col overflow-hidden my-auto"
             >
               {/* Modal Top Header */}
-              <div className="p-4 sm:p-6 pb-3 border-b border-white/10 relative shrink-0">
+              <div className="p-3.5 sm:p-4 border-b border-white/10 relative shrink-0">
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedService(null)}
                   aria-label="Close strategy modal"
-                  className="absolute top-4 right-4 sm:top-5 sm:right-5 p-1.5 sm:p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
+                  className="absolute top-3.5 right-3.5 p-1 rounded-lg bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
                 >
-                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <X className="w-4 h-4" />
                 </button>
 
-                <div className="flex items-start gap-3 sm:gap-4 pr-8 sm:pr-10">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-white/20 flex items-center justify-center shrink-0 shadow-inner">
-                    {selectedService && <selectedService.icon className="w-5 h-5 text-cyan-300" />}
+                <div className="flex items-start gap-3 pr-8">
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-white/20 flex items-center justify-center shrink-0 shadow-inner">
+                    {selectedService && <selectedService.icon className="w-4.5 h-4.5 text-cyan-300" />}
                   </div>
 
                   <div>
-                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
-                      <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-cyan-300 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
+                    <div className="flex flex-wrap items-center gap-1.5 mb-0.5">
+                      <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-cyan-300 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
                         {selectedService.badge} Playbook
                       </span>
-                      <span className="text-[9px] sm:text-[10px] font-extrabold text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                        <TrendingUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> {selectedService.impact}
+                      <span className="text-[8px] sm:text-[9px] font-extrabold text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                        <TrendingUp className="w-2.5 h-2.5" /> {selectedService.impact}
                       </span>
                     </div>
 
-                    <h3 className="text-base sm:text-xl font-black text-white leading-tight">
+                    <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
                       {selectedService.title}
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-slate-300 mt-0.5 leading-snug line-clamp-2">
+                    <p className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5 leading-tight line-clamp-2">
                       {selectedService.description}
                     </p>
                   </div>
@@ -626,31 +626,31 @@ export function ServicesSection() {
               </div>
 
               {/* Modal Scrollable Body */}
-              <div className="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-5 custom-scrollbar">
+              <div className="p-3.5 sm:p-4 overflow-y-auto space-y-3 custom-scrollbar">
                 {/* Section 1: Detailed Execution Playbook (4 Steps in 2x2 Grid) */}
                 <div>
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-2.5">
-                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                  <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <Sparkles className="w-3 h-3 text-cyan-400" />
                     4-Step Execution Framework
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {selectedService.playbook.map((phase) => (
                       <div 
                         key={phase.step}
-                        className="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/30 transition-all flex flex-col justify-between"
+                        className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 hover:border-cyan-500/30 transition-all flex flex-col justify-between"
                       >
                         <div>
-                          <div className="flex items-center justify-between gap-1.5 mb-1">
-                            <span className="text-[9px] font-black text-cyan-300 bg-cyan-500/15 px-1.5 py-0.5 rounded border border-cyan-500/25">
+                          <div className="flex items-center justify-between gap-1 mb-1">
+                            <span className="text-[8px] font-black text-cyan-300 bg-cyan-500/15 px-1.5 py-0.5 rounded border border-cyan-500/25">
                               Phase {phase.step}
                             </span>
-                            <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                            <CheckCircle2 className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
                           </div>
-                          <h4 className="text-[11px] sm:text-xs font-bold text-white mb-0.5 leading-snug">
+                          <h4 className="text-[10px] sm:text-[11px] font-bold text-white mb-0.5 leading-tight">
                             {phase.title}
                           </h4>
-                          <p className="text-[10px] sm:text-[11px] text-slate-300 leading-relaxed">
+                          <p className="text-[9px] sm:text-[10px] text-slate-300 leading-snug">
                             {phase.detail}
                           </p>
                         </div>
@@ -660,16 +660,16 @@ export function ServicesSection() {
                 </div>
 
                 {/* Section 2: Core Tech Stack & Tools */}
-                <div className="p-3 rounded-xl bg-black/40 border border-white/10">
-                  <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    <Cpu className="w-3 h-3 text-purple-400" />
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/10">
+                  <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                    <Cpu className="w-2.5 h-2.5 text-purple-400" />
                     Core Tech Stack & Telemetry
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1">
                     {selectedService.techStack.map((tool, tIdx) => (
                       <span 
                         key={tIdx}
-                        className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono"
+                        className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-200 font-mono"
                       >
                         {tool}
                       </span>
@@ -678,34 +678,34 @@ export function ServicesSection() {
                 </div>
 
                 {/* Section 3: Expected Deliverables & SLA Guarantees */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-white/[0.03] border border-white/5">
-                    <span className="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-wider block font-semibold">Speed / Timeline</span>
-                    <span className="text-[10px] sm:text-[11px] font-bold text-cyan-300 mt-0.5 block leading-tight">{selectedService.deliverables.timeline}</span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                  <div className="p-1.5 sm:p-2 rounded-lg bg-white/[0.03] border border-white/5">
+                    <span className="text-[7px] sm:text-[8px] text-slate-400 uppercase tracking-wider block font-semibold">Speed / SLA</span>
+                    <span className="text-[9px] sm:text-[10px] font-bold text-cyan-300 mt-0.5 block leading-tight">{selectedService.deliverables.timeline}</span>
                   </div>
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-white/[0.03] border border-white/5">
-                    <span className="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-wider block font-semibold">Live Reporting</span>
-                    <span className="text-[10px] sm:text-[11px] font-bold text-purple-300 mt-0.5 block leading-tight">{selectedService.deliverables.reporting}</span>
+                  <div className="p-1.5 sm:p-2 rounded-lg bg-white/[0.03] border border-white/5">
+                    <span className="text-[7px] sm:text-[8px] text-slate-400 uppercase tracking-wider block font-semibold">Reporting</span>
+                    <span className="text-[9px] sm:text-[10px] font-bold text-purple-300 mt-0.5 block leading-tight">{selectedService.deliverables.reporting}</span>
                   </div>
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-white/[0.03] border border-white/5">
-                    <span className="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-wider block font-semibold">Assigned Pod</span>
-                    <span className="text-[10px] sm:text-[11px] font-bold text-pink-300 mt-0.5 block leading-tight">{selectedService.deliverables.teamPod}</span>
+                  <div className="p-1.5 sm:p-2 rounded-lg bg-white/[0.03] border border-white/5">
+                    <span className="text-[7px] sm:text-[8px] text-slate-400 uppercase tracking-wider block font-semibold">Growth Pod</span>
+                    <span className="text-[9px] sm:text-[10px] font-bold text-pink-300 mt-0.5 block leading-tight">{selectedService.deliverables.teamPod}</span>
                   </div>
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-white/[0.03] border border-white/5">
-                    <span className="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-wider block font-semibold">Data Protection</span>
-                    <span className="text-[10px] sm:text-[11px] font-bold text-emerald-300 mt-0.5 block leading-tight">{selectedService.deliverables.guarantee}</span>
+                  <div className="p-1.5 sm:p-2 rounded-lg bg-white/[0.03] border border-white/5">
+                    <span className="text-[7px] sm:text-[8px] text-slate-400 uppercase tracking-wider block font-semibold">Guarantee</span>
+                    <span className="text-[9px] sm:text-[10px] font-bold text-emerald-300 mt-0.5 block leading-tight">{selectedService.deliverables.guarantee}</span>
                   </div>
                 </div>
               </div>
 
               {/* Modal Bottom Footer Action Buttons */}
-              <div className="p-3 sm:p-4 bg-black/60 border-t border-white/10 shrink-0 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="p-2.5 sm:p-3 bg-black/70 border-t border-white/10 shrink-0 grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Link
                   href="#contact"
                   onClick={() => setSelectedService(null)}
-                  className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border border-white/20"
+                  className="py-2 px-3 rounded-lg bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(99,102,241,0.35)] hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border border-white/20"
                 >
-                  <Sparkles className="w-3.5 h-3.5" /> Book Free Strategy Audit <ArrowRight className="w-3.5 h-3.5" />
+                  <Sparkles className="w-3 h-3" /> Book Free Strategy Audit <ArrowRight className="w-3 h-3" />
                 </Link>
 
                 <a
@@ -714,9 +714,9 @@ export function ServicesSection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2.5 px-4 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 font-bold text-xs flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
+                  className="py-2 px-3 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(16,185,129,0.15)] hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
                 >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
                     <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
                   </svg>
                   Discuss on WhatsApp (+91 8374373753)
