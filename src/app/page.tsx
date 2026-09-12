@@ -14,7 +14,6 @@ import { RoiCalculatorSection } from "@/components/RoiCalculatorSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { MarketingChannelsSection } from "@/components/MarketingChannelsSection";
 import { TrainingSection } from "@/components/TrainingSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FeedbackSection } from "@/components/FeedbackSection";
 import { AboutSection } from "@/components/AboutSection";
 import { MerlinflowSection } from "@/components/MerlinflowSection";
@@ -158,10 +157,7 @@ export default function Home() {
       {/* 8. Elite Marketing Training & Recruiting Academy */}
       <TrainingSection />
 
-      {/* 9. Verified Client Testimonials */}
-      <TestimonialsSection />
-
-      {/* 10. Leave Your Feedback & Reviews Section */}
+      {/* 9. Leave Your Feedback & Reviews Section */}
       <FeedbackSection />
 
       {/* 11. About Us & Strategic Vision */}
