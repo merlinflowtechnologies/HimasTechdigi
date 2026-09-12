@@ -69,12 +69,17 @@ export function ContactSection() {
                   </span>
                 </h2>
 
-                <p className="text-xs text-slate-600 leading-relaxed mb-5">
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
                   Tell us about your brand goals. Our senior strategists will analyze your ad accounts and prepare a custom growth roadmap within 24 hours.
                 </p>
 
-                {/* Direct Contact Cards */}
-                <div className="space-y-2.5">
+                {/* Reach Us Through Heading & Direct Contact Cards */}
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5">
+                    Reach Us Through:
+                  </div>
+
+                  <div className="space-y-2.5">
                   <div className="rounded-xl p-3 flex items-center gap-3 border border-slate-200 bg-slate-50/70 hover:border-blue-300 hover:bg-blue-50/40 transition-all group shadow-2xs">
                     <div className="w-8 h-8 rounded-lg bg-blue-100/80 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                       <Mail className="h-4 w-4 text-blue-600" />
@@ -131,6 +136,7 @@ export function ContactSection() {
                     </div>
                   </div>
                 </div>
+              </div>
               </div>
 
               {/* Trust Badges */}
