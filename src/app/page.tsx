@@ -27,29 +27,16 @@ export default function Home() {
       <BackgroundEffects />
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-start pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden z-10">
-        {/* Background Image Layer (hero.png) */}
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/hero.png" 
-            alt="Himastech Digital Marketing Growth" 
-            fill 
-            priority 
-            className="object-cover object-right md:object-center opacity-85 sm:opacity-95"
-          />
-          {/* Subtle directional gradients for high text contrast while keeping background graphic clearly visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/80 to-transparent sm:via-[#030712]/60 pointer-events-none z-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/50 pointer-events-none z-0" />
-        </div>
-
+      <section id="home" className="relative flex flex-col justify-center pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden z-10">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl lg:max-w-3xl text-left flex flex-col items-start">
+          {/* Left-Aligned Headline, Copy, and CTAs */}
+          <div className="max-w-3xl text-left flex flex-col items-start mb-12 sm:mb-16">
             {/* Top Pill Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/40 border border-white/20 text-gray-200 mb-6 text-xs backdrop-blur-2xl shadow-[0_0_25px_rgba(6,182,212,0.25)]"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/15 text-gray-200 mb-6 text-xs backdrop-blur-2xl shadow-[0_0_25px_rgba(6,182,212,0.15)]"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
@@ -70,7 +57,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-5 leading-[1.15]"
             >
-              <span className="block text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]">Scale Your Brand With</span>
+              <span className="block text-white drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)]">Scale Your Brand With</span>
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-indigo-400 to-pink-500 drop-shadow-[0_0_35px_rgba(99,102,241,0.4)]">
                 Predictable Revenue
               </span>
@@ -81,7 +68,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-sm sm:text-base md:text-lg text-slate-200 mb-8 leading-relaxed font-normal max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
+              className="text-sm sm:text-base md:text-lg text-slate-300 mb-8 leading-relaxed font-normal max-w-2xl"
             >
               Himastech engineers high-converting Meta & Google ad funnels, generative AI search optimization (GEO), and elite digital marketing talent pipelines to help you out-scale competitors.
             </motion.p>
@@ -95,7 +82,7 @@ export default function Home() {
             >
               <Link
                 href="#contact"
-                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm hover:shadow-[0_0_40px_rgba(99,102,241,0.6)] transition-all hover:scale-105 flex items-center justify-center gap-2 group cursor-pointer border border-white/20"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm hover:shadow-[0_0_40px_rgba(99,102,241,0.6)] transition-all hover:scale-105 flex items-center justify-center gap-2 group cursor-pointer border border-white/20"
               >
                 <Sparkles className="w-3.5 h-3.5" /> 
                 <span>Get Free 30-Min Growth Audit</span> 
@@ -103,7 +90,7 @@ export default function Home() {
               </Link>
               <Link
                 href="#roi-calculator"
-                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full glass-card text-white font-semibold text-xs sm:text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-2 group border border-white/15 hover:border-cyan-400/40 cursor-pointer shadow-[0_0_25px_rgba(0,0,0,0.5)]"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full glass-card text-white font-semibold text-xs sm:text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-2 group border border-white/15 hover:border-cyan-400/40 cursor-pointer shadow-[0_0_25px_rgba(0,0,0,0.5)]"
               >
                 <Zap className="h-3.5 w-3.5 text-cyan-400" /> 
                 <span>Simulate Your ROI</span> 
@@ -111,6 +98,23 @@ export default function Home() {
               </Link>
             </motion.div>
           </div>
+
+          {/* Hero Showcase Image (hero.png) Below Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="w-full relative rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(6,182,212,0.2)] border border-white/20 group"
+          >
+            <Image 
+              src="/hero.png" 
+              alt="Himastech Performance Marketing Showcase" 
+              width={1920}
+              height={1080}
+              priority 
+              className="w-full h-auto object-cover object-center rounded-3xl transform group-hover:scale-[1.01] transition-transform duration-700"
+            />
+          </motion.div>
         </div>
       </section>
 
