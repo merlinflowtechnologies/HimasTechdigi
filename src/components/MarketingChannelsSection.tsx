@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Share2, 
@@ -52,6 +53,11 @@ export function MarketingChannelsSection() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [selectedChannel, setSelectedChannel] = useState<ChannelDetails | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const channels: ChannelDetails[] = [
     {
@@ -699,126 +705,129 @@ export function MarketingChannelsSection() {
         </div>
       </div>
 
-      {/* ================= MODAL: WHAT COMES NEXT AFTER DEPLOYING CHANNEL (COMPACT) ================= */}
-      <AnimatePresence>
-        {selectedChannel && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/60 backdrop-blur-xs overflow-y-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-2xl z-10"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedChannel(null)}
-                className="absolute top-3.5 right-3.5 p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors cursor-pointer"
-                aria-label="Close modal"
+      {/* ================= MODAL: WHAT COMES NEXT AFTER DEPLOYING CHANNEL (PORTAL & Z-999999) ================= */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {selectedChannel && (
+            <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-2xl z-10"
               >
-                <X className="w-4 h-4" />
-              </button>
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedChannel(null)}
+                  className="absolute top-3.5 right-3.5 p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X className="w-4 h-4" />
+                </button>
 
-              {/* Modal Header */}
-              <div className="flex items-start gap-3 mb-4 pr-6">
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 shadow-xs shrink-0">
-                  {selectedChannel.icon}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
-                    <span className="text-[9px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                      Deployment Blueprint
-                    </span>
-                    <span className="text-[10px] font-bold text-slate-500 flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-blue-500" /> {selectedChannel.timeline}
-                    </span>
+                {/* Modal Header */}
+                <div className="flex items-start gap-3 mb-4 pr-6">
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 shadow-xs shrink-0">
+                    {selectedChannel.icon}
                   </div>
-                  <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight">
-                    {selectedChannel.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-600 mt-0.5 font-medium leading-snug">
-                    {selectedChannel.desc}
-                  </p>
+                  <div>
+                    <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
+                      <span className="text-[9px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                        Deployment Blueprint
+                      </span>
+                      <span className="text-[10px] font-bold text-slate-500 flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-blue-500" /> {selectedChannel.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight">
+                      {selectedChannel.title}
+                    </h3>
+                    <p className="text-[11px] text-slate-600 mt-0.5 font-medium leading-snug">
+                      {selectedChannel.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* What Comes Next Step-by-Step Execution Journey */}
-              <div className="mb-4">
-                <div className="flex items-center gap-1.5 mb-2.5 pb-1.5 border-b border-slate-100">
-                  <Layers className="w-3.5 h-3.5 text-blue-600" />
-                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-900">
-                    What Comes Next: 4-Phase Deployment Journey
-                  </h4>
-                </div>
+                {/* What Comes Next Step-by-Step Execution Journey */}
+                <div className="mb-4">
+                  <div className="flex items-center gap-1.5 mb-2.5 pb-1.5 border-b border-slate-100">
+                    <Layers className="w-3.5 h-3.5 text-blue-600" />
+                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-900">
+                      What Comes Next: 4-Phase Deployment Journey
+                    </h4>
+                  </div>
 
-                <div className="space-y-2">
-                  {selectedChannel.phases.map((phase, pIdx) => (
-                    <div 
-                      key={pIdx}
-                      className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-blue-300 transition-colors"
-                    >
-                      <div className="flex items-center justify-between gap-1 mb-0.5">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-5 h-5 rounded-md bg-blue-600 text-white font-black text-[10px] flex items-center justify-center shadow-xs">
-                            {phase.step}
-                          </span>
-                          <span className="text-[11px] font-bold text-slate-900">
-                            {phase.title}
+                  <div className="space-y-2">
+                    {selectedChannel.phases.map((phase, pIdx) => (
+                      <div 
+                        key={pIdx}
+                        className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-blue-300 transition-colors"
+                      >
+                        <div className="flex items-center justify-between gap-1 mb-0.5">
+                          <div className="flex items-center gap-1.5">
+                            <span className="w-5 h-5 rounded-md bg-blue-600 text-white font-black text-[10px] flex items-center justify-center shadow-xs">
+                              {phase.step}
+                            </span>
+                            <span className="text-[11px] font-bold text-slate-900">
+                              {phase.title}
+                            </span>
+                          </div>
+                          <span className="text-[9px] font-extrabold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded-full">
+                            {phase.duration}
                           </span>
                         </div>
-                        <span className="text-[9px] font-extrabold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded-full">
-                          {phase.duration}
-                        </span>
+                        <p className="text-[10.5px] text-slate-600 ml-6.5 mb-1 leading-snug">
+                          {phase.description}
+                        </p>
+                        <div className="ml-6.5 flex items-center gap-1 text-[10px] text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg w-fit">
+                          <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
+                          <span>Key Deliverable: {phase.deliverable}</span>
+                        </div>
                       </div>
-                      <p className="text-[10.5px] text-slate-600 ml-6.5 mb-1 leading-snug">
-                        {phase.description}
-                      </p>
-                      <div className="ml-6.5 flex items-center gap-1 text-[10px] text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg w-fit">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                        <span>Key Deliverable: {phase.deliverable}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Deliverables Checklist */}
+                <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50/60 to-purple-50/40 border border-blue-100 mb-4">
+                  <h5 className="text-[11px] font-bold text-slate-900 mb-1.5 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-blue-600" />
+                    Included in this Channel Deployment:
+                  </h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                    {selectedChannel.keyDeliverables.map((item, dIdx) => (
+                      <div key={dIdx} className="flex items-start gap-1 text-[10.5px] text-slate-700 font-medium">
+                        <Check className="w-3 h-3 text-blue-600 shrink-0 mt-0.5" />
+                        <span className="truncate">{item}</span>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Deliverables Checklist */}
-              <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50/60 to-purple-50/40 border border-blue-100 mb-4">
-                <h5 className="text-[11px] font-bold text-slate-900 mb-1.5 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-blue-600" />
-                  Included in this Channel Deployment:
-                </h5>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                  {selectedChannel.keyDeliverables.map((item, dIdx) => (
-                    <div key={dIdx} className="flex items-start gap-1 text-[10.5px] text-slate-700 font-medium">
-                      <Check className="w-3 h-3 text-blue-600 shrink-0 mt-0.5" />
-                      <span className="truncate">{item}</span>
-                    </div>
-                  ))}
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-2 pt-1">
+                  <Link
+                    href="#contact"
+                    onClick={() => setSelectedChannel(null)}
+                    className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 text-center"
+                  >
+                    <PhoneCall className="w-3.5 h-3.5" />
+                    <span>Launch {selectedChannel.title}</span>
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedChannel(null)}
+                    className="py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+                  >
+                    Close Blueprint
+                  </button>
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-2 pt-1">
-                <Link
-                  href="#contact"
-                  onClick={() => setSelectedChannel(null)}
-                  className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 text-center"
-                >
-                  <PhoneCall className="w-3.5 h-3.5" />
-                  <span>Launch {selectedChannel.title}</span>
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => setSelectedChannel(null)}
-                  className="py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
-                >
-                  Close Blueprint
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }

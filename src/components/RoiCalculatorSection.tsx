@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Sparkles, 
@@ -70,6 +71,11 @@ export function RoiCalculatorSection() {
   const [claimSubmitted, setClaimSubmitted] = useState<boolean>(false);
   const [clientName, setClientName] = useState<string>("");
   const [clientContact, setClientContact] = useState<string>("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const currentConfig = industries.find((i) => i.id === selectedIndustry) || industries[0];
 
@@ -266,126 +272,129 @@ export function RoiCalculatorSection() {
         </div>
       </div>
 
-      {/* ================= MODAL: WHAT COMES NEXT AFTER CLAIMING CUSTOM ROADMAP (COMPACT) ================= */}
-      <AnimatePresence>
-        {isRoadmapModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/60 backdrop-blur-xs overflow-y-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-2xl z-10"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => {
-                  setIsRoadmapModalOpen(false);
-                  setClaimSubmitted(false);
-                }}
-                className="absolute top-3.5 right-3.5 p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors cursor-pointer"
-                aria-label="Close modal"
+      {/* ================= MODAL: WHAT COMES NEXT AFTER CLAIMING CUSTOM ROADMAP (PORTAL & Z-999999) ================= */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {isRoadmapModalOpen && (
+            <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-2xl z-10"
               >
-                <X className="w-4 h-4" />
-              </button>
+                {/* Close Button */}
+                <button
+                  onClick={() => {
+                    setIsRoadmapModalOpen(false);
+                    setClaimSubmitted(false);
+                  }}
+                  className="absolute top-3.5 right-3.5 p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X className="w-4 h-4" />
+                </button>
 
-              {/* Modal Header */}
-              <div className="mb-3.5 pr-6">
-                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[9px] font-extrabold uppercase tracking-wider mb-1">
-                  <TrendingUp className="w-3 h-3 text-cyan-600" />
-                  Roadmap Delivery Journey
-                </div>
-                <h3 className="text-base sm:text-lg font-black text-slate-950 leading-tight">
-                  What Happens Next After Claiming Roadmap
-                </h3>
-                <p className="text-[11px] text-slate-600 mt-0.5 font-medium leading-normal">
-                  4-step execution plan for your <strong className="text-slate-900">{currentConfig.name}</strong> goal (${budget.toLocaleString()}/mo spend &rarr; ${projectedRevenue.toLocaleString()} pipeline):
-                </p>
-              </div>
-
-              {/* Step by Step Breakdown */}
-              <div className="space-y-2 mb-4">
-                {roadmapSteps.map((s, idx) => (
-                  <div 
-                    key={idx}
-                    className="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 flex items-start gap-2.5 hover:border-cyan-300 transition-colors"
-                  >
-                    <div className="w-6 h-6 rounded-lg bg-white border border-slate-200 shadow-xs flex items-center justify-center shrink-0 mt-0.5">
-                      {s.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-1 mb-0.5">
-                        <h4 className="text-[11px] font-bold text-slate-900 leading-tight">
-                          Step {s.step}: {s.title}
-                        </h4>
-                        <span className="text-[9px] font-bold text-cyan-700 bg-cyan-50 border border-cyan-200 px-1.5 py-0.5 rounded-full shrink-0">
-                          {s.time}
-                        </span>
-                      </div>
-                      <p className="text-[10.5px] text-slate-600 leading-snug font-medium">
-                        {s.desc}
-                      </p>
-                    </div>
+                {/* Modal Header */}
+                <div className="mb-3.5 pr-6">
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[9px] font-extrabold uppercase tracking-wider mb-1">
+                    <TrendingUp className="w-3 h-3 text-cyan-600" />
+                    Roadmap Delivery Journey
                   </div>
-                ))}
-              </div>
-
-              {/* Instant Claim Box */}
-              {!claimSubmitted ? (
-                <form onSubmit={handleClaimSubmit} className="p-3 rounded-xl bg-gradient-to-br from-cyan-50/70 via-indigo-50/40 to-pink-50/40 border border-cyan-200 space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <h5 className="text-[11px] font-bold text-slate-900 flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      Claim This Roadmap Blueprint Instantly:
-                    </h5>
-                    <span className="text-[9px] font-bold text-emerald-700 bg-white px-1.5 py-0.5 rounded-full border border-emerald-200">
-                      100% Free
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <input
-                      type="text"
-                      required
-                      value={clientName}
-                      onChange={(e) => setClientName(e.target.value)}
-                      placeholder="Your Name / Brand"
-                      className="w-full px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-[11px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-cyan-500 font-medium"
-                    />
-                    <input
-                      type="text"
-                      required
-                      value={clientContact}
-                      onChange={(e) => setClientContact(e.target.value)}
-                      placeholder="Phone / WhatsApp / Email"
-                      className="w-full px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-[11px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-cyan-500 font-medium"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-2 rounded-lg bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600 text-white font-bold text-xs hover:shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
-                  >
-                    <span>Send Me My Custom Roadmap Blueprint</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </form>
-              ) : (
-                <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-center space-y-1.5">
-                  <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-900">
-                    Roadmap Request Confirmed!
-                  </h4>
-                  <p className="text-[11px] text-slate-600 max-w-sm mx-auto leading-snug">
-                    Thank you <strong className="text-slate-900">{clientName}</strong>. Our Lead Growth Strategist is preparing your custom ${projectedRevenue.toLocaleString()} forecast blueprint and will reach out via <strong className="text-slate-900">{clientContact}</strong> within 24 hours.
+                  <h3 className="text-base sm:text-lg font-black text-slate-950 leading-tight">
+                    What Happens Next After Claiming Roadmap
+                  </h3>
+                  <p className="text-[11px] text-slate-600 mt-0.5 font-medium leading-normal">
+                    4-step execution plan for your <strong className="text-slate-900">{currentConfig.name}</strong> goal (${budget.toLocaleString()}/mo spend &rarr; ${projectedRevenue.toLocaleString()} pipeline):
                   </p>
                 </div>
-              )}
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+
+                {/* Step by Step Breakdown */}
+                <div className="space-y-2 mb-4">
+                  {roadmapSteps.map((s, idx) => (
+                    <div 
+                      key={idx}
+                      className="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 flex items-start gap-2.5 hover:border-cyan-300 transition-colors"
+                    >
+                      <div className="w-6 h-6 rounded-lg bg-white border border-slate-200 shadow-xs flex items-center justify-center shrink-0 mt-0.5">
+                        {s.icon}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between gap-1 mb-0.5">
+                          <h4 className="text-[11px] font-bold text-slate-900 leading-tight">
+                            Step {s.step}: {s.title}
+                          </h4>
+                          <span className="text-[9px] font-bold text-cyan-700 bg-cyan-50 border border-cyan-200 px-1.5 py-0.5 rounded-full shrink-0">
+                            {s.time}
+                          </span>
+                        </div>
+                        <p className="text-[10.5px] text-slate-600 leading-snug font-medium">
+                          {s.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Instant Claim Box */}
+                {!claimSubmitted ? (
+                  <form onSubmit={handleClaimSubmit} className="p-3 rounded-xl bg-gradient-to-br from-cyan-50/70 via-indigo-50/40 to-pink-50/40 border border-cyan-200 space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <h5 className="text-[11px] font-bold text-slate-900 flex items-center gap-1">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                        Claim This Roadmap Blueprint Instantly:
+                      </h5>
+                      <span className="text-[9px] font-bold text-emerald-700 bg-white px-1.5 py-0.5 rounded-full border border-emerald-200">
+                        100% Free
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        required
+                        value={clientName}
+                        onChange={(e) => setClientName(e.target.value)}
+                        placeholder="Your Name / Brand"
+                        className="w-full px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-[11px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-cyan-500 font-medium"
+                      />
+                      <input
+                        type="text"
+                        required
+                        value={clientContact}
+                        onChange={(e) => setClientContact(e.target.value)}
+                        placeholder="Phone / WhatsApp / Email"
+                        className="w-full px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-[11px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-cyan-500 font-medium"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-2 rounded-lg bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600 text-white font-bold text-xs hover:shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                    >
+                      <span>Send Me My Custom Roadmap Blueprint</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </form>
+                ) : (
+                  <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-center space-y-1.5">
+                    <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="w-4 h-4" />
+                    </div>
+                    <h4 className="text-xs font-bold text-slate-900">
+                      Roadmap Request Confirmed!
+                    </h4>
+                    <p className="text-[11px] text-slate-600 max-w-sm mx-auto leading-snug">
+                      Thank you <strong className="text-slate-900">{clientName}</strong>. Our Lead Growth Strategist is preparing your custom ${projectedRevenue.toLocaleString()} forecast blueprint and will reach out via <strong className="text-slate-900">{clientContact}</strong> within 24 hours.
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }
