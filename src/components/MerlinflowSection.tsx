@@ -152,16 +152,6 @@ export function MerlinflowSection() {
 
         {/* 4 Flagship SaaS Products Grid */}
         <div className="mb-14">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300">
-              <Cpu className="w-4 h-4 text-cyan-400" />
-              Industry-Specific SaaS ERP Suites
-            </div>
-            <span className="text-[11px] text-slate-400 hidden sm:inline-block">
-              Engineered for Speed, Reliability & Scale
-            </span>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {products.map((product, idx) => {
               const IconComp = product.icon;

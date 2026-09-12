@@ -110,7 +110,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden bg-[#070913]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
+            className="xl:hidden bg-[#030712]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
           >
             <div className="px-5 pt-4 pb-8 space-y-2 max-w-lg mx-auto">
               {links.map((link) => (

@@ -12,87 +12,42 @@ export function BackgroundEffects() {
 
   if (!mounted) return null;
 
-  // Generate 24 floating ambient particles
-  const particles = Array.from({ length: 24 }).map((_, i) => ({
-    id: i,
-    x: `${(i * 17) % 100}%`,
-    y: `${(i * 23) % 100}%`,
-    size: (i % 3) + 2,
-    duration: 12 + (i % 8) * 2,
-    delay: (i % 5) * 1.5,
-    color: i % 3 === 0 ? "bg-cyan-400" : i % 3 === 1 ? "bg-purple-400" : "bg-pink-400",
-  }));
-
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Dynamic Ambient Aurora Lights */}
+      {/* Soft Volumetric Studio Ambient Light - Top Center */}
       <motion.div
         animate={{
-          scale: [1, 1.15, 0.95, 1],
-          opacity: [0.35, 0.55, 0.4, 0.35],
-          x: [0, 50, -30, 0],
-          y: [0, -40, 30, 0],
+          scale: [1, 1.08, 1],
+          opacity: [0.35, 0.5, 0.35],
         }}
-        transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
-        className="absolute -top-40 left-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-indigo-600/30 via-purple-600/25 to-pink-500/20 blur-[150px] mix-blend-screen"
+        transition={{ repeat: Infinity, duration: 16, ease: "easeInOut" }}
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[550px] rounded-full bg-gradient-to-b from-sky-500/15 via-indigo-600/10 to-transparent blur-[140px]"
       />
 
+      {/* Subtle Right Side Fill Light */}
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.25, 0.45, 0.25],
-          x: [0, -60, 40, 0],
-          y: [0, 50, -40, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.35, 0.2],
         }}
-        transition={{ repeat: Infinity, duration: 22, ease: "easeInOut", delay: 2 }}
-        className="absolute top-1/3 -right-40 w-[650px] h-[650px] rounded-full bg-gradient-to-br from-cyan-500/25 via-blue-600/20 to-violet-600/20 blur-[160px] mix-blend-screen"
+        transition={{ repeat: Infinity, duration: 20, ease: "easeInOut", delay: 2 }}
+        className="absolute top-1/3 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-indigo-500/12 via-blue-600/08 to-transparent blur-[150px]"
       />
 
+      {/* Subtle Left Side Deep Glow */}
       <motion.div
         animate={{
-          scale: [0.95, 1.1, 0.95],
-          opacity: [0.2, 0.4, 0.2],
-          x: [0, 40, -40, 0],
+          scale: [0.95, 1.05, 0.95],
+          opacity: [0.2, 0.3, 0.2],
         }}
-        transition={{ repeat: Infinity, duration: 25, ease: "easeInOut", delay: 4 }}
-        className="absolute -bottom-40 left-10 w-[750px] h-[750px] rounded-full bg-gradient-to-tr from-pink-600/20 via-purple-700/20 to-blue-500/15 blur-[160px] mix-blend-screen"
+        transition={{ repeat: Infinity, duration: 24, ease: "easeInOut", delay: 4 }}
+        className="absolute bottom-1/4 -left-32 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-cyan-600/10 via-slate-800/10 to-transparent blur-[150px]"
       />
 
-      {/* Cyberpunk Animated Grid Overlay */}
+      {/* Ultra-Clean Architectural Dot Matrix Grid */}
       <div 
-        className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_40%,#000_50%,transparent_100%)] opacity-75" 
+        className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_35%,#000_40%,transparent_100%)] opacity-40" 
       />
-
-      {/* Modern Diagonal Scanline Accent */}
-      <div 
-        className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(6,182,212,0.015)_50%,transparent_75%)] bg-[size:160px_160px] opacity-60" 
-      />
-
-      {/* Drifting Floating Glowing Stars/Dust */}
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          style={{
-            left: p.x,
-            top: p.y,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-          }}
-          animate={{
-            y: ["0px", "-60px", "0px"],
-            x: ["0px", "30px", "0px"],
-            opacity: [0.2, 0.8, 0.2],
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: p.duration,
-            delay: p.delay,
-            ease: "easeInOut",
-          }}
-          className={`absolute rounded-full ${p.color} shadow-[0_0_10px_currentColor]`}
-        />
-      ))}
     </div>
   );
 }
