@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 import { AIChatbot } from "@/components/AIChatbot";
+import { SplashScreen } from "@/components/SplashScreen";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -61,6 +62,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${outfit.className} antialiased min-h-screen flex flex-col relative`}>
+        {/* Animated Brand Splash Screen */}
+        <SplashScreen />
+
         <Navbar />
         <main className="flex-grow pt-20">
           {children}
