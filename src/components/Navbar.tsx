@@ -24,6 +24,7 @@ export function Navbar() {
     { name: "Our Process", href: "/#process" },
     { name: "Channels", href: "/#channels" },
     { name: "Training", href: "/#training" },
+    { name: "Feedback", href: "/#feedback" },
     { name: "About", href: "/#about" },
     { name: "Merlinflow Tech", href: "/merlinflow", isSpecial: true },
     { name: "FAQ", href: "/#faq" },
