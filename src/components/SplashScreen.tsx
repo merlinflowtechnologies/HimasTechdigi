@@ -72,13 +72,16 @@ export function SplashScreen() {
             }}
           />
 
-          {/* Bottom Right Watermark Cover & Skip Button */}
-          <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 z-20 flex items-center">
+          {/* Bottom Right Corner Dark Vignette / Watermark Mask */}
+          <div className="absolute bottom-0 right-0 w-80 sm:w-96 h-36 bg-gradient-to-tl from-black via-black/95 to-transparent pointer-events-none z-10" />
+
+          {/* Bottom Right Watermark Cover & Skip Button Pod */}
+          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 z-20 flex items-center">
             <button
               onClick={handleSkip}
-              className="text-xs font-mono font-bold text-white px-5 py-2.5 rounded-full bg-black/95 hover:bg-black border border-white/20 hover:border-emerald-400 shadow-[0_4px_25px_rgba(0,0,0,0.9)] backdrop-blur-xl transition-all cursor-pointer flex items-center gap-2 group min-w-[96px] justify-center"
+              className="text-xs font-mono font-bold text-white px-6 py-2.5 rounded-full bg-black/95 hover:bg-black border border-white/20 hover:border-emerald-400 shadow-[0_4px_30px_rgba(0,0,0,1)] backdrop-blur-xl transition-all cursor-pointer flex items-center gap-2 group min-w-[120px] justify-center"
             >
-              <span>SKIP</span>
+              <span>SKIP INTRO</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-emerald-400" />
             </button>
           </div>
