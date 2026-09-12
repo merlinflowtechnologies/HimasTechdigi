@@ -53,7 +53,7 @@ export function SplashScreen() {
           {/* Full Screen High-Performance Edge-to-Edge Video */}
           <video
             ref={videoRef}
-            src="/HIMASTECH_logo_reveal_animation_20260913001953.mp4"
+            src="/splash.mp4"
             autoPlay
             muted
             playsInline
