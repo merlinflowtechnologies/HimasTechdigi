@@ -18,14 +18,15 @@ export function Navbar() {
   }, []);
 
   const links = [
-    { name: "Services", href: "#services" },
-    { name: "Case Studies", href: "#case-studies" },
-    { name: "ROI Calculator", href: "#roi-calculator" },
-    { name: "Our Process", href: "#process" },
-    { name: "Channels", href: "#channels" },
-    { name: "Training", href: "#training" },
-    { name: "About", href: "#about" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Services", href: "/#services" },
+    { name: "Case Studies", href: "/#case-studies" },
+    { name: "ROI Calculator", href: "/#roi-calculator" },
+    { name: "Our Process", href: "/#process" },
+    { name: "Channels", href: "/#channels" },
+    { name: "Training", href: "/#training" },
+    { name: "About", href: "/#about" },
+    { name: "Merlinflow Tech", href: "/merlinflow", isSpecial: true },
+    { name: "FAQ", href: "/#faq" },
   ];
 
   return (
@@ -61,15 +62,22 @@ export function Navbar() {
           </div>
 
           {/* Desktop Nav Items */}
-          <div className="hidden xl:flex space-x-7 items-center">
+          <div className="hidden xl:flex space-x-6 items-center">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="relative text-xs font-semibold text-slate-300 hover:text-white transition-colors group tracking-wide uppercase"
+                className={`relative text-xs font-semibold transition-all group tracking-wide uppercase ${
+                  link.isSpecial 
+                    ? "text-cyan-300 hover:text-white px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 hover:border-cyan-400/50 shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center gap-1.5"
+                    : "text-slate-300 hover:text-white"
+                }`}
               >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                {link.isSpecial && <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />}
+                <span>{link.name}</span>
+                {!link.isSpecial && (
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                )}
               </Link>
             ))}
           </div>

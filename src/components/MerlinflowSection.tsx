@@ -72,18 +72,22 @@ export function MerlinflowSection() {
           </p>
 
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/merlinflow"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white text-xs font-bold transition-all hover:scale-105 shadow-[0_0_25px_rgba(99,102,241,0.4)] border border-white/20 cursor-pointer"
+            >
+              <span>Explore Tech Portfolio (6 Suites)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
             <a
               href="https://www.merlinflow.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500/20 via-indigo-600/20 to-pink-500/20 hover:bg-white/15 border border-white/20 text-white text-xs font-bold transition-all hover:scale-105 shadow-md group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white text-xs font-bold transition-all hover:scale-105 shadow-md group cursor-pointer"
             >
-              <span>Visit Official Website (merlinflow.in)</span>
+              <span>Visit merlinflow.in</span>
               <ExternalLink className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
-            <span className="text-xs text-slate-400 font-medium px-3.5 py-2 rounded-full bg-black/40 border border-white/10">
-              Next-Gen Enterprise OS Ecosystem
-            </span>
           </div>
         </div>
 
