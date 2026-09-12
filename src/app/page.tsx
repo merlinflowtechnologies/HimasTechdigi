@@ -22,7 +22,7 @@ import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full text-slate-100 overflow-x-hidden relative">
+    <div className="flex flex-col w-full text-slate-900 overflow-x-hidden relative">
       {/* Global Animated Background System */}
       <BackgroundEffects />
 
@@ -35,12 +35,12 @@ export default function Home() {
             alt="Himastech Performance Marketing Ecosystem" 
             fill 
             priority 
-            className="object-cover object-right lg:object-center opacity-85 sm:opacity-95"
+            className="object-cover object-right lg:object-center opacity-90 sm:opacity-95"
           />
-          {/* Directional gradient on left side for crisp text readability while leaving the 3D visual on the right and bottom fully vibrant */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/80 to-transparent sm:via-[#030712]/60 pointer-events-none z-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/40 pointer-events-none z-0" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#030712]/60 via-transparent to-[#030712] pointer-events-none z-0" />
+          {/* Subtle daylight directional gradient for pristine text readability without washing out the 3D visual */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent sm:via-white/70 pointer-events-none z-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#f8fafc] via-transparent to-white/40 pointer-events-none z-0" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-[#f8fafc] pointer-events-none z-0" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -51,16 +51,16 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/40 border border-white/20 text-gray-200 mb-6 text-xs backdrop-blur-2xl shadow-[0_0_25px_rgba(6,182,212,0.25)]"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200/80 text-slate-800 mb-6 text-xs backdrop-blur-2xl shadow-sm"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
-              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-indigo-200 to-pink-300">
+              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600">
                 Next-Gen Performance Marketing & High-Ticket Scale
               </span>
-              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-purple-500/25 text-purple-300 text-[10px] font-bold border border-purple-500/40">
+              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-700 text-[10px] font-extrabold border border-purple-500/20">
                 NEW 2024 ENGINE
               </span>
             </motion.div>
@@ -72,8 +72,8 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-5 leading-[1.15]"
             >
-              <span className="block text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]">Scale Your Brand With</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-indigo-400 to-pink-500 drop-shadow-[0_0_35px_rgba(99,102,241,0.4)]">
+              <span className="block text-slate-950">Scale Your Brand With</span>
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600">
                 Predictable Revenue
               </span>
             </motion.h1>
@@ -83,7 +83,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-sm sm:text-base md:text-lg text-slate-200 mb-8 leading-relaxed font-normal max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
+              className="text-sm sm:text-base md:text-lg text-slate-700 mb-8 leading-relaxed font-medium max-w-2xl"
             >
               Himastech engineers high-converting Meta & Google ad funnels, generative AI search optimization (GEO), and elite digital marketing talent pipelines to help you out-scale competitors.
             </motion.p>
@@ -97,7 +97,7 @@ export default function Home() {
             >
               <Link
                 href="#contact"
-                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm hover:shadow-[0_0_40px_rgba(99,102,241,0.6)] transition-all hover:scale-105 flex items-center justify-center gap-2 group cursor-pointer border border-white/20"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm hover:shadow-[0_0_30px_rgba(99,102,241,0.45)] transition-all hover:scale-105 flex items-center justify-center gap-2 group cursor-pointer border border-white/30"
               >
                 <Sparkles className="w-3.5 h-3.5" /> 
                 <span>Get Free 30-Min Growth Audit</span> 
@@ -105,11 +105,11 @@ export default function Home() {
               </Link>
               <Link
                 href="#roi-calculator"
-                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full glass-card text-white font-semibold text-xs sm:text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-2 group border border-white/15 hover:border-cyan-400/40 cursor-pointer shadow-[0_0_25px_rgba(0,0,0,0.5)]"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full glass-card text-slate-800 font-bold text-xs sm:text-sm hover:bg-white transition-all flex items-center justify-center gap-2 group border border-slate-200/80 cursor-pointer shadow-sm hover:shadow-md"
               >
-                <Zap className="h-3.5 w-3.5 text-cyan-400" /> 
+                <Zap className="h-3.5 w-3.5 text-cyan-600" /> 
                 <span>Simulate Your ROI</span> 
-                <ChevronRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-white transition-colors" />
+                <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-slate-700 transition-colors" />
               </Link>
             </motion.div>
           </div>

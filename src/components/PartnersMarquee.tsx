@@ -17,16 +17,16 @@ export function PartnersMarquee() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <div className="w-full py-10 bg-slate-950/40 border-y border-white/10 relative overflow-hidden backdrop-blur-xl z-10">
+    <div className="w-full py-10 bg-slate-100/70 border-y border-slate-200/80 relative overflow-hidden backdrop-blur-xl z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
-        <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">
+        <p className="text-xs uppercase tracking-widest text-slate-600 font-extrabold">
           Partner Ecosystem Expertise & Advertising Platform Proficiencies
         </p>
       </div>
 
       {/* Gradient fade masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-[#070913] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-[#070913] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-[#f8fafc] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-[#f8fafc] to-transparent z-10 pointer-events-none" />
 
       <div className="flex overflow-hidden">
         <motion.div
@@ -37,14 +37,14 @@ export function PartnersMarquee() {
           {duplicatedPartners.map((p, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-cyan-400/40 hover:bg-white/[0.08] transition-all group shrink-0 shadow-lg backdrop-blur-md"
+              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white/90 border border-slate-200/80 hover:border-cyan-500/40 hover:bg-white transition-all group shrink-0 shadow-sm hover:shadow-md"
             >
               <div className={`w-2.5 h-2.5 rounded-full bg-gradient-to-r ${p.color} animate-pulse shadow-[0_0_8px_currentColor]`} />
               <div>
-                <span className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
+                <span className="text-sm font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">
                   {p.logoText}
                 </span>
-                <span className="text-[11px] text-slate-400 block -mt-0.5 font-medium">
+                <span className="text-[11px] text-slate-500 block -mt-0.5 font-semibold">
                   {p.sub}
                 </span>
               </div>

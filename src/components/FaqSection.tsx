@@ -48,20 +48,20 @@ export function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-16 sm:py-20 bg-transparent border-t border-white/10 relative overflow-hidden z-10">
+    <section id="faq" className="py-16 sm:py-20 bg-transparent border-t border-slate-200/80 relative overflow-hidden z-10">
       {/* Background glow */}
-      <div className="absolute top-1/3 -left-60 w-80 h-80 bg-brand-blue/10 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-1/3 -right-60 w-80 h-80 bg-brand-purple/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/3 -left-60 w-80 h-80 bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-1/3 -right-60 w-80 h-80 bg-brand-purple/5 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs uppercase tracking-wider font-bold mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs uppercase tracking-wider font-bold mb-3 shadow-xs">
             <HelpCircle className="w-3.5 h-3.5" /> Frequently Asked Questions
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-2.5">
-            Got Questions? <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">We've Got Answers.</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mb-2.5">
+            Got Questions? <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">We've Got Answers.</span>
           </h2>
-          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
             Everything you need to know about our data-driven marketing frameworks and deliverables.
           </p>
         </div>
@@ -73,7 +73,7 @@ export function FaqSection() {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-xl border border-white/10 overflow-hidden transition-all duration-300 hover:border-white/20"
+                className="glass-card rounded-xl border border-slate-200/80 overflow-hidden transition-all duration-300 hover:border-slate-300 shadow-xs"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
@@ -81,14 +81,14 @@ export function FaqSection() {
                   className="w-full py-3.5 px-4 sm:px-5 text-left flex items-center justify-between gap-3.5 focus:outline-none cursor-pointer"
                 >
                   <div>
-                    <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block mb-0.5">
+                    <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block mb-0.5">
                       {faq.category}
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold text-white leading-snug">
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
                       {faq.question}
                     </h3>
                   </div>
-                  <div className={`p-1.5 rounded-lg bg-white/5 border border-white/10 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-white/10 text-cyan-400" : "text-gray-400"}`}>
+                  <div className={`p-1.5 rounded-lg bg-slate-100 border border-slate-200 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-blue-50 text-blue-600 border-blue-200" : "text-slate-400"}`}>
                     <ChevronDown className="w-3.5 h-3.5" />
                   </div>
                 </button>
@@ -102,7 +102,7 @@ export function FaqSection() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-4 sm:px-5 pb-3.5 pt-1.5 text-xs text-slate-300 leading-relaxed border-t border-white/5">
+                      <div className="px-4 sm:px-5 pb-3.5 pt-1.5 text-xs text-slate-600 leading-relaxed border-t border-slate-100">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -114,16 +114,16 @@ export function FaqSection() {
         </div>
 
         {/* Compact Bottom Support Banner */}
-        <div className="mt-8 text-center p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-8 text-center p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="text-left">
-            <h4 className="text-xs sm:text-sm font-bold text-white">Have a specific question about your marketing stack?</h4>
-            <p className="text-[11px] text-gray-400 mt-0.5">Our senior media strategists are available for a 1-on-1 audit call.</p>
+            <h4 className="text-xs sm:text-sm font-bold text-slate-900">Have a specific question about your marketing stack?</h4>
+            <p className="text-[11px] text-slate-500 mt-0.5">Our senior media strategists are available for a 1-on-1 audit call.</p>
           </div>
           <Link
             href="#contact"
-            className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all border border-white/10 flex items-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0"
+            className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-900 text-xs font-bold transition-all border border-slate-200 flex items-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0 shadow-xs"
           >
-            <MessageSquare className="w-3.5 h-3.5 text-cyan-400" /> Book Direct Call
+            <MessageSquare className="w-3.5 h-3.5 text-blue-600" /> Book Direct Call
           </Link>
         </div>
       </div>

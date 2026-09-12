@@ -55,27 +55,27 @@ export function StatsBar() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
               whileHover={{ y: -4 }}
-              className={`glass-card rounded-2xl p-6 relative overflow-hidden transition-all duration-300 ${stat.border} group border border-white/10`}
+              className={`glass-card rounded-2xl p-6 relative overflow-hidden transition-all duration-300 ${stat.border} group border border-slate-200/80 shadow-sm hover:shadow-md`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-60 group-hover:opacity-100 transition-opacity`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-30 group-hover:opacity-60 transition-opacity`} />
               
               <div className="relative z-10 flex items-start justify-between mb-4">
-                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 shadow-inner">
+                <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
                   {stat.icon}
                 </div>
-                <span className="text-[10px] font-semibold text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded-full border border-cyan-500/25">
+                <span className="text-[10px] font-bold text-cyan-800 bg-cyan-50 px-2.5 py-1 rounded-full border border-cyan-200/80">
                   {stat.badge}
                 </span>
               </div>
 
               <div className="relative z-10">
-                <div className="text-3xl lg:text-4xl font-black text-white tracking-tight mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-cyan-200 transition-all">
+                <div className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-1 group-hover:text-cyan-600 transition-colors">
                   {stat.value}
                 </div>
-                <div className="text-sm font-bold text-slate-200 mb-0.5">
+                <div className="text-sm font-bold text-slate-800 mb-0.5">
                   {stat.label}
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-500">
                   {stat.sublabel}
                 </div>
               </div>

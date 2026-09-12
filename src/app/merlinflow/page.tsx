@@ -225,17 +225,17 @@ export default function MerlinflowPortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen pt-28 pb-20 relative overflow-hidden text-slate-100">
+    <div className="min-h-screen pt-28 pb-20 relative overflow-hidden text-slate-900">
       {/* Ambient Top Studio Lighting */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-sky-500/15 via-indigo-600/10 to-transparent blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-blue-500/10 via-indigo-600/5 to-transparent blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs text-slate-400 mb-8">
-          <Link href="/" className="hover:text-cyan-400 transition-colors">Himastech</Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-          <span className="text-cyan-300 font-semibold">Merlinflow Tech Portfolio</span>
+        <div className="flex items-center gap-2 text-xs text-slate-500 mb-8">
+          <Link href="/" className="hover:text-blue-600 transition-colors">Himastech</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-blue-700 font-semibold">Merlinflow Tech Portfolio</span>
         </div>
 
         {/* Hero Banner */}
@@ -244,19 +244,19 @@ export default function MerlinflowPortfolioPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/15 via-purple-500/15 to-pink-500/15 border border-white/20 text-cyan-300 text-xs uppercase tracking-wider font-bold mb-4 shadow-[0_0_25px_rgba(6,182,212,0.25)]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs uppercase tracking-wider font-bold mb-4 shadow-xs"
           >
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> Technology & SaaS Arm of Himastech
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" /> Technology & SaaS Arm of Himastech
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15] mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.15] mb-6"
           >
             The Technology & Cloud SaaS Ecosystem of Himastech —{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
               Built & Powered by Merlinflow Technologies Pvt Ltd.
             </span>
           </motion.h1>
@@ -265,7 +265,7 @@ export default function MerlinflowPortfolioPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8"
+            className="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8"
           >
             Combining algorithmic digital marketing with enterprise-grade cloud software. Explore our flagship operating systems built for schools, healthcare networks, hospitality, e-commerce brands, real estate, and enterprise workflows.
           </motion.p>
@@ -280,7 +280,7 @@ export default function MerlinflowPortfolioPage() {
               href="https://www.merlinflow.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3 px-6 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.5)] hover:scale-105 transition-all cursor-pointer border border-white/20"
+              className="py-3 px-6 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md hover:scale-105 transition-all cursor-pointer shadow-xs"
             >
               <span>Visit Official Website (merlinflow.in)</span>
               <ExternalLink className="w-4 h-4" />
@@ -288,30 +288,30 @@ export default function MerlinflowPortfolioPage() {
 
             <a
               href="#demo-form"
-              className="py-3 px-6 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-xs sm:text-sm transition-all hover:scale-105 flex items-center gap-2 cursor-pointer shadow-lg"
+              className="py-3 px-6 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-semibold text-xs sm:text-sm transition-all hover:scale-105 flex items-center gap-2 cursor-pointer shadow-xs"
             >
               <span>Book a Product Demo</span>
-              <ArrowRight className="w-4 h-4 text-cyan-400" />
+              <ArrowRight className="w-4 h-4 text-blue-600" />
             </a>
           </motion.div>
 
           {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-12 pt-8 border-t border-white/10 max-w-3xl mx-auto">
-            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-              <span className="text-xl sm:text-2xl font-black text-white">99.9%</span>
-              <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold mt-0.5">Uptime SLA</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-12 pt-8 border-t border-slate-200 max-w-3xl mx-auto">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+              <span className="text-xl sm:text-2xl font-black text-slate-950">99.9%</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">Uptime SLA</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-              <span className="text-xl sm:text-2xl font-black text-cyan-300">50k+</span>
-              <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold mt-0.5">Daily API Calls</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+              <span className="text-xl sm:text-2xl font-black text-blue-700">50k+</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">Daily API Calls</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-              <span className="text-xl sm:text-2xl font-black text-purple-300">6+</span>
-              <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold mt-0.5">Industry OS Suites</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+              <span className="text-xl sm:text-2xl font-black text-purple-700">6+</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">Industry OS Suites</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-              <span className="text-xl sm:text-2xl font-black text-emerald-300">100%</span>
-              <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold mt-0.5">GST & UPI Ready</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+              <span className="text-xl sm:text-2xl font-black text-emerald-700">100%</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">GST & UPI Ready</span>
             </div>
           </div>
         </div>
@@ -327,14 +327,14 @@ export default function MerlinflowPortfolioPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 whileHover={{ y: -5 }}
-                className={`glass-card rounded-2xl p-6 border border-white/10 transition-all duration-300 ${product.border} relative overflow-hidden flex flex-col justify-between group shadow-xl`}
+                className={`glass-card rounded-2xl p-6 border border-slate-200 transition-all duration-300 ${product.border} relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md`}
               >
-                <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${product.color} rounded-bl-full blur-xl pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity`} />
+                <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${product.color} rounded-bl-full blur-xl pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity`} />
 
                 <div>
                   {/* Top Row */}
                   <div className="flex items-center justify-between gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center border border-white/15 shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center border border-slate-200 shrink-0 shadow-xs group-hover:scale-105 transition-transform">
                       <IconComp className={`h-6 w-6 ${product.accent}`} />
                     </div>
                     <span className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${product.badgeBg}`}>
@@ -342,26 +342,26 @@ export default function MerlinflowPortfolioPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-200 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
                     {product.name}
                   </h3>
-                  <span className="text-xs font-semibold text-cyan-300 block mb-2.5">
+                  <span className="text-xs font-semibold text-blue-700 block mb-2.5">
                     {product.tagline}
                   </span>
 
-                  <p className="text-xs text-slate-300 leading-relaxed mb-5">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-5">
                     {product.description}
                   </p>
 
                   {/* Feature Bullets */}
-                  <div className="pt-4 border-t border-white/10 mb-5">
-                    <span className="text-[10px] uppercase tracking-wider font-bold text-slate-400 block mb-2.5">
+                  <div className="pt-4 border-t border-slate-100 mb-5">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-slate-500 block mb-2.5">
                       Core Enterprise Capabilities
                     </span>
                     <ul className="space-y-2">
                       {product.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2 text-xs text-slate-200 leading-tight">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <li key={fIdx} className="flex items-start gap-2 text-xs text-slate-700 leading-tight">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
@@ -370,17 +370,17 @@ export default function MerlinflowPortfolioPage() {
                 </div>
 
                 {/* Card Bottom Row */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <a
                     href={product.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-bold text-cyan-300 hover:text-white inline-flex items-center gap-1.5 transition-colors group/link"
+                    className="text-xs font-bold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1.5 transition-colors group/link"
                   >
                     <span>Explore Suite</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                   </a>
-                  <span className="text-[10px] font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 rounded-md">
+                  <span className="text-[10px] font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
                     {product.metrics}
                   </span>
                 </div>
@@ -390,15 +390,15 @@ export default function MerlinflowPortfolioPage() {
         </div>
 
         {/* Enterprise Architecture & Security Strip */}
-        <div className="glass-card rounded-3xl p-8 sm:p-10 border border-white/15 relative overflow-hidden mb-20 shadow-2xl">
+        <div className="glass-card rounded-3xl p-8 sm:p-10 border border-slate-200 relative overflow-hidden mb-20 shadow-sm">
           <div className="max-w-3xl mb-10">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
               Enterprise Tech Infrastructure & Security
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white mt-2">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-950 mt-2">
               High-Velocity Architecture Built For Unbreakable Reliability
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
               Merlinflow platforms run on a unified, high-concurrency cloud stack that eliminates operational bottlenecks, maintains strict financial compliance, and protects sensitive customer records.
             </p>
           </div>
@@ -409,14 +409,14 @@ export default function MerlinflowPortfolioPage() {
               return (
                 <div 
                   key={pIdx}
-                  className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/30 transition-all flex items-start gap-4 group"
+                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-300 transition-all flex items-start gap-4 group shadow-2xs"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-inner">
-                    <PillarIcon className="w-5 h-5 text-cyan-300" />
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                    <PillarIcon className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white mb-1">{pillar.title}</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed">{pillar.desc}</p>
+                    <h3 className="text-sm font-bold text-slate-900 mb-1">{pillar.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
                   </div>
                 </div>
               );
@@ -425,59 +425,59 @@ export default function MerlinflowPortfolioPage() {
         </div>
 
         {/* Lead Generation & Demo Booking Form */}
-        <div id="demo-form" className="glass-card rounded-3xl p-6 sm:p-10 border border-white/15 relative overflow-hidden shadow-2xl">
+        <div id="demo-form" className="glass-card rounded-3xl p-6 sm:p-10 border border-slate-200 relative overflow-hidden shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Info Column */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold border border-cyan-500/20">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> Fast-Track Onboarding
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200">
+                <Sparkles className="w-3.5 h-3.5 text-blue-600" /> Fast-Track Onboarding
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 leading-tight">
                 Schedule a Guided Software Demo with Merlinflow
               </h2>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Connect directly with our senior software solutions engineers. We will analyze your institutional or business workflows and show a live demo tailored to your exact industry.
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="flex items-center gap-2.5 text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Interactive 1-on-1 walkthrough of live product modules</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Custom pricing, hardware integrations & GST/UPI setup</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Legacy data migration assessment & onboarding timeline</span>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-4 border-t border-slate-200">
                 <a
                   href="https://wa.me/918374373753?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20book%20a%20product%20demo%20for%20your%20SaaS%20ERP%20solutions."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-emerald-300 hover:text-emerald-200 transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                  <Phone className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Direct WhatsApp Inquiries: +91 8374373753</span>
                 </a>
               </div>
             </div>
 
             {/* Right Form Column */}
-            <div className="lg:col-span-7 bg-black/40 rounded-2xl p-5 sm:p-7 border border-white/10 shadow-inner">
+            <div className="lg:col-span-7 bg-slate-50 rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-xs">
               {formSubmitted ? (
                 <div className="text-center py-8 space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400">
+                  <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto text-emerald-600">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Demo Request Received!</h3>
-                  <p className="text-xs text-slate-300 max-w-md mx-auto">
+                  <h3 className="text-xl font-bold text-slate-950">Demo Request Received!</h3>
+                  <p className="text-xs text-slate-600 max-w-md mx-auto">
                     Thank you! A Merlinflow solutions architect will contact you via WhatsApp and email within 2 business hours to schedule your interactive live demo.
                   </p>
                   <button
@@ -492,7 +492,7 @@ export default function MerlinflowPortfolioPage() {
                         requirements: ""
                       });
                     }}
-                    className="mt-4 px-5 py-2 rounded-full bg-white/10 hover:bg-white/15 text-xs font-bold text-white transition-colors cursor-pointer"
+                    className="mt-4 px-5 py-2 rounded-full bg-slate-200 hover:bg-slate-300 text-xs font-bold text-slate-900 transition-colors cursor-pointer shadow-xs"
                   >
                     Submit Another Inquiry
                   </button>
@@ -501,7 +501,7 @@ export default function MerlinflowPortfolioPage() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
+                      <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Your Name *
                       </label>
                       <input
@@ -510,12 +510,12 @@ export default function MerlinflowPortfolioPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         placeholder="John Doe"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-blue-500 transition-colors shadow-xs"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
+                      <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Work Email *
                       </label>
                       <input
@@ -524,14 +524,14 @@ export default function MerlinflowPortfolioPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         placeholder="john@company.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-blue-500 transition-colors shadow-xs"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
+                      <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Phone / WhatsApp *
                       </label>
                       <input
@@ -540,12 +540,12 @@ export default function MerlinflowPortfolioPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                         placeholder="+91 98765 43210"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-blue-500 transition-colors shadow-xs"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
+                      <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Organization / Business *
                       </label>
                       <input
@@ -554,19 +554,19 @@ export default function MerlinflowPortfolioPage() {
                         value={formData.organization}
                         onChange={(e) => setFormData({...formData, organization: e.target.value})}
                         placeholder="ABC Academy / XYZ Healthcare"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-blue-500 transition-colors shadow-xs"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
+                    <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                       Product Suite Required *
                     </label>
                     <select
                       value={formData.product}
                       onChange={(e) => setFormData({...formData, product: e.target.value})}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#090d16] border border-white/15 text-white text-xs focus:outline-none focus:border-cyan-400 transition-colors cursor-pointer"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 transition-colors cursor-pointer shadow-xs"
                     >
                       <option value="Real Estate ERP">Real Estate & Brokerage ERP (PropTech OS)</option>
                       <option value="Enterprise CRM">Enterprise CRM & Workflow Automation</option>
@@ -578,7 +578,7 @@ export default function MerlinflowPortfolioPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
+                    <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                       Operational Requirements / Current Challenges
                     </label>
                     <textarea
@@ -586,14 +586,14 @@ export default function MerlinflowPortfolioPage() {
                       value={formData.requirements}
                       onChange={(e) => setFormData({...formData, requirements: e.target.value})}
                       placeholder="Tell us about your branch locations, student/customer volume, or specific feature requirements..."
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-blue-500 transition-colors resize-none shadow-xs"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border border-white/20 disabled:opacity-50"
+                    className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer shadow-xs disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <span>Sending Demo Request...</span>

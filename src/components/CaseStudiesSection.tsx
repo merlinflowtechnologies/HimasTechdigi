@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, CheckCircle2, BarChart3, Building2, ShoppingBag, Briefcase, ArrowRight, RotateCcw, Layers } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, BarChart3, Building2, ShoppingBag, Briefcase, ArrowRight, RotateCcw, Layers, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
 interface CaseStudy {
@@ -285,21 +285,21 @@ export function CaseStudiesSection() {
   };
 
   return (
-    <section id="case-studies" className="py-20 sm:py-24 bg-transparent border-t border-white/10 relative overflow-hidden z-10">
+    <section id="case-studies" className="flex flex-col w-full py-20 bg-transparent border-t border-slate-200/80 relative overflow-hidden z-10">
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 -left-72 w-96 h-96 bg-brand-blue/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/3 -right-72 w-96 h-96 bg-brand-purple/15 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs uppercase tracking-wider font-bold mb-3 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-            <BarChart3 className="w-3.5 h-3.5" /> Proven Client Results
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs uppercase tracking-wider font-extrabold mb-3 shadow-sm">
+            <TrendingUp className="w-3.5 h-3.5 text-cyan-600" /> Proven Case Studies
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-3">
-            Real Impact. <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-brand-purple to-pink-500">Unstoppable Revenue.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 mb-3 tracking-tight">
+            Real Impact. <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600">Unstoppable Revenue.</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
             Explore our 3 specialized growth sectors. Click any industry below to drill down into its 3 verified client case studies.
           </p>
         </div>
@@ -310,8 +310,8 @@ export function CaseStudiesSection() {
             onClick={() => setSelectedCategory("overview")}
             className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
               selectedCategory === "overview"
-                ? "bg-gradient-to-r from-brand-blue via-indigo-600 to-pink-500 text-white shadow-[0_0_20px_rgba(99,102,241,0.5)] scale-105"
-                : "glass-card text-slate-400 hover:text-white hover:bg-white/10 border border-white/10"
+                ? "bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white shadow-sm scale-105"
+                : "bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border border-slate-200/80 shadow-sm"
             }`}
           >
             <Layers className="w-3.5 h-3.5" /> 3 Industry Overview
@@ -326,8 +326,8 @@ export function CaseStudiesSection() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
                   isSelected
-                    ? `bg-gradient-to-r ${cat.accentGradient} text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] scale-105`
-                    : "glass-card text-slate-300 hover:text-white hover:bg-white/10 border border-white/10"
+                    ? `bg-gradient-to-r ${cat.accentGradient} text-white shadow-sm scale-105`
+                    : "bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border border-slate-200/80 shadow-sm"
                 }`}
               >
                 <IconComp className="w-3.5 h-3.5" /> {cat.title} ({cat.casesCount})
@@ -359,23 +359,23 @@ export function CaseStudiesSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.45, delay: idx * 0.1 }}
                     whileHover={{ y: -6 }}
-                    className={`glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden border ${cat.borderColor} group transition-all duration-300 shadow-2xl`}
+                    className={`glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden border border-slate-200/80 group transition-all duration-300 shadow-sm hover:shadow-md`}
                   >
                     {/* Top ambient glow */}
-                    <div className={`absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl ${cat.color} rounded-bl-full blur-2xl opacity-60 group-hover:opacity-100 transition-opacity pointer-events-none`} />
+                    <div className={`absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl ${cat.color} rounded-bl-full blur-2xl opacity-40 group-hover:opacity-70 transition-opacity pointer-events-none`} />
 
                     <div>
                       {/* Category Header */}
                       <div className="flex items-center justify-between gap-2 mb-4 relative z-10">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                            <IconComp className="w-4 h-4 text-cyan-300" />
+                          <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/80 flex items-center justify-center text-slate-900 group-hover:scale-110 transition-transform shadow-sm">
+                            <IconComp className="w-4 h-4 text-cyan-600" />
                           </div>
                           <div>
-                            <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">
+                            <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wider">
                               Industry Sector 0{idx + 1}
                             </span>
-                            <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-cyan-200 transition-colors">
+                            <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">
                               {cat.title}
                             </h3>
                           </div>
@@ -387,49 +387,49 @@ export function CaseStudiesSection() {
                       </div>
 
                       {/* Flagship Case Card Preview */}
-                      <div className="p-4 rounded-xl bg-black/40 border border-white/10 mb-4 relative z-10">
-                        <div className="flex items-center justify-between text-[10px] text-slate-400 mb-1.5 font-medium">
+                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 mb-4 relative z-10 shadow-inner">
+                        <div className="flex items-center justify-between text-[10px] text-slate-500 mb-1.5 font-medium">
                           <span>Featured Client:</span>
-                          <span className="text-white font-bold">{featuredCase.client}</span>
+                          <span className="text-slate-900 font-bold">{featuredCase.client}</span>
                         </div>
-                        <h4 className="text-xs sm:text-sm font-bold text-white leading-snug mb-2 group-hover:text-cyan-300 transition-colors">
+                        <h4 className="text-xs sm:text-sm font-bold text-slate-950 leading-snug mb-2 group-hover:text-cyan-700 transition-colors">
                           {featuredCase.headline}
                         </h4>
-                        <p className="text-[11px] text-slate-300 line-clamp-2 leading-relaxed mb-3">
+                        <p className="text-[11px] text-slate-600 line-clamp-2 leading-relaxed mb-3">
                           {featuredCase.summary}
                         </p>
 
                         {/* Top 3 Metrics Strip */}
-                        <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-white/10 text-center">
+                        <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-slate-200 text-center">
                           <div>
                             <div className={`text-sm font-black bg-clip-text text-transparent bg-gradient-to-r ${cat.accentGradient}`}>
                               {featuredCase.metrics.primary.value}
                             </div>
-                            <div className="text-[8px] text-slate-400 truncate">{featuredCase.metrics.primary.label}</div>
+                            <div className="text-[8px] text-slate-500 truncate font-bold">{featuredCase.metrics.primary.label}</div>
                           </div>
-                          <div className="border-x border-white/10">
+                          <div className="border-x border-slate-200">
                             <div className={`text-sm font-black bg-clip-text text-transparent bg-gradient-to-r ${cat.accentGradient}`}>
                               {featuredCase.metrics.secondary.value}
                             </div>
-                            <div className="text-[8px] text-slate-400 truncate">{featuredCase.metrics.secondary.label}</div>
+                            <div className="text-[8px] text-slate-500 truncate font-bold">{featuredCase.metrics.secondary.label}</div>
                           </div>
                           <div>
                             <div className={`text-sm font-black bg-clip-text text-transparent bg-gradient-to-r ${cat.accentGradient}`}>
                               {featuredCase.metrics.tertiary.value}
                             </div>
-                            <div className="text-[8px] text-slate-400 truncate">{featuredCase.metrics.tertiary.label}</div>
+                            <div className="text-[8px] text-slate-500 truncate font-bold">{featuredCase.metrics.tertiary.label}</div>
                           </div>
                         </div>
                       </div>
 
                       {/* Remaining 2 Cases Teaser Badges */}
                       <div className="space-y-1.5 mb-4 relative z-10">
-                        <div className="text-[10px] font-bold uppercase text-slate-400 tracking-wider">
+                        <div className="text-[10px] font-bold uppercase text-slate-500 tracking-wider">
                           Included in this section:
                         </div>
                         {caseStudies[cat.id].slice(1).map((subCase, sIdx) => (
-                          <div key={sIdx} className="flex items-center gap-1.5 text-[11px] text-slate-300 bg-white/[0.03] px-2.5 py-1.5 rounded-lg border border-white/5">
-                            <CheckCircle2 className="w-3 h-3 text-cyan-400 shrink-0" />
+                          <div key={sIdx} className="flex items-center gap-1.5 text-[11px] text-slate-700 bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-200/80 font-medium">
+                            <CheckCircle2 className="w-3 h-3 text-cyan-600 shrink-0" />
                             <span className="truncate">{subCase.client} ({subCase.headline.split("via")[0]})</span>
                           </div>
                         ))}
@@ -439,7 +439,7 @@ export function CaseStudiesSection() {
                     {/* Interactive Click Trigger Button */}
                     <button
                       onClick={() => setSelectedCategory(cat.id)}
-                      className={`w-full py-2.5 rounded-xl bg-gradient-to-r ${cat.accentGradient} text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg hover:shadow-cyan-500/25 transition-all cursor-pointer relative z-10 hover:scale-[1.02]`}
+                      className={`w-full py-2.5 rounded-xl bg-gradient-to-r ${cat.accentGradient} text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm hover:shadow-md transition-all cursor-pointer relative z-10 hover:scale-[1.02]`}
                     >
                       View All 3 {cat.title.split("&")[0]} Cases <ArrowRight className="w-3.5 h-3.5" />
                     </button>
@@ -458,21 +458,21 @@ export function CaseStudiesSection() {
               className="space-y-6"
             >
               {/* Back Bar and Active Category Indicator */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl glass-card border border-white/10">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-bold text-slate-300">
+                  <span className="text-xs font-bold text-slate-600">
                     Showing 3 Deep-Dive Studies for:
                   </span>
-                  <span className="text-xs font-extrabold text-white bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-500/30">
+                  <span className="text-xs font-extrabold text-cyan-900 bg-cyan-100/70 px-3 py-1 rounded-full border border-cyan-200">
                     {categories.find(c => c.id === selectedCategory)?.title}
                   </span>
                 </div>
 
                 <button
                   onClick={() => setSelectedCategory("overview")}
-                  className="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-white/10 transition-colors cursor-pointer"
+                  className="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold flex items-center gap-1.5 border border-slate-300 transition-colors cursor-pointer shadow-sm"
                 >
-                  <RotateCcw className="w-3 h-3 text-cyan-400" /> Back to 3-Industry Overview
+                  <RotateCcw className="w-3 h-3 text-cyan-600" /> Back to 3-Industry Overview
                 </button>
               </div>
 
@@ -484,45 +484,45 @@ export function CaseStudiesSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group hover:border-white/25 border border-white/10 transition-all duration-300 shadow-xl"
+                    className="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 border border-slate-200/80 transition-all duration-300 shadow-sm hover:shadow-md"
                   >
-                    <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${study.color} rounded-bl-full blur-xl opacity-60 group-hover:opacity-100 transition-opacity pointer-events-none`} />
+                    <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${study.color} rounded-bl-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity pointer-events-none`} />
 
                     <div>
                       {/* Header Badge & Client Name */}
                       <div className="flex items-center justify-between gap-2 mb-3 relative z-10">
-                        <span className="text-[10px] font-bold text-gray-200 bg-white/10 border border-white/15 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full">
                           {study.categoryLabel}
                         </span>
-                        <span className="text-[11px] font-bold text-cyan-300 truncate max-w-[150px]">
+                        <span className="text-[11px] font-bold text-cyan-700 truncate max-w-[150px]">
                           {study.client}
                         </span>
                       </div>
 
                       {/* Headline */}
-                      <h3 className="text-sm sm:text-base font-bold text-white mb-2 leading-snug group-hover:text-cyan-200 transition-colors">
+                      <h3 className="text-sm sm:text-base font-bold text-slate-950 mb-2 leading-snug group-hover:text-cyan-600 transition-colors">
                         {study.headline}
                       </h3>
 
-                      <p className="text-[11px] text-slate-300 mb-3.5 leading-relaxed line-clamp-2">
+                      <p className="text-[11px] text-slate-600 mb-3.5 leading-relaxed line-clamp-2">
                         {study.summary}
                       </p>
 
                       {/* Compact Metrics Strip */}
-                      <div className="grid grid-cols-3 gap-1.5 p-2.5 rounded-xl bg-black/40 border border-white/5 mb-3.5">
+                      <div className="grid grid-cols-3 gap-1.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 mb-3.5">
                         <div className="text-center">
                           <div className={`text-base font-black bg-clip-text text-transparent bg-gradient-to-r ${study.accentGradient}`}>
                             {study.metrics.primary.value}
                           </div>
-                          <div className="text-[8px] text-gray-400 leading-tight truncate">
+                          <div className="text-[8px] text-slate-500 leading-tight truncate font-bold">
                             {study.metrics.primary.label}
                           </div>
                         </div>
-                        <div className="text-center border-x border-white/5">
+                        <div className="text-center border-x border-slate-200">
                           <div className={`text-base font-black bg-clip-text text-transparent bg-gradient-to-r ${study.accentGradient}`}>
                             {study.metrics.secondary.value}
                           </div>
-                          <div className="text-[8px] text-gray-400 leading-tight truncate">
+                          <div className="text-[8px] text-slate-500 leading-tight truncate font-bold">
                             {study.metrics.secondary.label}
                           </div>
                         </div>
@@ -530,7 +530,7 @@ export function CaseStudiesSection() {
                           <div className={`text-base font-black bg-clip-text text-transparent bg-gradient-to-r ${study.accentGradient}`}>
                             {study.metrics.tertiary.value}
                           </div>
-                          <div className="text-[8px] text-gray-400 leading-tight truncate">
+                          <div className="text-[8px] text-slate-500 leading-tight truncate font-bold">
                             {study.metrics.tertiary.label}
                           </div>
                         </div>
@@ -539,8 +539,8 @@ export function CaseStudiesSection() {
                       {/* Strategy Checklist */}
                       <div className="space-y-1.5 mb-3.5">
                         {study.strategy.map((item, sIdx) => (
-                          <div key={sIdx} className="flex items-start gap-1.5 text-[11px] text-slate-300 leading-snug">
-                            <CheckCircle2 className="w-3 h-3 text-cyan-400 shrink-0 mt-0.5" />
+                          <div key={sIdx} className="flex items-start gap-1.5 text-[11px] text-slate-700 font-medium leading-snug">
+                            <CheckCircle2 className="w-3 h-3 text-cyan-600 shrink-0 mt-0.5" />
                             <span className="line-clamp-1">{item}</span>
                           </div>
                         ))}
@@ -549,9 +549,9 @@ export function CaseStudiesSection() {
 
                     <div>
                       {/* Tags */}
-                      <div className="flex flex-wrap gap-1 pt-2.5 border-t border-white/5">
+                      <div className="flex flex-wrap gap-1 pt-2.5 border-t border-slate-100">
                         {study.tags.map((tag, tIdx) => (
-                          <span key={tIdx} className="text-[9px] px-2 py-0.5 rounded bg-white/[0.04] text-slate-400 font-medium">
+                          <span key={tIdx} className="text-[9px] px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold border border-slate-200/60">
                             {tag}
                           </span>
                         ))}
@@ -559,9 +559,9 @@ export function CaseStudiesSection() {
 
                       <Link
                         href="#contact"
-                        className="mt-3 w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs font-semibold flex items-center justify-center gap-1.5 border border-white/10 group-hover:border-cyan-500/40 transition-all cursor-pointer"
+                        className="mt-3 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold flex items-center justify-center gap-1.5 border border-slate-300 hover:border-cyan-500/40 transition-all cursor-pointer shadow-sm"
                       >
-                        Replicate These Results <ArrowUpRight className="w-3 h-3 text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        Replicate These Results <ArrowUpRight className="w-3 h-3 text-cyan-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
                     </div>
                   </motion.div>

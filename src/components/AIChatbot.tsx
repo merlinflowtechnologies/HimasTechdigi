@@ -324,29 +324,29 @@ export function AIChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="mb-3 w-[92vw] sm:w-[400px] h-[550px] max-h-[85vh] rounded-2xl bg-[#090d16]/95 backdrop-blur-2xl border border-cyan-500/30 flex flex-col shadow-[0_15px_50px_rgba(6,182,212,0.25)] relative overflow-hidden"
+            className="mb-3 w-[92vw] sm:w-[400px] h-[550px] max-h-[85vh] rounded-2xl bg-white/95 backdrop-blur-2xl border border-slate-200 flex flex-col shadow-2xl relative overflow-hidden"
           >
             {/* Top ambient glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-20 bg-gradient-to-b from-cyan-500/20 to-transparent blur-xl pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-20 bg-gradient-to-b from-blue-500/10 to-transparent blur-xl pointer-events-none" />
 
             {/* Chatbot Header */}
-            <div className="flex items-center justify-between p-4 border-b border-white/10 bg-white/[0.02] relative z-10">
+            <div className="flex items-center justify-between p-4 border-b border-slate-100 bg-slate-50/70 relative z-10">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-brand-purple flex items-center justify-center text-white shadow-md shadow-cyan-500/30">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-brand-purple flex items-center justify-center text-white shadow-xs">
                     <Bot className="w-5 h-5" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#090d16] animate-pulse" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
+                  <h3 className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
                     Himastech AI Strategist
-                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 font-mono border border-cyan-500/30">
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 font-mono border border-blue-200">
                       100% Accurate
                     </span>
                   </h3>
-                  <span className="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="text-[11px] text-emerald-600 font-medium flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                     Live Desk • +91 8374373753
                   </span>
                 </div>
@@ -356,14 +356,14 @@ export function AIChatbot() {
                 <button
                   onClick={handleResetChat}
                   title="Reset conversation"
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   title="Minimize chat"
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -378,10 +378,10 @@ export function AIChatbot() {
                   className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}
                 >
                   <div
-                    className={`max-w-[88%] rounded-2xl p-3 sm:p-3.5 leading-relaxed shadow-sm ${
+                    className={`max-w-[88%] rounded-2xl p-3 sm:p-3.5 leading-relaxed shadow-xs ${
                       msg.sender === "user"
-                        ? "bg-gradient-to-r from-cyan-500 to-brand-purple text-white rounded-tr-none font-medium"
-                        : "bg-white/5 border border-white/10 text-slate-200 rounded-tl-none"
+                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-tr-none font-medium"
+                        : "bg-slate-100 border border-slate-200 text-slate-800 rounded-tl-none"
                     }`}
                   >
                     <div className="whitespace-pre-line space-y-1">
@@ -390,22 +390,22 @@ export function AIChatbot() {
 
                     {/* Direct CTA Link Button */}
                     {msg.cta && (
-                      <div className="mt-3 pt-2.5 border-t border-white/10">
+                      <div className="mt-3 pt-2.5 border-t border-slate-200/60">
                         {msg.cta.isExternal ? (
                           <a
                             href={msg.cta.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold text-[11px] border border-emerald-500/40 transition-colors"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-[11px] border border-emerald-200 transition-colors"
                           >
-                            <Phone className="w-3 h-3 text-emerald-400" />
+                            <Phone className="w-3 h-3 text-emerald-600" />
                             {msg.cta.label} <ArrowRight className="w-3 h-3" />
                           </a>
                         ) : (
                           <Link
                             href={msg.cta.href}
                             onClick={() => setIsOpen(false)}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-bold text-[11px] border border-cyan-500/40 transition-colors"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold text-[11px] border border-blue-200 transition-colors"
                           >
                             {msg.cta.label} <ArrowRight className="w-3 h-3" />
                           </Link>
@@ -421,7 +421,7 @@ export function AIChatbot() {
                         <button
                           key={oIdx}
                           onClick={() => handleSendMessage(opt)}
-                          className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/30 text-slate-300 hover:text-cyan-300 transition-all text-left cursor-pointer"
+                          className="text-[11px] px-2.5 py-1 rounded-full bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 transition-all text-left cursor-pointer shadow-2xs"
                         >
                           {opt}
                         </button>
@@ -429,16 +429,16 @@ export function AIChatbot() {
                     </div>
                   )}
 
-                  <span className="text-[9px] text-slate-500 mt-1 px-1">{msg.timestamp}</span>
+                  <span className="text-[9px] text-slate-400 mt-1 px-1">{msg.timestamp}</span>
                 </div>
               ))}
 
               {/* Typing Indicator */}
               {isTyping && (
-                <div className="flex items-center gap-1.5 p-3 rounded-2xl bg-white/5 border border-white/10 w-20 rounded-tl-none">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-bounce" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce [animation-delay:0.2s]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-bounce [animation-delay:0.4s]" />
+                <div className="flex items-center gap-1.5 p-3 rounded-2xl bg-slate-100 border border-slate-200 w-20 rounded-tl-none">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-bounce [animation-delay:0.2s]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-pink-600 animate-bounce [animation-delay:0.4s]" />
                 </div>
               )}
 
@@ -446,23 +446,23 @@ export function AIChatbot() {
             </div>
 
             {/* Input Bar */}
-            <div className="p-3 border-t border-white/10 bg-[#070a12] relative z-10">
-              <div className="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 focus-within:border-cyan-500/50 transition-colors">
+            <div className="p-3 border-t border-slate-100 bg-white relative z-10">
+              <div className="flex items-center gap-2 rounded-xl bg-slate-50 border border-slate-200 px-3 py-1.5 focus-within:border-blue-500 transition-colors shadow-xs">
                 <input
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Ask about phone, ROAS, training, audit..."
-                  className="flex-1 bg-transparent text-xs text-white placeholder:text-slate-500 focus:outline-none"
+                  className="flex-1 bg-transparent text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none"
                 />
                 <button
                   onClick={() => handleSendMessage()}
                   disabled={!inputText.trim()}
                   className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                     inputText.trim()
-                      ? "bg-cyan-500 text-white hover:bg-cyan-400 shadow-md shadow-cyan-500/30"
-                      : "text-slate-500 cursor-not-allowed"
+                      ? "bg-blue-600 text-white hover:bg-blue-700 shadow-xs"
+                      : "text-slate-400 cursor-not-allowed"
                   }`}
                   aria-label="Send message"
                 >
@@ -471,7 +471,7 @@ export function AIChatbot() {
               </div>
               <div className="flex items-center justify-between text-[10px] text-slate-500 mt-1.5 px-1">
                 <span>⚡ Call / WhatsApp: +91 8374373753</span>
-                <Link href="#contact" onClick={() => setIsOpen(false)} className="text-cyan-400 hover:underline">
+                <Link href="#contact" onClick={() => setIsOpen(false)} className="text-blue-600 hover:underline font-medium">
                   Free 48h Audit →
                 </Link>
               </div>
@@ -490,9 +490,9 @@ export function AIChatbot() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 10 }}
               onClick={() => setIsOpen(true)}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0d141e]/90 backdrop-blur-md border border-cyan-500/30 text-cyan-300 text-xs font-semibold shadow-lg shadow-cyan-950/40 cursor-pointer hover:border-cyan-500/60 transition-colors"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-slate-800 text-xs font-semibold shadow-md cursor-pointer hover:border-blue-300 hover:text-blue-600 transition-colors"
             >
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+              <Sparkles className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
               Ask AI Growth Bot
             </motion.div>
           )}
@@ -502,11 +502,11 @@ export function AIChatbot() {
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.94 }}
-          className="w-13 h-13 rounded-full bg-gradient-to-tr from-cyan-500 via-indigo-600 to-pink-500 text-white flex items-center justify-center shadow-[0_0_25px_rgba(6,182,212,0.45)] hover:shadow-[0_0_35px_rgba(6,182,212,0.7)] border-2 border-white/25 relative cursor-pointer transition-all duration-300 group"
+          className="w-13 h-13 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-600 to-pink-600 text-white flex items-center justify-center shadow-lg hover:shadow-xl border-2 border-white relative cursor-pointer transition-all duration-300 group"
           aria-label="Toggle AI Growth Assistant"
         >
           {/* Subtle Outer Ping Ring */}
-          <span className="absolute inset-0 rounded-full border border-cyan-400 animate-ping opacity-35 pointer-events-none" />
+          <span className="absolute inset-0 rounded-full border border-blue-400 animate-ping opacity-25 pointer-events-none" />
 
           {isOpen ? (
             <X className="w-5 h-5 text-white" />
@@ -515,7 +515,7 @@ export function AIChatbot() {
           )}
 
           {/* AI Active Indicator */}
-          <span className="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#070913] flex items-center justify-center">
+          <span className="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
           </span>
         </motion.button>

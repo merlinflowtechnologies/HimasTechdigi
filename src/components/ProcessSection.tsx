@@ -76,7 +76,7 @@ export function ProcessSection() {
   ];
 
   return (
-    <section id="process" className="py-16 sm:py-20 bg-transparent border-t border-white/10 relative overflow-hidden z-10">
+    <section id="process" className="py-16 sm:py-20 bg-transparent border-t border-slate-200/80 relative overflow-hidden z-10">
       {/* Dynamic Ambient Moving Glow Orbs */}
       <motion.div 
         animate={{ 
@@ -86,7 +86,7 @@ export function ProcessSection() {
           y: [0, -20, 0]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 left-10 w-96 h-96 bg-brand-purple/20 rounded-full blur-[140px] pointer-events-none" 
+        className="absolute top-1/3 left-10 w-96 h-96 bg-purple-300/20 rounded-full blur-[140px] pointer-events-none" 
       />
       <motion.div 
         animate={{ 
@@ -96,19 +96,19 @@ export function ProcessSection() {
           y: [0, 25, 0]
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-10 right-10 w-96 h-96 bg-brand-cyan/20 rounded-full blur-[140px] pointer-events-none" 
+        className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-300/20 rounded-full blur-[140px] pointer-events-none" 
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs uppercase tracking-wider font-bold mb-3 shadow-[0_0_15px_rgba(139,92,246,0.15)]">
-            <Sparkles className="w-3.5 h-3.5 animate-spin" /> Proprietary Methodology
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs uppercase tracking-wider font-extrabold mb-3 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 animate-spin text-purple-600" /> Proprietary Methodology
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
-            The Himastech <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">Revenue Engine</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mb-3">
+            The Himastech <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600">Revenue Engine</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
             A continuous 4-phase framework designed to eliminate marketing guesswork, maximize ad efficiency, and compound monthly revenue.
           </p>
         </div>
@@ -123,12 +123,12 @@ export function ProcessSection() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: idx * 0.08 }}
               whileHover={{ y: -6, scale: 1.01 }}
-              className={`glass-card rounded-2xl p-4.5 sm:p-5 relative overflow-hidden border border-white/10 hover:border-white/25 transition-all duration-300 ${item.accentBorder} group flex flex-col justify-between shadow-xl`}
+              className={`glass-card rounded-2xl p-4.5 sm:p-5 relative overflow-hidden border border-slate-200/80 hover:border-slate-300 transition-all duration-300 ${item.accentBorder} group flex flex-col justify-between shadow-sm hover:shadow-md`}
             >
               {/* Animated Floating Gradient Flare */}
               <motion.div 
                 animate={{
-                  opacity: [0.3, 0.6, 0.3],
+                  opacity: [0.2, 0.4, 0.2],
                   scale: [1, 1.08, 1],
                 }}
                 transition={{
@@ -137,25 +137,22 @@ export function ProcessSection() {
                   ease: "easeInOut",
                   delay: item.floatDelay,
                 }}
-                className={`absolute -top-10 -right-10 w-36 h-36 bg-gradient-to-bl ${item.glow} rounded-full blur-2xl pointer-events-none group-hover:opacity-100 transition-opacity`} 
+                className={`absolute -top-10 -right-10 w-36 h-36 bg-gradient-to-bl ${item.glow} rounded-full blur-2xl pointer-events-none group-hover:opacity-60 transition-opacity`} 
               />
-
-              {/* Shimmer Sweep Animation on Hover */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/[0.04] to-transparent pointer-events-none" />
 
               <div>
                 {/* Header: Icon, Animated Step Node & Next Arrow */}
                 <div className="flex items-center justify-between mb-3.5 relative z-10">
-                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all">
+                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/80 flex items-center justify-center group-hover:scale-110 shadow-sm transition-all">
                     {item.icon}
                   </div>
 
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xl font-black text-white/30 group-hover:text-white/70 transition-colors">
+                    <span className="text-xl font-black text-slate-300 group-hover:text-slate-600 transition-colors">
                       {item.step}
                     </span>
                     {idx < steps.length - 1 && (
-                      <ArrowRight className="hidden lg:block w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400 transition-colors" />
+                      <ArrowRight className="hidden lg:block w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-600 transition-colors" />
                     )}
                   </div>
                 </div>
@@ -166,23 +163,23 @@ export function ProcessSection() {
                 </span>
 
                 {/* Title */}
-                <h3 className="text-sm font-bold text-white mb-2 leading-snug group-hover:text-cyan-200 transition-colors">
+                <h3 className="text-sm font-bold text-slate-900 mb-2 leading-snug group-hover:text-cyan-600 transition-colors">
                   {item.title}
                 </h3>
 
                 {/* Description (Compact) */}
-                <p className="text-[11px] text-slate-300 leading-relaxed mb-3.5 line-clamp-3">
+                <p className="text-[11px] text-slate-600 leading-relaxed mb-3.5 line-clamp-3">
                   {item.description}
                 </p>
               </div>
 
               {/* Key Deliverables (Compact Checklist) */}
-              <div className="pt-2.5 border-t border-white/5 relative z-10">
-                <h4 className="text-[10px] uppercase font-bold text-slate-400 mb-2 tracking-wider">Key Outputs:</h4>
+              <div className="pt-2.5 border-t border-slate-100 relative z-10">
+                <h4 className="text-[10px] uppercase font-bold text-slate-500 mb-2 tracking-wider">Key Outputs:</h4>
                 <ul className="space-y-1.5">
                   {item.deliverables.map((del, dIdx) => (
-                    <li key={dIdx} className="flex items-start gap-1.5 text-[11px] text-slate-300">
-                      <CheckCircle2 className="w-3 h-3 text-cyan-400 shrink-0 mt-0.5" />
+                    <li key={dIdx} className="flex items-start gap-1.5 text-[11px] text-slate-700 font-medium">
+                      <CheckCircle2 className="w-3 h-3 text-cyan-600 shrink-0 mt-0.5" />
                       <span className="leading-tight line-clamp-1">{del}</span>
                     </li>
                   ))}

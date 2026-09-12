@@ -62,29 +62,29 @@ export function RoiCalculatorSection() {
   const projectedNetGains = projectedRevenue - budget;
 
   return (
-    <section id="roi-calculator" className="py-16 sm:py-20 bg-transparent border-t border-white/10 relative overflow-hidden z-10">
+    <section id="roi-calculator" className="py-16 sm:py-20 bg-transparent border-t border-slate-200/80 relative overflow-hidden z-10">
       {/* Subtle Glow Effects */}
       <div className="absolute -top-32 right-1/4 w-80 h-80 bg-brand-cyan/10 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute -bottom-32 left-1/4 w-80 h-80 bg-brand-purple/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs uppercase tracking-wider font-bold mb-3">
-            <Zap className="w-3.5 h-3.5" /> Interactive Growth Simulator
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs uppercase tracking-wider font-extrabold mb-3 shadow-sm">
+            <Zap className="w-3.5 h-3.5 text-emerald-600" /> Interactive Growth Simulator
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
-            Calculate Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-cyan-400 to-brand-blue">Revenue Potential</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mb-3">
+            Calculate Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-cyan-600 to-indigo-600">Revenue Potential</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300">
+          <p className="text-xs sm:text-sm text-slate-600 font-medium">
             Slide your target monthly ad spend and select your sector to see what Himastech's performance framework can unlock.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Controls Form (Left Column) */}
-          <div className="lg:col-span-6 glass-card rounded-2xl p-5 sm:p-6 border border-white/10">
+          <div className="lg:col-span-6 glass-card rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm">
             <div className="mb-5">
-              <label className="text-xs font-semibold text-gray-300 block mb-2.5">
+              <label className="text-xs font-bold text-slate-800 block mb-2.5">
                 1. Select Your Industry
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -94,8 +94,8 @@ export function RoiCalculatorSection() {
                     onClick={() => setSelectedIndustry(ind.id)}
                     className={`p-2.5 rounded-xl text-xs font-bold text-left transition-all border cursor-pointer ${
                       selectedIndustry === ind.id
-                        ? "bg-gradient-to-r from-brand-blue/20 to-brand-purple/20 border-cyan-400 text-white shadow-[0_0_12px_rgba(6,182,212,0.25)]"
-                        : "bg-white/[0.03] border-white/10 text-gray-400 hover:text-white hover:border-white/20"
+                        ? "bg-cyan-50 border-cyan-400 text-cyan-900 shadow-sm"
+                        : "bg-slate-50 border-slate-200/80 text-slate-700 hover:bg-slate-100 hover:text-slate-950"
                     }`}
                   >
                     {ind.name}
@@ -106,10 +106,10 @@ export function RoiCalculatorSection() {
 
             <div className="mb-6">
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-semibold text-gray-300">
+                <label className="text-xs font-bold text-slate-800">
                   2. Monthly Ad Spend
                 </label>
-                <span className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+                <span className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-emerald-600">
                   ${budget.toLocaleString()}
                 </span>
               </div>
@@ -122,27 +122,27 @@ export function RoiCalculatorSection() {
                 value={budget}
                 onChange={(e) => setBudget(Number(e.target.value))}
                 aria-label="Monthly Marketing Budget"
-                className="w-full h-2.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-cyan-400 focus:outline-none"
+                className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cyan-600 focus:outline-none"
               />
 
-              <div className="flex justify-between text-[11px] text-gray-400 mt-1.5 font-medium">
+              <div className="flex justify-between text-[11px] text-slate-500 mt-1.5 font-bold">
                 <span>$2,000 / mo</span>
                 <span>$50,000 / mo</span>
                 <span>$100,000 / mo</span>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1.5 text-[11px] text-gray-400">
-              <div className="flex items-center gap-2 text-gray-300">
-                <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5 text-[11px] text-slate-600">
+              <div className="flex items-center gap-2 text-slate-700 font-medium">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Zero long-term lock-in contracts</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
-                <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-2 text-slate-700 font-medium">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Dedicated account strategist & daily ad optimization</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
-                <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-2 text-slate-700 font-medium">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Full access to bespoke creative production & CRO</span>
               </div>
             </div>
@@ -150,48 +150,46 @@ export function RoiCalculatorSection() {
 
           {/* Results Display (Right Column) */}
           <div className="lg:col-span-6 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-brand-purple/10 to-pink-500/10 rounded-2xl blur-xl -z-10" />
-
-            <div className="glass-card rounded-2xl p-5 sm:p-6 border border-cyan-500/30 shadow-[0_0_35px_rgba(6,182,212,0.12)] relative overflow-hidden">
-              <div className="flex items-center justify-between pb-4 border-b border-white/10">
+            <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-md relative overflow-hidden bg-white/95">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-cyan-400 tracking-wider">
+                  <span className="text-[10px] uppercase font-bold text-cyan-700 tracking-wider">
                     Projected Return
                   </span>
-                  <h3 className="text-base font-bold text-white mt-0.5">
+                  <h3 className="text-base font-bold text-slate-950 mt-0.5">
                     Growth Projection Forecast
                   </h3>
                 </div>
-                <div className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" /> {currentConfig.avgRoas}x Target ROAS
+                <div className="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center gap-1 shadow-sm">
+                  <Sparkles className="w-3 h-3 text-emerald-600" /> {currentConfig.avgRoas}x Target ROAS
                 </div>
               </div>
 
               {/* Main Projected Revenue */}
-              <div className="py-5 text-center border-b border-white/10">
-                <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold block mb-1">
+              <div className="py-5 text-center border-b border-slate-100">
+                <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold block mb-1">
                   Estimated Monthly Generated Pipeline
                 </span>
-                <div className="text-4xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-brand-blue">
+                <div className="text-4xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-cyan-600 to-indigo-600">
                   ${projectedRevenue.toLocaleString()}
                 </div>
-                <span className="inline-block mt-2 text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
+                <span className="inline-block mt-2 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full shadow-sm">
                   +${projectedNetGains.toLocaleString()} Estimated Net Upside
                 </span>
               </div>
 
               {/* Breakdown Grid */}
-              <div className="grid grid-cols-2 gap-3 py-4 border-b border-white/10">
-                <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                  <div className="text-[11px] text-gray-400 mb-0.5 font-medium">Estimated Leads</div>
-                  <div className="text-xl font-bold text-white">~{estimatedLeads.toLocaleString()}</div>
-                  <div className="text-[10px] text-gray-400">High-intent prospects</div>
+              <div className="grid grid-cols-2 gap-3 py-4 border-b border-slate-100">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <div className="text-[11px] text-slate-500 mb-0.5 font-bold">Estimated Leads</div>
+                  <div className="text-xl font-black text-slate-950">~{estimatedLeads.toLocaleString()}</div>
+                  <div className="text-[10px] text-slate-500 font-medium">High-intent prospects</div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                  <div className="text-[11px] text-gray-400 mb-0.5 font-medium">Estimated Customers</div>
-                  <div className="text-xl font-bold text-white">~{estimatedDeals.toLocaleString()}</div>
-                  <div className="text-[10px] text-gray-400">Projected conversions</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <div className="text-[11px] text-slate-500 mb-0.5 font-bold">Estimated Customers</div>
+                  <div className="text-xl font-black text-slate-950">~{estimatedDeals.toLocaleString()}</div>
+                  <div className="text-[10px] text-slate-500 font-medium">Projected conversions</div>
                 </div>
               </div>
 
@@ -199,11 +197,11 @@ export function RoiCalculatorSection() {
               <div className="pt-4">
                 <Link
                   href="#contact"
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:shadow-[0_0_25px_rgba(99,102,241,0.5)] transition-all hover:scale-[1.01] group border border-white/20 cursor-pointer"
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-sm hover:scale-[1.01] group border border-white/30 cursor-pointer"
                 >
                   Claim Your Custom Scaling Roadmap <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <p className="text-[10px] text-center text-gray-400 mt-2">
+                <p className="text-[10px] text-center text-slate-500 font-medium mt-2">
                   *Projections calculated on Himastech historical benchmarks.
                 </p>
               </div>

@@ -437,30 +437,30 @@ export function TrainingSection() {
   });
 
   return (
-    <section id="training" className="flex flex-col w-full py-20 border-t border-white/10 relative overflow-hidden bg-transparent z-10">
+    <section id="training" className="flex flex-col w-full py-20 border-t border-slate-200/80 relative overflow-hidden bg-transparent z-10">
       {/* Dynamic ambient lighting based on selected track */}
       <div 
-        className="absolute top-1/4 right-0 w-[30rem] h-[30rem] rounded-full blur-[160px] pointer-events-none transition-all duration-700 opacity-20"
+        className="absolute top-1/4 right-0 w-[30rem] h-[30rem] rounded-full blur-[160px] pointer-events-none transition-all duration-700 opacity-10"
         style={{ background: selectedTrack.glowColor }}
       />
       <div 
-        className="absolute bottom-1/4 left-0 w-[30rem] h-[30rem] rounded-full blur-[160px] pointer-events-none transition-all duration-700 opacity-20"
+        className="absolute bottom-1/4 left-0 w-[30rem] h-[30rem] rounded-full blur-[160px] pointer-events-none transition-all duration-700 opacity-10"
         style={{ background: selectedTrack.glowColor }}
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-500/10 text-purple-300 mb-3 text-xs font-bold border border-purple-500/25 uppercase tracking-wider shadow-[0_0_15px_rgba(139,92,246,0.2)]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 text-purple-700 mb-3 text-xs font-bold border border-purple-200 uppercase tracking-wider shadow-sm">
             <GraduationCap className="h-3.5 w-3.5" /> Specialized Career Tracks & Academy
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 mb-3 tracking-tight">
             Choose Your <br className="hidden sm:block" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600">
               Digital Marketing Mastery Track
             </span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Digital marketing is not one-size-fits-all. Select a specialized discipline below to view its custom curved progression roadmap, core tools, and live capstone journey.
           </p>
         </div>
@@ -469,22 +469,22 @@ export function TrainingSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           {[
             {
-              icon: <Briefcase className="h-5 w-5 text-cyan-400" />,
+              icon: <Briefcase className="h-5 w-5 text-blue-600" />,
               title: "Live Budget Execution",
               desc: "Train directly inside live ad accounts with real spend, not theoretical slides or outdated tutorials.",
-              border: "hover:border-cyan-500/40",
+              border: "hover:border-blue-300",
             },
             {
-              icon: <Award className="h-5 w-5 text-purple-400" />,
+              icon: <Award className="h-5 w-5 text-purple-600" />,
               title: "Industry Gold Certifications",
               desc: "Graduate with certified credentials across Meta Blueprint, Google Skillshop, and HubSpot.",
-              border: "hover:border-purple-500/40",
+              border: "hover:border-purple-300",
             },
             {
-              icon: <Users className="h-5 w-5 text-pink-400" />,
+              icon: <Users className="h-5 w-5 text-pink-600" />,
               title: "Direct Placement Network",
               desc: "Connect instantly with top agencies, VC-backed startups, and brands hiring pre-vetted marketing specialists.",
-              border: "hover:border-pink-500/40",
+              border: "hover:border-pink-300",
             },
           ].map((pillar, idx) => (
             <motion.div 
@@ -493,13 +493,13 @@ export function TrainingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.08 }}
-              className={`glass-card rounded-xl p-4.5 text-center transition-all duration-300 border border-white/10 ${pillar.border}`}
+              className={`glass-card rounded-xl p-4.5 text-center transition-all duration-300 border border-slate-200/80 shadow-xs hover:shadow-md ${pillar.border}`}
             >
-              <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center mx-auto mb-3">
                 {pillar.icon}
               </div>
-              <h3 className="text-sm font-bold text-white mb-1.5">{pillar.title}</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">{pillar.desc}</p>
+              <h3 className="text-sm font-bold text-slate-900 mb-1.5">{pillar.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -507,7 +507,7 @@ export function TrainingSection() {
         {/* ----------------- INTERACTIVE TRACK SELECTOR ----------------- */}
         <div className="mb-12">
           <div className="text-center mb-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Select a Specialization Track to Load Roadmap
             </span>
           </div>
@@ -522,33 +522,33 @@ export function TrainingSection() {
                   onClick={() => setSelectedTrack(track)}
                   className={`relative p-3.5 sm:p-4 rounded-xl text-left transition-all duration-300 flex flex-col justify-between cursor-pointer border overflow-hidden ${
                     isSelected
-                      ? `bg-white/[0.08] border-cyan-400/80 shadow-[0_0_25px_rgba(6,182,212,0.25)] scale-[1.02]`
-                      : `glass-card border-white/10 hover:border-white/25 hover:bg-white/5 opacity-80 hover:opacity-100`
+                      ? `bg-blue-50 border-blue-500/80 shadow-md scale-[1.02]`
+                      : `glass-card border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 opacity-90 hover:opacity-100`
                   }`}
                 >
                   {/* Subtle Corner Glow when selected */}
                   {isSelected && (
-                    <div className={`absolute -top-10 -right-10 w-24 h-24 rounded-full bg-gradient-to-br ${track.accentGradient} opacity-20 blur-xl pointer-events-none`} />
+                    <div className={`absolute -top-10 -right-10 w-24 h-24 rounded-full bg-gradient-to-br ${track.accentGradient} opacity-15 blur-xl pointer-events-none`} />
                   )}
 
                   <div className="relative z-10 w-full">
                     <div className="flex items-center justify-between gap-1.5 mb-2.5">
-                      <div className={`p-2 rounded-lg ${isSelected ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30" : "bg-white/5 text-slate-300"}`}>
+                      <div className={`p-2 rounded-lg ${isSelected ? "bg-blue-600 text-white border border-blue-700" : "bg-slate-100 text-slate-700"}`}>
                         <IconComp className="w-4 h-4" />
                       </div>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isSelected ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/30" : "bg-white/5 text-slate-400"}`}>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isSelected ? "bg-blue-100 text-blue-800 border border-blue-200" : "bg-slate-100 text-slate-600"}`}>
                         {track.duration}
                       </span>
                     </div>
 
-                    <h4 className={`text-xs sm:text-sm font-bold leading-snug line-clamp-2 mb-1 ${isSelected ? "text-white" : "text-slate-200"}`}>
+                    <h4 className={`text-xs sm:text-sm font-bold leading-snug line-clamp-2 mb-1 ${isSelected ? "text-blue-900" : "text-slate-800"}`}>
                       {track.shortTitle}
                     </h4>
                   </div>
 
-                  <div className="relative z-10 w-full mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-400">
+                  <div className="relative z-10 w-full mt-2.5 pt-2 border-t border-slate-200/80 flex items-center justify-between text-[10px] text-slate-500">
                     <span className="truncate">{track.level.split(" ")[0]}</span>
-                    <span className={isSelected ? "text-cyan-300 font-bold" : "text-slate-400"}>
+                    <span className={isSelected ? "text-blue-600 font-bold" : "text-slate-500"}>
                       {isSelected ? "Active View" : "Explore →"}
                     </span>
                   </div>
@@ -566,44 +566,44 @@ export function TrainingSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="glass-card rounded-2xl p-5 sm:p-6 border border-white/15 max-w-6xl mx-auto mb-12 relative overflow-hidden shadow-2xl"
+            className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 max-w-6xl mx-auto mb-12 relative overflow-hidden shadow-sm"
           >
-            <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${selectedTrack.accentGradient} opacity-15 rounded-full blur-2xl pointer-events-none`} />
+            <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${selectedTrack.accentGradient} opacity-10 rounded-full blur-2xl pointer-events-none`} />
 
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
               <div className="max-w-3xl">
                 <div className="flex flex-wrap items-center gap-2 mb-2.5">
-                  <span className={`text-xs font-bold px-3 py-0.5 rounded-full bg-gradient-to-r ${selectedTrack.accentGradient} text-white shadow-sm`}>
+                  <span className={`text-xs font-bold px-3 py-0.5 rounded-full bg-gradient-to-r ${selectedTrack.accentGradient} text-white shadow-xs`}>
                     {selectedTrack.badge}
                   </span>
-                  <span className="text-xs font-medium text-slate-300 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-slate-400" /> {selectedTrack.duration} Intensive
+                  <span className="text-xs font-medium text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-slate-500" /> {selectedTrack.duration} Intensive
                   </span>
-                  <span className="text-xs font-medium text-slate-300 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10 flex items-center gap-1">
-                    <Layers className="w-3 h-3 text-slate-400" /> {selectedTrack.level}
+                  <span className="text-xs font-medium text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200 flex items-center gap-1">
+                    <Layers className="w-3 h-3 text-slate-500" /> {selectedTrack.level}
                   </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-black text-white mb-2">
+                <h3 className="text-lg sm:text-xl font-black text-slate-950 mb-2">
                   {selectedTrack.title}
                 </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {selectedTrack.description}
                 </p>
               </div>
 
               {/* Fast stats pill box */}
-              <div className="flex lg:flex-col items-center sm:items-start justify-between sm:justify-start gap-3 p-3.5 rounded-xl bg-white/5 border border-white/10 shrink-0">
+              <div className="flex lg:flex-col items-center sm:items-start justify-between sm:justify-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 shrink-0">
                 <div>
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Target Placement Salary</span>
-                  <span className="text-sm font-extrabold text-emerald-400 flex items-center gap-0.5">
+                  <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Target Placement Salary</span>
+                  <span className="text-sm font-extrabold text-emerald-700 flex items-center gap-0.5">
                     <DollarSign className="w-3.5 h-3.5 -mr-0.5" />{selectedTrack.avgSalary}
                   </span>
                 </div>
-                <div className="lg:pt-2 lg:border-t lg:border-white/10">
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Cohort Availability</span>
-                  <span className="text-xs font-bold text-cyan-300 flex items-center gap-1">
-                    <Zap className="w-3 h-3 text-cyan-400" /> Next Batch: 25 Seats Only
+                <div className="lg:pt-2 lg:border-t lg:border-slate-200">
+                  <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Cohort Availability</span>
+                  <span className="text-xs font-bold text-blue-700 flex items-center gap-1">
+                    <Zap className="w-3 h-3 text-blue-600" /> Next Batch: 25 Seats Only
                   </span>
                 </div>
               </div>
@@ -614,13 +614,13 @@ export function TrainingSection() {
         {/* ----------------- VERTICAL SERPENTINE CURVED ROADMAP ----------------- */}
         <div ref={roadmapContainerRef} className="max-w-5xl mx-auto mb-16 relative">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold border border-cyan-500/20 mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200 mb-2">
               <Compass className="w-3.5 h-3.5 animate-spin" /> Vertical Curved Highway Map
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-white">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-950">
               {selectedTrack.duration} Curated Roadmap Journey
             </h3>
-            <p className="text-xs text-slate-400 mt-1 max-w-xl mx-auto">
+            <p className="text-xs text-slate-500 mt-1 max-w-xl mx-auto">
               Follow the 4 milestone checkpoints sequentially along the vertical curved highway as you scroll through the program.
             </p>
           </div>
@@ -637,10 +637,10 @@ export function TrainingSection() {
               >
                 <defs>
                   <linearGradient id={`vertRoadGradient-${selectedTrack.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.95" />
-                    <stop offset="35%" stopColor="#a855f7" stopOpacity="0.95" />
-                    <stop offset="70%" stopColor="#ec4899" stopOpacity="0.95" />
-                    <stop offset="100%" stopColor="#10b981" stopOpacity="0.95" />
+                    <stop offset="0%" stopColor="#0284c7" stopOpacity="0.95" />
+                    <stop offset="35%" stopColor="#9333ea" stopOpacity="0.95" />
+                    <stop offset="70%" stopColor="#db2777" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#059669" stopOpacity="0.95" />
                   </linearGradient>
                   <filter id="vertGlow" x="-30%" y="-10%" width="160%" height="120%">
                     <feGaussianBlur stdDeviation="8" result="blur" />
@@ -648,10 +648,10 @@ export function TrainingSection() {
                   </filter>
                 </defs>
 
-                {/* 1. Base Dark Asphalt Bed */}
+                {/* 1. Base Slate Roadbed */}
                 <path
                   d="M 100,20 C 20,160 180,300 100,440 C 20,580 180,720 100,860 C 20,960 180,1040 100,1080"
-                  stroke="#080c18"
+                  stroke="#e2e8f0"
                   strokeWidth="20"
                   strokeLinecap="round"
                 />
@@ -662,7 +662,7 @@ export function TrainingSection() {
                   stroke={`url(#vertRoadGradient-${selectedTrack.id})`}
                   strokeWidth="24"
                   strokeLinecap="round"
-                  opacity="0.3"
+                  opacity="0.15"
                   filter="url(#vertGlow)"
                   style={{ pathLength: scrollYProgress }}
                 />
@@ -698,7 +698,7 @@ export function TrainingSection() {
               >
                 <path
                   d="M 16,10 C 28,150 4,300 16,450 C 28,600 4,750 16,900 C 28,1000 4,1060 16,1090"
-                  stroke="#080c18"
+                  stroke="#e2e8f0"
                   strokeWidth="12"
                   strokeLinecap="round"
                 />
@@ -737,47 +737,47 @@ export function TrainingSection() {
                     >
                       {/* Left or Right Card */}
                       <div className="w-full md:w-1/2 pl-12 md:pl-0">
-                        <div className="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-white/25 transition-all duration-300 group relative overflow-hidden shadow-xl">
+                        <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 hover:border-blue-300 transition-all duration-300 group relative overflow-hidden shadow-sm hover:shadow-md">
                           {/* Card Ambient Glow */}
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-transparent rounded-full blur-xl pointer-events-none group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-transparent rounded-full blur-xl pointer-events-none group-hover:opacity-100 transition-opacity" />
 
                           {/* Phase Capsule & Step */}
                           <div className="flex items-center justify-between gap-2 mb-3">
-                            <span className={`text-[11px] font-bold px-3 py-0.5 rounded-full bg-gradient-to-r ${selectedTrack.accentGradient} text-white shadow-sm`}>
+                            <span className={`text-[11px] font-bold px-3 py-0.5 rounded-full bg-gradient-to-r ${selectedTrack.accentGradient} text-white shadow-xs`}>
                               {milestone.phase}
                             </span>
-                            <span className="text-[10px] font-semibold text-slate-300 bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
+                            <span className="text-[10px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200">
                               {milestone.milestone}
                             </span>
                           </div>
 
                           {/* Title */}
-                          <h4 className="text-base sm:text-lg font-bold text-white mb-2 leading-snug group-hover:text-cyan-200 transition-colors">
+                          <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
                             {milestone.title}
                           </h4>
 
                           {/* Description */}
-                          <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                          <p className="text-xs text-slate-600 leading-relaxed mb-4">
                             {milestone.desc}
                           </p>
 
                           {/* Key Topics List */}
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-white/5 mb-3.5">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-slate-100 mb-3.5">
                             {milestone.topics.map((topic, tIdx) => (
-                              <div key={tIdx} className="flex items-start gap-1.5 text-xs text-slate-300">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                              <div key={tIdx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                                 <span className="leading-tight">{topic}</span>
                               </div>
                             ))}
                           </div>
 
                           {/* Tools taught pills */}
-                          <div className="pt-3 border-t border-white/5 flex flex-wrap items-center gap-1.5">
-                            <span className="text-[10px] text-slate-400 font-semibold mr-1">Tools:</span>
+                          <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5">
+                            <span className="text-[10px] text-slate-500 font-semibold mr-1">Tools:</span>
                             {milestone.tools.map((tool, toolIdx) => (
                               <span 
                                 key={toolIdx} 
-                                className="text-[10px] px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-slate-300 font-mono"
+                                className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-mono"
                               >
                                 {tool}
                               </span>
@@ -789,8 +789,8 @@ export function TrainingSection() {
                       {/* Center Node Badge on the Highway */}
                       <div className="absolute left-1 md:left-1/2 -translate-x-0 md:-translate-x-1/2 flex items-center justify-center z-20">
                         <div 
-                          style={{ boxShadow: `0 0 20px ${selectedTrack.glowColor}` }}
-                          className="w-10 h-10 rounded-full bg-[#070913] border-2 border-white/40 flex items-center justify-center shrink-0 group hover:scale-110 transition-transform"
+                          style={{ boxShadow: `0 0 15px ${selectedTrack.glowColor}` }}
+                          className="w-10 h-10 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0 group hover:scale-110 transition-transform shadow-sm"
                         >
                           <div className={`w-8 h-8 rounded-full bg-gradient-to-tr ${selectedTrack.accentGradient} flex items-center justify-center text-white font-black text-xs`}>
                             {milestone.step}
@@ -808,8 +808,8 @@ export function TrainingSection() {
 
             {/* Vertical Finish Line / Graduation Flag Banner */}
             <div className="mt-12 text-center relative z-10">
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-bold shadow-[0_0_25px_rgba(16,185,129,0.25)]">
-                <Flag className="w-4 h-4 text-emerald-400 animate-bounce" /> {selectedTrack.title} Certified Graduation & Placement Summit
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold shadow-sm">
+                <Flag className="w-4 h-4 text-emerald-600 animate-bounce" /> {selectedTrack.title} Certified Graduation & Placement Summit
               </div>
             </div>
           </div>
@@ -818,36 +818,36 @@ export function TrainingSection() {
         {/* Dual Application CTA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {/* For Students / Career Switchers */}
-          <div className="glass-card rounded-2xl p-6 sm:p-7 border border-purple-500/30 relative overflow-hidden flex flex-col justify-between group shadow-xl">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/15 rounded-bl-full blur-xl pointer-events-none" />
+          <div className="glass-card rounded-2xl p-6 sm:p-7 border border-purple-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/5 rounded-bl-full blur-xl pointer-events-none" />
             <div>
-              <span className="text-xs font-bold text-purple-400 uppercase tracking-wider block mb-1.5">For Students & Growth Marketers</span>
-              <h4 className="text-xl font-bold text-white mb-2">Enroll in {selectedTrack.shortTitle}</h4>
-              <p className="text-xs text-slate-300 leading-relaxed mb-5">
+              <span className="text-xs font-bold text-purple-700 uppercase tracking-wider block mb-1.5">For Students & Growth Marketers</span>
+              <h4 className="text-xl font-bold text-slate-950 mb-2">Enroll in {selectedTrack.shortTitle}</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-5">
                 Master real-world campaigns under senior mentorship. Limited to 25 seats per cohort with live portfolio building and direct hiring introductions.
               </p>
             </div>
             <Link
               href="#contact"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-purple to-pink-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] transition-all cursor-pointer border border-white/20"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-purple to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:shadow-md transition-all cursor-pointer shadow-xs"
             >
               Apply for {selectedTrack.shortTitle} Cohort <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
           {/* For Brands Looking to Hire */}
-          <div className="glass-card rounded-2xl p-6 sm:p-7 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between group shadow-xl">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/15 rounded-bl-full blur-xl pointer-events-none" />
+          <div className="glass-card rounded-2xl p-6 sm:p-7 border border-blue-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/5 rounded-bl-full blur-xl pointer-events-none" />
             <div>
-              <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-1.5">For Agencies & Scale-Ups</span>
-              <h4 className="text-xl font-bold text-white mb-2">Hire Pre-Trained Specialists</h4>
-              <p className="text-xs text-slate-300 leading-relaxed mb-5">
+              <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-1.5">For Agencies & Scale-Ups</span>
+              <h4 className="text-xl font-bold text-slate-950 mb-2">Hire Pre-Trained Specialists</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-5">
                 Skip 3-month onboarding ramps. Hire pre-vetted specialists certified in {selectedTrack.shortTitle} with live account experience.
               </p>
             </div>
             <Link
               href="#contact"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all cursor-pointer border border-white/20"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:shadow-md transition-all cursor-pointer shadow-xs"
             >
               Request Trained Graduate Roster <ArrowRight className="w-3.5 h-3.5" />
             </Link>

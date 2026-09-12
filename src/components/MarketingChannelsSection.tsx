@@ -191,32 +191,32 @@ export function MarketingChannelsSection() {
   };
 
   return (
-    <section id="channels" className="py-20 bg-transparent border-t border-white/10 relative overflow-hidden z-10">
+    <section id="channels" className="py-20 bg-transparent border-t border-slate-200/80 relative overflow-hidden z-10">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header with Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs uppercase tracking-wider font-bold mb-3 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs uppercase tracking-wider font-bold mb-3 shadow-sm">
               <Cpu className="w-3.5 h-3.5" /> Full-Stack Digital Marketing Arsenal
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight mb-3">
               Omnichannel Dominance <br className="hidden sm:block" />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
                 Across 9 Strategic Channels
               </span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               We engineer interconnected multi-channel ecosystems where every ad dollar generates algorithmic synergy across all major advertising networks.
             </p>
           </div>
 
           {/* Navigation Controls & Counter */}
           <div className="flex items-center gap-3 shrink-0">
-            <span className="text-xs font-semibold text-slate-400 hidden sm:inline-block">
+            <span className="text-xs font-semibold text-slate-500 hidden sm:inline-block">
               9 Active Networks
             </span>
             <div className="flex items-center gap-2">
@@ -226,8 +226,8 @@ export function MarketingChannelsSection() {
                 aria-label="Scroll left"
                 className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
                   canScrollLeft
-                    ? "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:scale-105 active:scale-95 shadow-md"
-                    : "bg-white/5 border-white/5 text-slate-500 cursor-not-allowed opacity-50"
+                    ? "bg-white border-slate-200 text-slate-800 hover:bg-slate-50 hover:scale-105 active:scale-95 shadow-sm"
+                    : "bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed opacity-50"
                 }`}
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -238,8 +238,8 @@ export function MarketingChannelsSection() {
                 aria-label="Scroll right"
                 className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
                   canScrollRight
-                    ? "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:scale-105 active:scale-95 shadow-md"
-                    : "bg-white/5 border-white/5 text-slate-500 cursor-not-allowed opacity-50"
+                    ? "bg-white border-slate-200 text-slate-800 hover:bg-slate-50 hover:scale-105 active:scale-95 shadow-sm"
+                    : "bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed opacity-50"
                 }`}
               >
                 <ChevronRight className="w-4 h-4" />
@@ -267,39 +267,39 @@ export function MarketingChannelsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 whileHover={{ y: -5 }}
-                className={`w-[300px] sm:w-[335px] shrink-0 snap-start glass-card rounded-2xl p-5 relative overflow-hidden border border-white/10 transition-all duration-300 ${ch.border} flex flex-col justify-between group shadow-xl`}
+                className={`w-[300px] sm:w-[335px] shrink-0 snap-start glass-card rounded-2xl p-5 relative overflow-hidden border border-slate-200/80 transition-all duration-300 ${ch.border} flex flex-col justify-between group shadow-sm hover:shadow-md`}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${ch.gradient} opacity-40 group-hover:opacity-100 transition-opacity pointer-events-none`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${ch.gradient} opacity-25 group-hover:opacity-60 transition-opacity pointer-events-none`} />
 
                 <div className="relative z-10">
                   {/* Top Header */}
                   <div className="flex items-center justify-between gap-2 mb-3.5">
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform">
+                    <div className="p-2.5 rounded-xl bg-white border border-slate-200 group-hover:scale-110 transition-transform shadow-xs">
                       {ch.icon}
                     </div>
-                    <span className="text-[10px] font-bold text-slate-300 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10 truncate max-w-[170px]">
+                    <span className="text-[10px] font-bold text-slate-700 bg-white/90 px-2.5 py-0.5 rounded-full border border-slate-200 truncate max-w-[170px] shadow-xs">
                       {ch.badge}
                     </span>
                   </div>
 
                   {/* Channel Title */}
                   <div className="flex items-center gap-1.5 mb-1.5">
-                    <span className="text-[10px] font-mono font-bold text-slate-500">0{idx + 1}</span>
-                    <h3 className="text-base font-bold text-white group-hover:text-cyan-200 transition-colors">
+                    <span className="text-[10px] font-mono font-bold text-slate-400">0{idx + 1}</span>
+                    <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {ch.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs text-slate-300 leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
                     {ch.desc}
                   </p>
 
                   {/* Features list */}
-                  <div className="space-y-1.5 pt-3 border-t border-white/5">
+                  <div className="space-y-1.5 pt-3 border-t border-slate-100">
                     {ch.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-1.5 text-xs text-slate-300">
-                        <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                      <div key={fIdx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                        <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                         <span className="leading-tight truncate">{feat}</span>
                       </div>
                     ))}
@@ -307,10 +307,10 @@ export function MarketingChannelsSection() {
                 </div>
 
                 {/* Card Action Link */}
-                <div className="relative z-10 pt-3.5 mt-4 border-t border-white/5 flex items-center justify-between">
+                <div className="relative z-10 pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between">
                   <Link
                     href="#contact"
-                    className="text-xs font-bold text-cyan-400 hover:text-white flex items-center gap-1 transition-colors group/link cursor-pointer"
+                    className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors group/link cursor-pointer"
                   >
                     Deploy this channel <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
@@ -321,9 +321,9 @@ export function MarketingChannelsSection() {
           </div>
 
           {/* Bottom helper prompt */}
-          <div className="flex items-center justify-between text-xs text-slate-400 mt-2 px-1">
+          <div className="flex items-center justify-between text-xs text-slate-500 mt-2 px-1">
             <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
               Scroll or drag horizontally to view all 9 specialized channels
             </span>
             <span className="font-mono text-[11px] text-slate-400">
