@@ -187,29 +187,31 @@ export function ServicesSection() {
               whileHover={{ y: -4 }}
               className={`glass-card rounded-2xl p-5 sm:p-6 relative overflow-hidden border border-white/10 transition-all duration-300 ${service.border} group flex flex-col justify-between`}
             >
-              {/* Background Image Layer (Behind the Text) */}
+              {/* Background Image Layer (Behind the Text - Highly Visible & Vibrant) */}
               {service.image && (
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 rounded-2xl">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover object-center opacity-25 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
+                    priority
+                    className="object-cover object-center opacity-65 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070913] via-[#070913]/85 to-[#070913]/65" />
+                  {/* Subtle directional scrim to ensure text remains 100% legible */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070913]/95 via-[#070913]/55 to-[#070913]/30" />
                 </div>
               )}
 
               <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${service.accent} rounded-bl-full blur-xl pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity z-0`} />
 
-              <div className="relative z-10">
+              <div className="relative z-10 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                 {/* Header row */}
                 <div className="flex items-center justify-between gap-2 mb-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/15 shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-inner">
+                  <div className="w-10 h-10 rounded-xl bg-black/50 backdrop-blur-md flex items-center justify-center border border-white/20 shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-lg">
                     {service.icon}
                   </div>
-                  <span className="text-[10px] font-extrabold text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                  <span className="text-[10px] font-extrabold text-emerald-300 bg-black/60 backdrop-blur-md border border-emerald-500/40 px-2 py-0.5 rounded-full flex items-center gap-1 shadow-md">
                     <TrendingUp className="w-3 h-3" /> {service.impact}
                   </span>
                 </div>
@@ -223,7 +225,7 @@ export function ServicesSection() {
                   </h3>
                 </div>
                 
-                <p className="text-slate-300 text-xs leading-relaxed mb-4 line-clamp-2">
+                <p className="text-slate-200 text-xs leading-relaxed mb-4 line-clamp-2">
                   {service.description}
                 </p>
 
@@ -231,7 +233,7 @@ export function ServicesSection() {
                 <div className="pt-3 border-t border-white/10">
                   <ul className="space-y-1.5">
                     {service.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-start gap-1.5 text-xs text-slate-200">
+                      <li key={fIndex} className="flex items-start gap-1.5 text-xs text-white">
                         <CheckCircle2 className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
                         <span className="leading-tight line-clamp-1">{feature}</span>
                       </li>
@@ -241,7 +243,7 @@ export function ServicesSection() {
               </div>
 
               {/* Action Button */}
-              <div className="pt-3.5 mt-4 border-t border-white/10 flex items-center justify-between relative z-10">
+              <div className="pt-3.5 mt-4 border-t border-white/10 flex items-center justify-between relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 <Link
                   href="#contact"
                   className="text-xs font-bold text-cyan-300 hover:text-white flex items-center gap-1 transition-colors group/link"
