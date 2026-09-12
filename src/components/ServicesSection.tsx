@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export function ServicesSection() {
   const services = [
@@ -24,6 +25,7 @@ export function ServicesSection() {
       badge: "Organic Dominance",
       title: "Search Marketing & SEO / GEO",
       description: "Continuous technical, semantic, and structural optimization to rank on search engines and generative AI answers.",
+      image: "/seo-organic-dominance.jpg",
       features: [
         "Technical SEO & Speed Optimization",
         "Generative Engine Optimization (GEO)",
@@ -32,8 +34,8 @@ export function ServicesSection() {
       ],
       impact: "Avg +240% Traffic",
       icon: <Search className="h-5 w-5 text-cyan-400" />,
-      accent: "from-cyan-500/20 to-blue-500/5",
-      border: "hover:border-cyan-500/40",
+      accent: "from-cyan-500/20 to-emerald-500/5",
+      border: "hover:border-cyan-400/50 border-cyan-500/25",
     },
     {
       badge: "High ROAS Scale",
@@ -188,6 +190,20 @@ export function ServicesSection() {
               <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${service.accent} rounded-bl-full blur-xl pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity`} />
 
               <div>
+                {/* Visual Image Banner for Search SEO card */}
+                {service.image && (
+                  <div className="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden mb-4 border border-white/10 group-hover:border-cyan-400/40 transition-all shadow-lg bg-black/40">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070913]/80 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                )}
+
                 {/* Header row */}
                 <div className="flex items-center justify-between gap-2 mb-3.5">
                   <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/15 shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-inner">
