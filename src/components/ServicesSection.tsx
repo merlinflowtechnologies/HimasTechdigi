@@ -187,19 +187,21 @@ export function ServicesSection() {
               whileHover={{ y: -4 }}
               className={`glass-card rounded-2xl p-5 sm:p-6 relative overflow-hidden border border-white/10 transition-all duration-300 ${service.border} group flex flex-col justify-between`}
             >
-              {/* Background Image Layer (Behind the Text - Highly Visible & Vibrant) */}
+              {/* Background Image Layer (Fitted neatly inside the card boundary) */}
               {service.image && (
-                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 rounded-2xl">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    priority
-                    className="object-cover object-center opacity-65 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  {/* Subtle directional scrim to ensure text remains 100% legible */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070913]/95 via-[#070913]/55 to-[#070913]/30" />
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 rounded-2xl p-2 sm:p-3">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      priority
+                      className="object-contain object-center opacity-75 group-hover:opacity-95 group-hover:scale-[1.02] transition-all duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  {/* Subtle directional scrim to keep foreground text 100% sharp */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070913]/90 via-[#070913]/55 to-[#070913]/30 rounded-2xl" />
                 </div>
               )}
 
