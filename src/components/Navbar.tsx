@@ -62,12 +62,12 @@ export function Navbar() {
           </div>
 
           {/* Desktop Nav Items */}
-          <div className="hidden xl:flex space-x-6 items-center">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative text-xs font-semibold transition-all group tracking-wide uppercase ${
+                className={`relative text-[11px] xl:text-xs font-semibold transition-all group tracking-wider uppercase whitespace-nowrap ${
                   link.isSpecial 
                     ? "text-cyan-300 hover:text-white px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 hover:border-cyan-400/50 shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center gap-1.5"
                     : "text-slate-300 hover:text-white"
@@ -83,27 +83,22 @@ export function Navbar() {
           </div>
 
           {/* Action Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden sm:flex items-center">
             <Link
-              href="#roi-calculator"
-              className="text-xs font-bold text-slate-300 hover:text-cyan-400 transition-colors hidden lg:block"
+              href="/#contact"
+              className="px-4 xl:px-5 py-2 xl:py-2.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white text-xs font-bold uppercase tracking-wider transition-all hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:scale-105 flex items-center gap-1.5 border border-white/20 whitespace-nowrap"
             >
-              Simulate ROI
-            </Link>
-            <Link
-              href="#contact"
-              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white text-xs font-bold uppercase tracking-wider transition-all hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:scale-105 flex items-center gap-1.5 border border-white/20"
-            >
-              <Sparkles className="w-3.5 h-3.5" /> Get Free Audit
+              <Sparkles className="w-3.5 h-3.5" /> 
+              <span>Get Free Audit</span>
             </Link>
           </div>
 
           {/* Mobile hamburger */}
-          <div className="xl:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
-              className="p-2 rounded-xl bg-white/5 text-gray-300 hover:text-white focus:outline-none border border-white/10"
+              className="p-2 rounded-xl bg-white/5 text-gray-300 hover:text-white focus:outline-none border border-white/10 cursor-pointer"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -118,14 +113,18 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden bg-[#030712]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
+            className="lg:hidden bg-[#030712]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden shadow-2xl"
           >
             <div className="px-5 pt-4 pb-8 space-y-2 max-w-lg mx-auto">
               {links.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block px-4 py-3 rounded-xl text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all"
+                  className={`block px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+                    link.isSpecial
+                      ? "text-cyan-300 bg-cyan-500/10 border border-cyan-500/20"
+                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -133,7 +132,7 @@ export function Navbar() {
               ))}
               <div className="pt-4">
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   className="block text-center px-4 py-3.5 rounded-xl text-sm font-bold bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white shadow-[0_0_30px_rgba(99,102,241,0.5)] border border-white/20"
                   onClick={() => setIsOpen(false)}
                 >
