@@ -28,19 +28,13 @@ export function SplashScreen() {
   ];
 
   useEffect(() => {
-    const hasSeenSplash = sessionStorage.getItem("himastech_splash_seen");
-    if (hasSeenSplash) {
-      setLoading(false);
-      return;
-    }
-
+    // Guaranteed to display on page load
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setTimeout(() => {
             setLoading(false);
-            sessionStorage.setItem("himastech_splash_seen", "true");
           }, 450);
           return 100;
         }
@@ -61,7 +55,6 @@ export function SplashScreen() {
 
   const handleSkip = () => {
     setLoading(false);
-    sessionStorage.setItem("himastech_splash_seen", "true");
   };
 
   return (
