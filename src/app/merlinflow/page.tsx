@@ -235,7 +235,7 @@ export default function MerlinflowPortfolioPage() {
         <div className="flex items-center gap-2 text-xs text-slate-500 mb-8">
           <Link href="/" className="hover:text-blue-600 transition-colors">Himastech</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-blue-700 font-semibold">Merlinflow Tech Portfolio</span>
+          <span className="text-blue-700 font-semibold">Merlinflow Technologies Pvt Ltd</span>
         </div>
 
         {/* Hero Banner */}
