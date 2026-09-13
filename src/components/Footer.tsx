@@ -10,13 +10,13 @@ export function Footer() {
           {/* Col 1: Brand info */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6 group">
-              <div className="relative h-11 w-auto max-w-[220px] transition-transform duration-300 group-hover:scale-105">
+              <div className="relative h-14 w-auto transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/logo1.png"
+                  src="/logo-main.png"
                   alt="Himastech Digital Reality Marketing"
-                  width={240}
-                  height={64}
-                  className="h-11 w-auto object-contain"
+                  width={180}
+                  height={180}
+                  className="h-14 w-auto object-contain"
                 />
               </div>
             </Link>

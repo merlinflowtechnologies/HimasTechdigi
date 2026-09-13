@@ -47,14 +47,14 @@ export function Navbar() {
           {/* Brand Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group py-1">
-              <div className="relative h-10 sm:h-12 w-auto max-w-[220px] transition-transform duration-300 group-hover:scale-105">
+              <div className="relative h-12 sm:h-14 w-auto transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/logo1.png"
+                  src="/logo-main.png"
                   alt="Himastech Digital Reality Marketing"
-                  width={240}
-                  height={64}
+                  width={180}
+                  height={180}
                   priority
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  className="h-12 sm:h-14 w-auto object-contain"
                 />
               </div>
             </Link>
