@@ -115,7 +115,7 @@ export function AIChatbot() {
       }
 
       return {
-        text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 6304989071\n• **WhatsApp Direct Desk:** +91 6304989071\n• **Official Email:** info@himastech.com\n• **Operational Hub:** Merlinflow Technologies & HimasTech, Nagole, Hyderabad, Telangana 500068, India\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
+        text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 6304989071\n• **WhatsApp Direct Desk:** +91 6304989071\n• **Official Email:** info@himastech.com\n• **Operational Hub:** Nagole, Hyderabad, Telangana, India\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
         cta: { 
           label: "Chat Directly on WhatsApp (+91 6304989071)", 
           href: "https://wa.me/916304989071?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20marketing%20growth%20strategy", 

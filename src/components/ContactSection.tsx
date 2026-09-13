@@ -146,7 +146,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <div className="text-[9px] text-slate-500 font-medium uppercase tracking-wider">Operational Center</div>
-                      <div className="text-xs sm:text-sm font-bold text-slate-900">Nagole, Hyderabad, India</div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900">Nagole, Hyderabad, Telangana, India</div>
                     </div>
                   </div>
                 </div>

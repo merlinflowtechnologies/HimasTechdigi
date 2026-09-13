@@ -74,7 +74,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-slate-700">
                 <MapPin className="w-3.5 h-3.5 text-pink-600 shrink-0 mt-0.5" />
-                <span>Merlinflow Technologies & HimasTech,<br />Nagole, Hyderabad, Telangana 500068, India</span>
+                <span>Nagole, Hyderabad, Telangana, India</span>
               </li>
             </ul>
             
