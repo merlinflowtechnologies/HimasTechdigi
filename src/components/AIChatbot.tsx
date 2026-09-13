@@ -100,7 +100,7 @@ export function AIChatbot() {
     ) {
       if (isMerlinflow) {
         return {
-          text: "📞 **Merlinflow Official Contact & Demo Desks:**\n\n• **Direct Solutions Desk 1:** +91 8374373753\n• **Direct Solutions Desk 2:** +91 8247716878\n• **Official Email:** info@himastech.com / support@merlinflow.in\n• **Operational Hub:** Merlinflow Technologies Pvt Ltd, Hyderabad, India\n\nOur senior software engineers are available on WhatsApp for immediate demo bookings and architecture planning.",
+          text: "📞 **Merlinflow Official Contact & Demo Desks:**\n\n• **Direct Solutions Desk 1:** +91 8374373753\n• **Direct Solutions Desk 2:** +91 8247716878\n• **Official Email:** info@merlinflow.in\n• **Operational Hub:** Merlinflow Technologies Pvt Ltd, Hyderabad, India\n\nOur senior software engineers are available on WhatsApp for immediate demo bookings and architecture planning.",
           cta: { 
             label: "Chat with Desk 1 (+91 8374373753)", 
             href: "https://wa.me/918374373753?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20discuss%20our%20enterprise%20software%20requirements", 
