@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   icons: {
-    icon: "/logo.jpeg",
-    apple: "/logo.jpeg",
+    icon: "/logo1.png",
+    apple: "/logo1.png",
   },
   robots: {
     index: true,
