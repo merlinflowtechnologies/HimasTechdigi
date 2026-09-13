@@ -12,11 +12,11 @@ export function Footer() {
             <Link href="/" className="inline-block mb-6 group">
               <div className="relative h-11 w-auto max-w-[220px] transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/logo1.png"
+                  src="/logo.jpeg"
                   alt="Himastech Digital Reality Marketing"
                   width={240}
                   height={64}
-                  className="h-11 w-auto object-contain"
+                  className="h-11 w-auto object-contain rounded-md"
                 />
               </div>
             </Link>

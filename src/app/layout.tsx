@@ -37,6 +37,10 @@ export const metadata: Metadata = {
     description: "Scale your brand with precision marketing.",
     images: ["/og-image.jpg"],
   },
+  icons: {
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   robots: {
     index: true,
     follow: true,
