@@ -456,16 +456,30 @@ export default function MerlinflowPortfolioPage() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-200">
-                <a
-                  href="https://wa.me/916304989071?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20book%20a%20product%20demo%20for%20your%20SaaS%20ERP%20solutions."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Direct WhatsApp Inquiries: +91 6304989071</span>
-                </a>
+              <div className="pt-4 border-t border-slate-200 space-y-2.5">
+                <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  Direct WhatsApp & Inquiries:
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4 flex-wrap">
+                  <a
+                    href="https://wa.me/918374373753?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20book%20a%20product%20demo%20for%20your%20SaaS%20ERP%20solutions."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Desk 1: +91 8374373753</span>
+                  </a>
+                  <a
+                    href="https://wa.me/918247716878?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20book%20a%20product%20demo%20for%20your%20SaaS%20ERP%20solutions."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Desk 2: +91 8247716878</span>
+                  </a>
+                </div>
               </div>
             </div>
 

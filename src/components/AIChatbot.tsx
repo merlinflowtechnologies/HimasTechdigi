@@ -18,6 +18,7 @@ import {
   Building,
   DollarSign
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 interface ChatMessage {
@@ -38,21 +39,32 @@ export function AIChatbot() {
   const [inputText, setInputText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  const isMerlinflow = pathname?.includes("merlinflow");
 
   const initialMessages: ChatMessage[] = [
     {
       id: "1",
       sender: "bot",
-      text: "👋 Welcome to Himastech! I'm your AI Growth Strategist. I have complete knowledge of our performance marketing services, 5 training tracks, case studies, and leadership team.\n\nHow can I help you scale today?",
+      text: isMerlinflow
+        ? "👋 Welcome to **Merlinflow Technologies**! I can answer questions about our SaaS ERP suites (School IMS, Medical ERP, Restaurant OS, E-Commerce), schedule a 1-on-1 live product demo, or connect you with our engineering directors."
+        : "👋 Welcome to **Himastech**! I am your AI Growth & Strategy Assistant. How can I help multiply your revenue today?",
       timestamp: "Just now",
-      options: [
-        "📞 What is your phone / WhatsApp number?",
-        "⚡ How fast can you scale our ROAS?",
-        "📊 What is included in the Free 48-Hr Audit?",
-        "🎓 Tell me about the 5 Training Tracks",
-        "🏢 Who is the leadership team & founders?",
-        "💼 What services do you offer?",
-      ],
+      options: isMerlinflow
+        ? [
+            "📞 What are the direct WhatsApp numbers?",
+            "🚀 Schedule a Guided Software Demo",
+            "🏢 Explore School IMS, Medical & Restaurant ERP",
+            "💰 Custom Pricing & Cloud Migration"
+          ]
+        : [
+            "⚡ How fast can you scale our ROAS?",
+            "📊 What is included in the Free 48-Hr Audit?",
+            "🎓 Tell me about the 5 Training Tracks",
+            "🏢 Who is the leadership team & founders?",
+            "💼 What services do you offer?",
+          ],
     },
   ];
 
@@ -82,8 +94,26 @@ export function AIChatbot() {
       q.includes("reach") ||
       q.includes("email") ||
       q.includes("address") ||
-      q.includes("location")
+      q.includes("location") ||
+      q.includes("8374373753") ||
+      q.includes("8247716878")
     ) {
+      if (isMerlinflow) {
+        return {
+          text: "📞 **Merlinflow Official Contact & Demo Desks:**\n\n• **Direct Solutions Desk 1:** +91 8374373753\n• **Direct Solutions Desk 2:** +91 8247716878\n• **Official Email:** info@himastech.com / support@merlinflow.in\n• **Operational Hub:** Merlinflow Technologies Pvt Ltd, Hyderabad, India\n\nOur senior software engineers are available on WhatsApp for immediate demo bookings and architecture planning.",
+          cta: { 
+            label: "Chat with Desk 1 (+91 8374373753)", 
+            href: "https://wa.me/918374373753?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20discuss%20our%20enterprise%20software%20requirements", 
+            isExternal: true 
+          },
+          options: [
+            "⚡ Chat with Desk 2 (+91 8247716878)", 
+            "🚀 Book Live Software Demo", 
+            "🏢 Explore ERP Modules"
+          ]
+        };
+      }
+
       return {
         text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 6304989071\n• **WhatsApp Direct Desk:** +91 6304989071\n• **Official Email:** info@himastech.com\n• **Operational Hub:** Merlinflow Technologies & HimasTech, Nagole, Hyderabad, Telangana 500068, India\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
         cta: { 
@@ -92,6 +122,19 @@ export function AIChatbot() {
           isExternal: true 
         },
         options: ["📊 Request Free 48-Hr Audit", "🎓 Explore Training Academy", "⚡ What ROAS can you achieve?"]
+      };
+    }
+
+    // 1b. Direct Desk 2 query
+    if (q.includes("desk 2") || q.includes("8247716878")) {
+      return {
+        text: "📞 **Merlinflow Direct Desk 2 (+91 8247716878):**\n\nConnect with our secondary solutions architect for rapid onboarding and custom ERP modules.",
+        cta: {
+          label: "Open WhatsApp (+91 8247716878)",
+          href: "https://wa.me/918247716878?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20inquire%20about%20custom%20ERP%20solutions",
+          isExternal: true
+        },
+        options: ["📞 Connect with Desk 1 (+91 8374373753)", "🚀 Book Live Software Demo"]
       };
     }
 
@@ -340,14 +383,14 @@ export function AIChatbot() {
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
-                    Himastech AI Strategist
+                    {isMerlinflow ? "Merlinflow AI Assistant" : "Himastech AI Strategist"}
                     <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 font-mono border border-blue-200">
                       100% Accurate
                     </span>
                   </h3>
                   <span className="text-[11px] text-emerald-600 font-medium flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                    Live Desk • +91 6304989071
+                    {isMerlinflow ? "Live Desk • +91 8374373753 / 8247716878" : "Live Desk • +91 6304989071"}
                   </span>
                 </div>
               </div>
@@ -453,7 +496,7 @@ export function AIChatbot() {
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask about phone, ROAS, training, audit..."
+                  placeholder={isMerlinflow ? "Ask about School IMS, Medical ERP, demos..." : "Ask about phone, ROAS, training, audit..."}
                   className="flex-1 bg-transparent text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none"
                 />
                 <button
@@ -470,10 +513,20 @@ export function AIChatbot() {
                 </button>
               </div>
               <div className="flex items-center justify-between text-[10px] text-slate-500 mt-1.5 px-1">
-                <span>⚡ Call / WhatsApp: +91 6304989071</span>
-                <Link href="#contact" onClick={() => setIsOpen(false)} className="text-blue-600 hover:underline font-medium">
-                  Free 48h Audit →
-                </Link>
+                <span>
+                  {isMerlinflow
+                    ? "⚡ Merlinflow WhatsApp: +91 8374373753 / 8247716878"
+                    : "⚡ Call / WhatsApp: +91 6304989071"}
+                </span>
+                {isMerlinflow ? (
+                  <a href="#demo" onClick={() => setIsOpen(false)} className="text-emerald-600 hover:underline font-bold">
+                    Live Demo →
+                  </a>
+                ) : (
+                  <Link href="#contact" onClick={() => setIsOpen(false)} className="text-blue-600 hover:underline font-medium">
+                    Free 48h Audit →
+                  </Link>
+                )}
               </div>
             </div>
           </motion.div>
@@ -493,7 +546,7 @@ export function AIChatbot() {
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-slate-800 text-xs font-semibold shadow-md cursor-pointer hover:border-blue-300 hover:text-blue-600 transition-colors"
             >
               <Sparkles className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
-              Ask AI Growth Bot
+              {isMerlinflow ? "Ask Merlinflow AI" : "Ask AI Growth Bot"}
             </motion.div>
           )}
         </AnimatePresence>

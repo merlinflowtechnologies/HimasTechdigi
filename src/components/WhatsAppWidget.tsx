@@ -1,16 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Sparkles, ArrowRight } from "lucide-react";
+import { MessageCircle, X, Sparkles, ArrowRight, Phone } from "lucide-react";
 
 export function WhatsAppWidget() {
   const [isHovered, setIsHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  const phoneNumber = "+916304989071"; // Verified business WhatsApp desk
-  const defaultMessage = "Hi Himastech team, I would like to learn more about your data-driven marketing services and training tracks.";
-  const whatsappUrl = `https://wa.me/916304989071?text=${encodeURIComponent(defaultMessage)}`;
+  const isMerlinflow = pathname?.includes("merlinflow");
+
+  const merlinflowNum1 = "918374373753";
+  const merlinflowNum2 = "918247716878";
+  const himastechNum = "916304989071";
+
+  const defaultMessage = isMerlinflow
+    ? "Hi Merlinflow team, I would like to book a product demo for your SaaS ERP solutions."
+    : "Hi Himastech team, I would like to learn more about your data-driven marketing services and training tracks.";
+
+  const primaryUrl = isMerlinflow
+    ? `https://wa.me/${merlinflowNum1}?text=${encodeURIComponent(defaultMessage)}`
+    : `https://wa.me/${himastechNum}?text=${encodeURIComponent(defaultMessage)}`;
+
+  const secondaryUrl = `https://wa.me/${merlinflowNum2}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
     <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start font-sans">
@@ -22,7 +36,7 @@ export function WhatsAppWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="mb-3 w-72 sm:w-80 rounded-2xl bg-[#0d141e]/95 backdrop-blur-xl border border-emerald-500/30 p-4 shadow-[0_10px_40px_rgba(37,211,102,0.25)] relative overflow-hidden"
+            className="mb-3 w-72 sm:w-84 rounded-2xl bg-[#0d141e]/95 backdrop-blur-xl border border-emerald-500/30 p-4 shadow-[0_10px_40px_rgba(37,211,102,0.25)] relative overflow-hidden"
           >
             {/* Ambient Green Flare */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
@@ -39,13 +53,15 @@ export function WhatsAppWidget() {
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#0d141e] animate-pulse" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white leading-tight">Himastech Growth Desk</h4>
+                  <h4 className="text-xs font-bold text-white leading-tight">
+                    {isMerlinflow ? "Merlinflow Solutions Desk" : "Himastech Growth Desk"}
+                  </h4>
                   <span className="text-[10px] text-emerald-400 font-medium">Online • Typically replies in 5m</span>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                 aria-label="Close WhatsApp prompt"
               >
                 <X className="w-4 h-4" />
@@ -54,18 +70,43 @@ export function WhatsAppWidget() {
 
             {/* Chat Bubble Message */}
             <div className="rounded-xl bg-white/5 border border-white/10 p-3 mb-3 text-xs text-slate-200 leading-relaxed">
-              👋 Hey! Looking to scale your ad ROAS or explore digital marketing training? Let&apos;s talk directly on WhatsApp.
+              {isMerlinflow
+                ? "👋 Hey! Looking to schedule a software demo or discuss custom ERP deployments? Connect with our technical directors directly."
+                : "👋 Hey! Looking to scale your ad ROAS or explore digital marketing training? Let's talk directly on WhatsApp."}
             </div>
 
-            {/* Direct CTA */}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20bd5a] hover:to-[#0f7a6e] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Start WhatsApp Chat <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            {/* Direct CTA Buttons */}
+            {isMerlinflow ? (
+              <div className="space-y-2">
+                <a
+                  href={primaryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20bd5a] hover:to-[#0f7a6e] text-white text-xs font-bold flex items-center justify-between shadow-md shadow-emerald-600/30 transition-all hover:scale-[1.01] active:scale-[0.99]"
+                >
+                  <span>Chat Desk 1 (+91 8374373753)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href={secondaryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center justify-between transition-all hover:scale-[1.01] active:scale-[0.99]"
+                >
+                  <span>Chat Desk 2 (+91 8247716878)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            ) : (
+              <a
+                href={primaryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20bd5a] hover:to-[#0f7a6e] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Start WhatsApp Chat <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
