@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastech.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastechdigi.com";
 
 export const metadata: Metadata = {
   title: "Merlinflow Technologies | Enterprise PropTech ERP, CRM & AI Growth Suite",

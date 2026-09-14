@@ -6,7 +6,7 @@ import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 import { AIChatbot } from "@/components/AIChatbot";
 import { JsonLd } from "@/components/JsonLd";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastech.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastechdigi.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
