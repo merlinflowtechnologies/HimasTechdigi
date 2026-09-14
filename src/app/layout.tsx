@@ -77,6 +77,9 @@ export const metadata: Metadata = {
     apple: "/logo-main.png",
   },
   manifest: "/manifest.webmanifest",
+  verification: {
+    google: "i5JgCwKKwuqsYwNCKHv9Lhjn5qihEqFsj2x88PM1HNw",
+  },
   robots: {
     index: true,
     follow: true,
