@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastechdigi.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.himastechdigi.com";
   const lastModified = new Date();
 
   return [
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/merlinflow`,
       lastModified,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/terms-and-conditions`,

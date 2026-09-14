@@ -1,12 +1,12 @@
 export function JsonLd() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastechdigi.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.himastechdigi.com";
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${baseUrl}/#organization`,
-    name: "Himastech Digital Marketing",
-    alternateName: ["Himastech", "Himas Tech", "Himastech Digi"],
+    name: "Himastech Digi",
+    alternateName: ["himastechdigi", "himastechdigi.com", "Himastech Digi Hyderabad", "Himastech Digital Marketing", "Himastech", "Himas Tech"],
     url: baseUrl,
     logo: `${baseUrl}/logo-main.png`,
     description: "Enterprise performance marketing agency and talent academy helping brands scale predictably with Meta Ads, Google Ads, and Generative Engine Optimization (GEO).",
@@ -86,8 +86,9 @@ export function JsonLd() {
     "@type": "WebSite",
     "@id": `${baseUrl}/#website`,
     url: baseUrl,
-    name: "Himastech | Data-Driven Digital Marketing",
-    description: "Scale your brand with predictable revenue, high ROAS Meta/Google ad funnels, and Generative Engine Optimization.",
+    name: "Himastech Digi",
+    alternateName: ["himastechdigi", "himastechdigi.com", "Himastech Digital Marketing"],
+    description: "Himastech Digi (himastechdigi.com) - Scale your brand with predictable revenue, high ROAS Meta/Google ad funnels, and Generative Engine Optimization.",
     publisher: {
       "@id": `${baseUrl}/#organization`,
     },

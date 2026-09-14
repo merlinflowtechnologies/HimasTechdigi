@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastechdigi.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.himastechdigi.com";
 
 export const metadata: Metadata = {
-  title: "Merlinflow Technologies | Enterprise PropTech ERP, CRM & AI Growth Suite",
-  description: "Explore the enterprise digital product ecosystem by Merlinflow Technologies Pvt Ltd: Real Estate ERP, Brokerage OS, Omnichannel CRM, and D2C Commerce Engines.",
+  title: "Merlinflow Enterprise Tech Portfolio | Himastech Digi",
+  description: "Enterprise software ecosystem by Merlinflow Technologies in strategic alliance with Himastech Digi (himastechdigi.com): PropTech ERP, CRM, and D2C Engines.",
   keywords: [
+    "Himastech Digi",
+    "himastechdigi",
     "Merlinflow Technologies",
     "Real Estate ERP",
     "PropTech OS",
@@ -23,22 +25,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: `${baseUrl}/merlinflow`,
-    siteName: "Merlinflow Technologies Portfolio | Himastech",
-    title: "Merlinflow Technologies | Enterprise PropTech ERP, CRM & AI Growth Suite",
-    description: "Enterprise software ecosystem engineering: Real Estate ERP, Omnichannel CRM, and D2C Commerce engines in strategic alliance with Himastech.",
+    siteName: "Himastech Digi - Merlinflow Portfolio",
+    title: "Merlinflow Enterprise Tech Portfolio | Himastech Digi",
+    description: "Enterprise software ecosystem engineering: Real Estate ERP, Omnichannel CRM, and D2C Commerce engines in strategic alliance with Himastech Digi.",
     images: [
       {
         url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Merlinflow Technologies Enterprise Software Suite",
+        alt: "Merlinflow Technologies Enterprise Software Suite - Himastech Digi Alliance",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Merlinflow Technologies | Enterprise PropTech & CRM Suite",
-    description: "PropTech OS, Enterprise CRM, and D2C E-commerce Engines built for rapid scale.",
+    title: "Merlinflow Enterprise Tech Portfolio | Himastech Digi",
+    description: "PropTech OS, Enterprise CRM, and D2C E-commerce Engines built in alliance with Himastech Digi.",
     images: [`${baseUrl}/og-image.png`],
   },
 };

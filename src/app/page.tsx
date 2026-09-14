@@ -59,7 +59,7 @@ export default function Home() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
               <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600">
-                Next-Gen Performance Marketing & High-Ticket Scale
+                Himastech Digi • Next-Gen Performance Marketing & High-Ticket Scale
               </span>
               <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-700 text-[10px] font-extrabold border border-purple-500/20">
                 NEW 2024 ENGINE
@@ -86,7 +86,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-sm sm:text-base md:text-lg text-slate-800 mb-6 sm:mb-8 leading-relaxed font-semibold max-w-2xl backdrop-blur-[2px]"
             >
-              Himastech engineers high-converting Meta & Google ad funnels, generative AI search optimization (GEO), and elite digital marketing talent pipelines to help you out-scale competitors.
+              Himastech Digi (himastechdigi.com) engineers high-converting Meta & Google ad funnels, generative AI search optimization (GEO), and elite digital marketing talent pipelines to help you out-scale competitors.
             </motion.p>
 
             {/* Call to Actions */}

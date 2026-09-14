@@ -2,9 +2,9 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Himastech | Data-Driven Digital Marketing",
-    short_name: "Himastech",
-    description: "Modern digital marketing agency and training academy dedicated to scaling brands with precision Meta & Google ad funnels.",
+    name: "Himastech Digi | Data-Driven Digital Marketing",
+    short_name: "Himastech Digi",
+    description: "Himastech Digi (himastechdigi.com) - Premier performance marketing agency and talent academy scaling brands with Meta & Google ad funnels.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

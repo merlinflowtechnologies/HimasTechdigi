@@ -6,20 +6,24 @@ import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 import { AIChatbot } from "@/components/AIChatbot";
 import { JsonLd } from "@/components/JsonLd";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://himastechdigi.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.himastechdigi.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Himastech | Data-Driven Digital Marketing & Performance Agency",
-    template: "%s | Himastech",
+    default: "Himastech Digi | Data-Driven Digital Marketing & Performance Agency",
+    template: "%s | Himastech Digi",
   },
   description:
-    "Enterprise performance marketing agency scaling brands predictably with high-ROAS Meta ads, Google ads, Generative SEO, and growth marketing in Hyderabad.",
+    "Himastech Digi (himastechdigi.com) is Hyderabad's premier data-driven performance marketing agency. Scaling brands with high-ROAS Meta ads, Google ads, and Generative SEO.",
   keywords: [
+    "Himastech Digi",
+    "himastechdigi",
+    "himastechdigi.com",
+    "Himas Tech Digi",
     "Himastech",
     "Himastech Digital Marketing",
-    "Performance Marketing Agency",
+    "Performance Marketing Agency Hyderabad",
     "Digital Marketing Agency Hyderabad",
     "Meta Ads Agency India",
     "Google Ads ROAS",
@@ -30,11 +34,11 @@ export const metadata: Metadata = {
     "Merlinflow Technologies",
     "Adduri Sai Kishore",
   ],
-  authors: [{ name: "Himastech", url: baseUrl }],
-  creator: "Himastech & Merlinflow Technologies",
-  publisher: "Himastech",
+  authors: [{ name: "Himastech Digi", url: baseUrl }],
+  creator: "Himastech Digi & Merlinflow Technologies",
+  publisher: "Himastech Digi",
   alternates: {
-    canonical: "/",
+    canonical: `${baseUrl}`,
     languages: {
       "en-IN": `${baseUrl}`,
       "en-US": `${baseUrl}`,
@@ -44,10 +48,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: baseUrl,
-    siteName: "Himastech Digital Marketing",
-    title: "Himastech | Data-Driven Digital Marketing & Performance Agency",
+    siteName: "Himastech Digi",
+    title: "Himastech Digi | Data-Driven Digital Marketing & Performance Agency",
     description:
-      "Scale your brand predictably with data-driven Meta & Google ad funnels, Generative Engine Optimization (GEO), and elite performance marketing.",
+      "Himastech Digi (himastechdigi.com) scales your brand predictably with data-driven Meta & Google ad funnels, Generative Engine Optimization (GEO), and elite performance marketing.",
     images: [
       {
         url: "/og-image.png",
