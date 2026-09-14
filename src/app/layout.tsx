@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Himastech",
   },
   description:
-    "Enterprise performance marketing agency scaling brands predictably with high-ROAS Meta Ads, Google Ads, Generative Engine Optimization (GEO), and certified marketing training in Hyderabad, India.",
+    "Enterprise performance marketing agency scaling brands predictably with high-ROAS Meta ads, Google ads, Generative SEO, and growth marketing in Hyderabad.",
   keywords: [
     "Himastech",
     "Himastech Digital Marketing",
