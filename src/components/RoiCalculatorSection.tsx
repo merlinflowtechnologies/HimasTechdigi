@@ -3,17 +3,17 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Sparkles, 
-  ArrowRight, 
-  Zap, 
-  CheckCircle, 
-  X, 
-  Calendar, 
-  Clock, 
-  Target, 
-  FileText, 
-  Phone, 
+import {
+  Sparkles,
+  ArrowRight,
+  Zap,
+  CheckCircle,
+  X,
+  Calendar,
+  Clock,
+  Target,
+  FileText,
+  Phone,
   CheckCircle2,
   TrendingUp,
   ShieldCheck
@@ -34,38 +34,51 @@ const industries: IndustryConfig[] = [
     id: "real-estate",
     name: "Real Estate & High-Ticket",
     avgRoas: 6.8,
-    cpl: 45,
+    cpl: 450,
     closeRate: 0.08,
-    avgDealValue: 12000,
+    avgDealValue: 120000,
   },
   {
     id: "ecommerce",
     name: "E-Commerce & D2C",
     avgRoas: 5.2,
-    cpl: 18,
+    cpl: 180,
     closeRate: 0.22,
-    avgDealValue: 160,
+    avgDealValue: 1600,
   },
   {
     id: "b2b",
     name: "B2B SaaS & Tech",
     avgRoas: 4.6,
-    cpl: 75,
+    cpl: 750,
     closeRate: 0.12,
-    avgDealValue: 8500,
+    avgDealValue: 85000,
   },
   {
     id: "services",
     name: "Healthcare & Services",
     avgRoas: 5.5,
-    cpl: 35,
+    cpl: 350,
     closeRate: 0.15,
-    avgDealValue: 2400,
+    avgDealValue: 24000,
   },
 ];
 
+// Deterministic Indian Rupee number formatting function to prevent SSR / Client locale hydration mismatch
+function formatINR(val: number): string {
+  if (isNaN(val)) return "0";
+  const isNegative = val < 0;
+  const s = Math.abs(Math.round(val)).toString();
+  const lastThree = s.slice(-3);
+  const otherNumbers = s.slice(0, -3);
+  const formatted = otherNumbers
+    ? otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + lastThree
+    : lastThree;
+  return isNegative ? `-${formatted}` : formatted;
+}
+
 export function RoiCalculatorSection() {
-  const [budget, setBudget] = useState<number>(10000);
+  const [budget, setBudget] = useState<number>(100000);
   const [selectedIndustry, setSelectedIndustry] = useState<string>("real-estate");
   const [isRoadmapModalOpen, setIsRoadmapModalOpen] = useState<boolean>(false);
   const [claimSubmitted, setClaimSubmitted] = useState<boolean>(false);
@@ -103,7 +116,7 @@ export function RoiCalculatorSection() {
       icon: <Target className="w-4 h-4 text-cyan-600" />,
       title: "Custom 90-Day Channel Budget Allocation",
       time: "Day 2",
-      desc: `We engineer an algorithmic media plan allocating your $${budget.toLocaleString()} monthly budget across Meta, Google P-Max, and Retention for maximum ${currentConfig.avgRoas}x ROAS.`
+      desc: `We engineer an algorithmic media plan allocating your ₹${formatINR(budget)} monthly budget across Meta, Google P-Max, and Retention for maximum ${currentConfig.avgRoas}x ROAS.`
     },
     {
       step: "03",
@@ -142,7 +155,7 @@ export function RoiCalculatorSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Controls Form (Left Column) */}
-          <div className="lg:col-span-6 glass-card rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm">
+          <div className="lg:col-span-6 glass-card rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-lg hover:shadow-2xl transition-all duration-300">
             <div className="mb-5">
               <label className="text-xs font-bold text-slate-800 block mb-2.5">
                 1. Select Your Industry
@@ -152,11 +165,10 @@ export function RoiCalculatorSection() {
                   <button
                     key={ind.id}
                     onClick={() => setSelectedIndustry(ind.id)}
-                    className={`p-2.5 rounded-xl text-xs font-bold text-left transition-all border cursor-pointer ${
-                      selectedIndustry === ind.id
-                        ? "bg-cyan-50 border-cyan-400 text-cyan-900 shadow-sm"
-                        : "bg-slate-50 border-slate-200/80 text-slate-700 hover:bg-slate-100 hover:text-slate-950"
-                    }`}
+                    className={`p-2.5 rounded-xl text-xs font-bold text-left transition-all border cursor-pointer ${selectedIndustry === ind.id
+                        ? "bg-cyan-50/90 border-cyan-400 text-cyan-950 shadow-xs scale-[1.02]"
+                        : "glass-subcard border-slate-200/80 text-slate-700 hover:bg-white hover:text-slate-950 hover:border-cyan-300"
+                      }`}
                   >
                     {ind.name}
                   </button>
@@ -169,16 +181,16 @@ export function RoiCalculatorSection() {
                 <label className="text-xs font-bold text-slate-800">
                   2. Monthly Ad Spend
                 </label>
-                <span className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-emerald-600">
-                  ${budget.toLocaleString()}
+                <span suppressHydrationWarning className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-emerald-600">
+                  ₹{formatINR(budget)}
                 </span>
               </div>
 
               <input
                 type="range"
-                min="2000"
-                max="100000"
-                step="1000"
+                min="50000"
+                max="2500000"
+                step="25000"
                 value={budget}
                 onChange={(e) => setBudget(Number(e.target.value))}
                 aria-label="Monthly Marketing Budget"
@@ -186,13 +198,13 @@ export function RoiCalculatorSection() {
               />
 
               <div className="flex justify-between text-[11px] text-slate-500 mt-1.5 font-bold">
-                <span>$2,000 / mo</span>
-                <span>$50,000 / mo</span>
-                <span>$100,000 / mo</span>
+                <span>₹50,000 / mo</span>
+                <span>₹10,00,000 / mo</span>
+                <span>₹25,00,000+ / mo</span>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5 text-[11px] text-slate-600">
+            <div className="p-3.5 rounded-xl glass-subcard space-y-1.5 text-[11px] text-slate-600 shadow-xs">
               <div className="flex items-center gap-2 text-slate-700 font-medium">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Zero long-term lock-in contracts</span>
@@ -210,7 +222,7 @@ export function RoiCalculatorSection() {
 
           {/* Results Display (Right Column) */}
           <div className="lg:col-span-6 relative">
-            <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-md relative overflow-hidden bg-white/95">
+            <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div>
                   <span className="text-[10px] uppercase font-bold text-cyan-700 tracking-wider">
@@ -230,25 +242,25 @@ export function RoiCalculatorSection() {
                 <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold block mb-1">
                   Estimated Monthly Generated Pipeline
                 </span>
-                <div className="text-4xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-cyan-600 to-indigo-600">
-                  ${projectedRevenue.toLocaleString()}
+                <div suppressHydrationWarning className="text-4xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-cyan-600 to-indigo-600">
+                  ₹{formatINR(projectedRevenue)}
                 </div>
-                <span className="inline-block mt-2 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full shadow-sm">
-                  +${projectedNetGains.toLocaleString()} Estimated Net Upside
+                <span suppressHydrationWarning className="inline-block mt-2 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full shadow-sm">
+                  +₹{formatINR(projectedNetGains)} Estimated Net Upside
                 </span>
               </div>
 
               {/* Breakdown Grid */}
               <div className="grid grid-cols-2 gap-3 py-4 border-b border-slate-100">
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div className="p-3 rounded-xl glass-subcard shadow-xs hover:shadow-md transition-all">
                   <div className="text-[11px] text-slate-500 mb-0.5 font-bold">Estimated Leads</div>
-                  <div className="text-xl font-black text-slate-950">~{estimatedLeads.toLocaleString()}</div>
+                  <div suppressHydrationWarning className="text-xl font-black text-slate-950">~{formatINR(estimatedLeads)}</div>
                   <div className="text-[10px] text-slate-500 font-medium">High-intent prospects</div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div className="p-3 rounded-xl glass-subcard shadow-xs hover:shadow-md transition-all">
                   <div className="text-[11px] text-slate-500 mb-0.5 font-bold">Estimated Customers</div>
-                  <div className="text-xl font-black text-slate-950">~{estimatedDeals.toLocaleString()}</div>
+                  <div suppressHydrationWarning className="text-xl font-black text-slate-950">~{formatINR(estimatedDeals)}</div>
                   <div className="text-[10px] text-slate-500 font-medium">Projected conversions</div>
                 </div>
               </div>
@@ -281,7 +293,7 @@ export function RoiCalculatorSection() {
                 initial={{ opacity: 0, scale: 0.95, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 15 }}
-                className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-2xl z-10"
+                className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl glass-modal p-4 sm:p-5 z-10"
               >
                 {/* Close Button */}
                 <button
@@ -289,7 +301,7 @@ export function RoiCalculatorSection() {
                     setIsRoadmapModalOpen(false);
                     setClaimSubmitted(false);
                   }}
-                  className="absolute top-3.5 right-3.5 p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors cursor-pointer"
+                  className="absolute top-3.5 right-3.5 p-1.5 rounded-full glass-subcard hover:bg-white text-slate-600 transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X className="w-4 h-4" />
@@ -305,16 +317,16 @@ export function RoiCalculatorSection() {
                     What Happens Next After Claiming Roadmap
                   </h3>
                   <p className="text-[11px] text-slate-600 mt-0.5 font-medium leading-normal">
-                    4-step execution plan for your <strong className="text-slate-900">{currentConfig.name}</strong> goal (${budget.toLocaleString()}/mo spend &rarr; ${projectedRevenue.toLocaleString()} pipeline):
+                    4-step execution plan for your <strong className="text-slate-900">{currentConfig.name}</strong> goal (₹{formatINR(budget)}/mo spend &rarr; ₹{formatINR(projectedRevenue)} pipeline):
                   </p>
                 </div>
 
                 {/* Step by Step Breakdown */}
                 <div className="space-y-2 mb-4">
                   {roadmapSteps.map((s, idx) => (
-                    <div 
+                    <div
                       key={idx}
-                      className="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 flex items-start gap-2.5 hover:border-cyan-300 transition-colors"
+                      className="p-2.5 rounded-xl glass-subcard flex items-start gap-2.5 hover:border-cyan-400/50 transition-colors"
                     >
                       <div className="w-6 h-6 rounded-lg bg-white border border-slate-200 shadow-xs flex items-center justify-center shrink-0 mt-0.5">
                         {s.icon}
@@ -385,7 +397,7 @@ export function RoiCalculatorSection() {
                       Roadmap Request Confirmed!
                     </h4>
                     <p className="text-[11px] text-slate-600 max-w-sm mx-auto leading-snug">
-                      Thank you <strong className="text-slate-900">{clientName}</strong>. Our Lead Growth Strategist is preparing your custom ${projectedRevenue.toLocaleString()} forecast blueprint and will reach out via <strong className="text-slate-900">{clientContact}</strong> within 24 hours.
+                      Thank you <strong className="text-slate-900">{clientName}</strong>. Our Lead Growth Strategist is preparing your custom ₹{formatINR(projectedRevenue)} forecast blueprint and will reach out via <strong className="text-slate-900">{clientContact}</strong> within 24 hours.
                     </p>
                   </div>
                 )}

@@ -117,9 +117,9 @@ export function MerlinflowSection() {
               return (
                 <div 
                   key={idx}
-                  className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/40 transition-all flex items-start gap-3"
+                  className="p-3.5 rounded-xl glass-subcard hover:border-cyan-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-cyan-100/70 border border-cyan-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-100/80 border border-cyan-200/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                     <AdvIcon className="w-4 h-4 text-cyan-700" />
                   </div>
                   <div>

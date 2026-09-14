@@ -6,8 +6,8 @@ export default function NotFound() {
     <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
       <div className="relative mb-8">
         <div className="absolute inset-0 bg-brand-purple/20 blur-3xl rounded-full" />
-        <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center relative z-10 glass-card">
-          <SearchX className="h-12 w-12 text-brand-purple" />
+        <div className="w-24 h-24 rounded-3xl flex items-center justify-center relative z-10 glass-card shadow-xl">
+          <SearchX className="h-12 w-12 text-purple-600" />
         </div>
       </div>
       

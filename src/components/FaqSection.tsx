@@ -23,7 +23,7 @@ export function FaqSection() {
     {
       category: "Ad Spend & Contracts",
       question: "What is the recommended monthly ad budget to work with Himastech?",
-      answer: "We recommend a minimum ad spend of $3,000 to $5,000/month for paid media campaigns so our algorithmic testing framework has sufficient data volume to optimize bids, audience segments, and creative variations efficiently. We operate on month-to-month retainers with zero long-term lock-in.",
+      answer: "We recommend a minimum ad spend of ₹1,00,000 to ₹2,50,000/month for paid media campaigns so our algorithmic testing framework has sufficient data volume to optimize bids, audience segments, and creative variations efficiently. We operate on month-to-month retainers with zero long-term lock-in.",
     },
     {
       category: "Attribution & Tracking",
@@ -55,7 +55,7 @@ export function FaqSection() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs uppercase tracking-wider font-bold mb-3 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-subcard border-blue-300/40 text-blue-700 text-xs uppercase tracking-wider font-bold mb-3 shadow-xs">
             <HelpCircle className="w-3.5 h-3.5" /> Frequently Asked Questions
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mb-2.5">
@@ -73,7 +73,7 @@ export function FaqSection() {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-xl border border-slate-200/80 overflow-hidden transition-all duration-300 hover:border-slate-300 shadow-xs"
+                className="glass-card rounded-2xl overflow-hidden transition-all duration-300 shadow-xs hover:shadow-md"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
@@ -88,7 +88,7 @@ export function FaqSection() {
                       {faq.question}
                     </h3>
                   </div>
-                  <div className={`p-1.5 rounded-lg bg-slate-100 border border-slate-200 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-blue-50 text-blue-600 border-blue-200" : "text-slate-400"}`}>
+                  <div className={`p-1.5 rounded-lg glass-subcard shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-blue-600 border-blue-300/80" : "text-slate-400"}`}>
                     <ChevronDown className="w-3.5 h-3.5" />
                   </div>
                 </button>
@@ -102,7 +102,7 @@ export function FaqSection() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-4 sm:px-5 pb-3.5 pt-1.5 text-xs text-slate-600 leading-relaxed border-t border-slate-100">
+                      <div className="px-4 sm:px-5 pb-3.5 pt-1.5 text-xs text-slate-600 leading-relaxed border-t border-slate-200/50">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -114,14 +114,14 @@ export function FaqSection() {
         </div>
 
         {/* Compact Bottom Support Banner */}
-        <div className="mt-8 text-center p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+        <div className="mt-8 text-center p-5 sm:p-6 rounded-2xl glass-card flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
           <div className="text-left">
             <h4 className="text-xs sm:text-sm font-bold text-slate-900">Have a specific question about your marketing stack?</h4>
             <p className="text-[11px] text-slate-500 mt-0.5">Our senior media strategists are available for a 1-on-1 audit call.</p>
           </div>
           <Link
             href="#contact"
-            className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-900 text-xs font-bold transition-all border border-slate-200 flex items-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0 shadow-xs"
+            className="px-4 py-2 rounded-xl glass-subcard hover:bg-white text-slate-900 text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0 shadow-xs"
           >
             <MessageSquare className="w-3.5 h-3.5 text-blue-600" /> Book Direct Call
           </Link>

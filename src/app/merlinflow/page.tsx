@@ -298,19 +298,19 @@ export default function MerlinflowPortfolioPage() {
 
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-12 pt-8 border-t border-slate-200 max-w-3xl mx-auto">
-            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+            <div className="p-3.5 rounded-xl glass-subcard shadow-xs hover:shadow-md transition-all hover:-translate-y-0.5">
               <span className="text-xl sm:text-2xl font-black text-slate-950">99.9%</span>
               <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">Uptime SLA</span>
             </div>
-            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+            <div className="p-3.5 rounded-xl glass-subcard shadow-xs hover:shadow-md transition-all hover:-translate-y-0.5">
               <span className="text-xl sm:text-2xl font-black text-blue-700">50k+</span>
               <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">Daily API Calls</span>
             </div>
-            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+            <div className="p-3.5 rounded-xl glass-subcard shadow-xs hover:shadow-md transition-all hover:-translate-y-0.5">
               <span className="text-xl sm:text-2xl font-black text-purple-700">6+</span>
               <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">Industry OS Suites</span>
             </div>
-            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+            <div className="p-3.5 rounded-xl glass-subcard shadow-xs hover:shadow-md transition-all hover:-translate-y-0.5">
               <span className="text-xl sm:text-2xl font-black text-emerald-700">100%</span>
               <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mt-0.5">GST & UPI Ready</span>
             </div>
@@ -318,24 +318,25 @@ export default function MerlinflowPortfolioPage() {
         </div>
 
         {/* 6 Flagship Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div id="products" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 scroll-mt-24">
           {products.map((product, idx) => {
             const IconComp = product.icon;
             return (
               <motion.div
                 key={product.id}
+                id={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 whileHover={{ y: -5 }}
-                className={`glass-card rounded-2xl p-6 border border-slate-200 transition-all duration-300 ${product.border} relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md`}
+                className={`glass-card rounded-2xl p-6 border border-slate-200/90 transition-all duration-300 ${product.border} relative overflow-hidden flex flex-col justify-between group shadow-md hover:shadow-2xl scroll-mt-28`}
               >
                 <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${product.color} rounded-bl-full blur-xl pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity`} />
 
                 <div>
                   {/* Top Row */}
                   <div className="flex items-center justify-between gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center border border-slate-200 shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-xl glass-subcard flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform">
                       <IconComp className={`h-6 w-6 ${product.accent}`} />
                     </div>
                     <span className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${product.badgeBg}`}>
@@ -410,7 +411,7 @@ export default function MerlinflowPortfolioPage() {
               return (
                 <div 
                   key={pIdx}
-                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-300 transition-all flex items-start gap-4 group shadow-2xs"
+                  className="p-5 rounded-2xl glass-subcard hover:border-blue-400/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
                     <PillarIcon className="w-5 h-5 text-blue-600" />
@@ -426,7 +427,7 @@ export default function MerlinflowPortfolioPage() {
         </div>
 
         {/* Lead Generation & Demo Booking Form */}
-        <div id="demo-form" className="glass-card rounded-3xl p-6 sm:p-10 border border-slate-200 relative overflow-hidden shadow-sm">
+        <div id="demo-form" className="glass-card rounded-3xl p-6 sm:p-10 border border-slate-200/90 relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Info Column */}
             <div className="lg:col-span-5 space-y-4">
@@ -468,13 +469,11 @@ export default function MerlinflowPortfolioPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Desk 1: +91 8374373753</span>
+                    <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>WhatsApp: +91 8374373753</span>
                   </a>
                   <a
-                    href="https://wa.me/918247716878?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20book%20a%20product%20demo%20for%20your%20SaaS%20ERP%20solutions."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:+918247716878"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-emerald-600" />
@@ -492,7 +491,7 @@ export default function MerlinflowPortfolioPage() {
             </div>
 
             {/* Right Form Column */}
-            <div className="lg:col-span-7 bg-slate-50 rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-xs">
+            <div className="lg:col-span-7 glass-subcard rounded-2xl p-5 sm:p-7 shadow-sm">
               {formSubmitted ? (
                 <div className="text-center py-8 space-y-4">
                   <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto text-emerald-600">

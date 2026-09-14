@@ -52,7 +52,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200/90 text-slate-800 mb-5 text-xs backdrop-blur-md shadow-xs"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-subcard text-slate-800 mb-5 text-xs shadow-xs"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75"></span>
@@ -106,7 +106,7 @@ export default function Home() {
               </Link>
               <Link
                 href="#roi-calculator"
-                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white/90 backdrop-blur-md text-slate-800 font-bold text-xs sm:text-sm hover:bg-white transition-all flex items-center justify-center gap-2 group border border-slate-200/80 cursor-pointer shadow-xs hover:shadow-md"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full glass-card text-slate-800 font-bold text-xs sm:text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <Zap className="h-3.5 w-3.5 text-cyan-600" /> 
                 <span>Simulate Your ROI</span> 

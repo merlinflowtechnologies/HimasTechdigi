@@ -634,7 +634,7 @@ export function MarketingChannelsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 whileHover={{ y: -5 }}
-                className={`w-[300px] sm:w-[335px] shrink-0 snap-start glass-card rounded-2xl p-5 relative overflow-hidden border border-slate-200/80 transition-all duration-300 ${ch.border} flex flex-col justify-between group shadow-sm hover:shadow-md cursor-pointer`}
+                className={`w-[300px] sm:w-[335px] shrink-0 snap-start glass-card rounded-2xl p-5 relative overflow-hidden border border-slate-200/90 transition-all duration-300 ${ch.border} flex flex-col justify-between group shadow-md hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer`}
                 onClick={() => setSelectedChannel(ch)}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${ch.gradient} opacity-25 group-hover:opacity-60 transition-opacity pointer-events-none`} />
@@ -642,10 +642,10 @@ export function MarketingChannelsSection() {
                 <div className="relative z-10">
                   {/* Top Header */}
                   <div className="flex items-center justify-between gap-2 mb-3.5">
-                    <div className="p-2.5 rounded-xl bg-white border border-slate-200 group-hover:scale-110 transition-transform shadow-xs">
+                    <div className="p-2.5 rounded-xl glass-subcard group-hover:scale-110 transition-transform shadow-xs">
                       {ch.icon}
                     </div>
-                    <span className="text-[10px] font-bold text-slate-700 bg-white/90 px-2.5 py-0.5 rounded-full border border-slate-200 truncate max-w-[170px] shadow-xs">
+                    <span className="text-[10px] font-bold text-slate-700 glass-subcard px-2.5 py-0.5 rounded-full truncate max-w-[170px] shadow-xs">
                       {ch.badge}
                     </span>
                   </div>
@@ -714,12 +714,12 @@ export function MarketingChannelsSection() {
                 initial={{ opacity: 0, scale: 0.95, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 15 }}
-                className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-2xl z-10"
+                className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl glass-modal p-4 sm:p-5 z-10"
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedChannel(null)}
-                  className="absolute top-3.5 right-3.5 p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors cursor-pointer"
+                  className="absolute top-3.5 right-3.5 p-1.5 rounded-full glass-subcard hover:bg-white text-slate-600 transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X className="w-4 h-4" />
@@ -727,7 +727,7 @@ export function MarketingChannelsSection() {
 
                 {/* Modal Header */}
                 <div className="flex items-start gap-3 mb-4 pr-6">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 shadow-xs shrink-0">
+                  <div className="p-2.5 rounded-xl glass-subcard shadow-xs shrink-0">
                     {selectedChannel.icon}
                   </div>
                   <div>
@@ -761,25 +761,25 @@ export function MarketingChannelsSection() {
                     {selectedChannel.phases.map((phase, pIdx) => (
                       <div 
                         key={pIdx}
-                        className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-blue-300 transition-colors"
+                        className="p-2.5 rounded-xl glass-subcard hover:border-blue-400/50 transition-colors shadow-2xs"
                       >
                         <div className="flex items-center justify-between gap-1 mb-0.5">
                           <div className="flex items-center gap-1.5">
                             <span className="w-5 h-5 rounded-md bg-blue-600 text-white font-black text-[10px] flex items-center justify-center shadow-xs">
                               {phase.step}
                             </span>
-                            <span className="text-[11px] font-bold text-slate-900">
+                            <h5 className="text-[11px] font-bold text-slate-900">
                               {phase.title}
-                            </span>
+                            </h5>
                           </div>
-                          <span className="text-[9px] font-extrabold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded-full">
+                          <span className="text-[9px] font-semibold text-slate-500 bg-slate-100 px-1.5 py-0.2 rounded">
                             {phase.duration}
                           </span>
                         </div>
-                        <p className="text-[10.5px] text-slate-600 ml-6.5 mb-1 leading-snug">
+                        <p className="text-[10.5px] text-slate-600 leading-snug pl-6 mb-1">
                           {phase.description}
                         </p>
-                        <div className="ml-6.5 flex items-center gap-1 text-[10px] text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg w-fit">
+                        <div className="pl-6 text-[9.5px] text-blue-700 font-semibold flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
                           <span>Key Deliverable: {phase.deliverable}</span>
                         </div>
@@ -788,8 +788,8 @@ export function MarketingChannelsSection() {
                   </div>
                 </div>
 
-                {/* Deliverables Checklist */}
-                <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50/60 to-purple-50/40 border border-blue-100 mb-4">
+                {/* Key Deliverables Summary */}
+                <div className="p-3 rounded-xl glass-subcard mb-4 shadow-2xs">
                   <h5 className="text-[11px] font-bold text-slate-900 mb-1.5 flex items-center gap-1">
                     <Sparkles className="w-3 h-3 text-blue-600" />
                     Included in this Channel Deployment:

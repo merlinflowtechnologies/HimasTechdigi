@@ -47,14 +47,14 @@ export function Navbar() {
           {/* Brand Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group py-1">
-              <div className="relative h-12 sm:h-14 w-auto transition-transform duration-300 group-hover:scale-105">
+              <div className="relative h-20 sm:h-24 w-auto transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/logo-main.png"
                   alt="Himastech Digital Reality Marketing"
-                  width={180}
-                  height={180}
+                  width={240}
+                  height={240}
                   priority
-                  className="h-12 sm:h-14 w-auto object-contain"
+                  className="h-20 sm:h-24 w-auto object-contain"
                 />
               </div>
             </Link>
@@ -82,7 +82,7 @@ export function Navbar() {
           </div>
 
           {/* Action Button */}
-          <div className="hidden sm:flex items-center">
+          <div className="hidden sm:flex items-center ml-12">
             <Link
               href="/#contact"
               className="px-4 xl:px-5 py-2 xl:py-2.5 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white text-xs font-bold uppercase tracking-wider transition-all hover:shadow-[0_0_25px_rgba(99,102,241,0.45)] hover:scale-105 flex items-center gap-1.5 border border-white/30 whitespace-nowrap"
@@ -97,7 +97,7 @@ export function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
-              className="p-2 rounded-xl bg-slate-100 text-slate-700 hover:text-slate-950 focus:outline-none border border-slate-200 cursor-pointer shadow-sm"
+              className="p-2 rounded-xl glass-subcard text-slate-700 hover:text-slate-950 focus:outline-none cursor-pointer shadow-xs"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -112,7 +112,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-slate-200 overflow-hidden shadow-2xl"
+            className="lg:hidden glass-modal border-b border-slate-200/50 overflow-hidden shadow-2xl"
           >
             <div className="px-5 pt-4 pb-8 space-y-2 max-w-lg mx-auto">
               {links.map((link) => (
@@ -121,8 +121,8 @@ export function Navbar() {
                   href={link.href}
                   className={`block px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
                     link.isSpecial
-                      ? "text-cyan-800 bg-cyan-50 border border-cyan-200"
-                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+                      ? "text-cyan-800 glass-subcard border-cyan-300/50"
+                      : "text-slate-700 hover:text-slate-950 hover:bg-white/40"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >

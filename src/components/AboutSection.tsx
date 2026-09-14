@@ -8,7 +8,7 @@ export function AboutSection() {
     {
       icon: <Target className="h-5 w-5 text-cyan-400" />,
       title: "Algorithmic Precision",
-      desc: "Every dollar is tied to real revenue, verified attribution, and transparent live dashboards.",
+      desc: "Every rupee is tied to real revenue, verified attribution, and transparent live dashboards.",
     },
     {
       icon: <Lightbulb className="h-5 w-5 text-purple-400" />,
@@ -71,11 +71,11 @@ export function AboutSection() {
             </p>
 
             <div className="pt-2 grid grid-cols-2 gap-3">
-              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="p-3.5 rounded-xl glass-subcard hover:shadow-md transition-all duration-300">
                 <div className="text-xl font-black text-slate-900">100%</div>
                 <div className="text-[11px] text-slate-500 font-medium mt-0.5">Ad Account Ownership</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="p-3.5 rounded-xl glass-subcard hover:shadow-md transition-all duration-300">
                 <div className="text-xl font-black text-slate-900">24/7</div>
                 <div className="text-[11px] text-slate-500 font-medium mt-0.5">Live Telemetry & Reporting</div>
               </div>
@@ -91,9 +91,9 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="glass-card rounded-xl p-4 sm:p-5 border border-slate-200 hover:border-slate-300 transition-all group shadow-xs hover:shadow-md"
+                className="glass-card rounded-xl p-4 sm:p-5 border border-slate-200/90 hover:border-cyan-400/50 transition-all duration-300 group shadow-xs hover:shadow-lg hover:-translate-y-1"
               >
-                <div className="w-9 h-9 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-200 mb-3 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-lg glass-subcard flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                   {val.icon}
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 mb-1">{val.title}</h4>
@@ -109,24 +109,24 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="glass-card rounded-2xl p-5 sm:p-7 relative overflow-hidden border border-slate-200 shadow-sm"
+          className="glass-card rounded-2xl p-5 sm:p-7 relative overflow-hidden border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300"
         >
-          <div className="absolute top-0 right-0 w-60 h-60 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-60 h-60 bg-purple-500/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* Visual badge */}
             <div className="lg:col-span-4 flex flex-col items-center text-center">
               <div className="relative mb-3">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-400 via-purple-400 to-pink-500 rounded-2xl blur-lg opacity-25" />
-                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-white border border-slate-200 relative z-10 flex flex-col items-center justify-center p-4 shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-400 via-purple-400 to-pink-500 rounded-2xl blur-lg opacity-30" />
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl glass-card relative z-10 flex flex-col items-center justify-center p-4 shadow-md group-hover:scale-105 transition-transform">
                   <Award className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 mb-1.5" />
                   <span className="text-[11px] font-bold text-slate-900">Himastech</span>
                   <span className="text-[9px] text-slate-500 uppercase tracking-wider font-semibold">Leadership</span>
                 </div>
               </div>
-              <span className="text-xs font-bold text-slate-900">Executive Leadership Team</span>
-              <span className="text-[10px] text-blue-600 font-medium">Head of Performance & Strategy</span>
+              <span className="text-sm font-bold text-slate-900">Adduri Sai Kishore</span>
+              <span className="text-xs text-blue-600 font-semibold">Founder & Chief Executive Officer (CEO)</span>
             </div>
 
             {/* Quote & Vision Content */}
@@ -134,6 +134,9 @@ export function AboutSection() {
               <h3 className="text-base sm:text-lg font-bold text-slate-950 leading-snug">
                 “We don't build generic ad campaigns. We build compounding revenue assets that make our clients market leaders.”
               </h3>
+              <div className="text-xs font-semibold text-blue-700">
+                — Adduri Sai Kishore, Founder & CEO, Himastech
+              </div>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Having managed tens of millions in paid ad spend across Meta, Google, and emerging channels, we observed that most brands struggle because their creative is disconnected from the conversion funnel.
               </p>

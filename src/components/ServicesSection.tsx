@@ -526,14 +526,14 @@ export function ServicesSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: index * 0.04 }}
                 whileHover={{ y: -4 }}
-                className={`glass-card rounded-2xl p-5 sm:p-6 relative overflow-hidden border border-slate-200/80 transition-all duration-300 ${service.border} group flex flex-col justify-between shadow-sm hover:shadow-md`}
+                className={`glass-card rounded-2xl p-5 sm:p-6 relative overflow-hidden border border-slate-200/90 transition-all duration-300 ${service.border} group flex flex-col justify-between shadow-md hover:shadow-2xl hover:-translate-y-1.5`}
               >
                 <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${service.accent} rounded-bl-full blur-xl pointer-events-none opacity-40 group-hover:opacity-80 transition-opacity`} />
 
                 <div>
                   {/* Header row */}
                   <div className="flex items-center justify-between gap-2 mb-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center border border-slate-200/80 shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                    <div className="w-10 h-10 rounded-xl glass-subcard flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-xs">
                       <IconComp className="h-5 w-5 text-cyan-600" />
                     </div>
                     <span className="text-[10px] font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
@@ -599,10 +599,10 @@ export function ServicesSection() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full relative z-10 border border-slate-200 shadow-2xl max-h-[88vh] sm:max-h-[85vh] flex flex-col overflow-hidden my-auto"
+            className="glass-modal rounded-2xl sm:rounded-3xl max-w-lg w-full relative z-10 max-h-[88vh] sm:max-h-[85vh] flex flex-col overflow-hidden my-auto"
           >
             {/* Modal Header */}
-            <div className="px-4 py-3 sm:px-5 sm:py-3.5 border-b border-slate-100 relative shrink-0 bg-slate-50/90 flex items-center justify-between gap-3">
+            <div className="px-4 py-3 sm:px-5 sm:py-3.5 border-b border-slate-200/80 relative shrink-0 glass-subcard flex items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 pr-6">
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-slate-200 flex items-center justify-center shrink-0 shadow-2xs">
                   {selectedService && <selectedService.icon className="w-4 h-4 text-cyan-700" />}
@@ -628,7 +628,7 @@ export function ServicesSection() {
               <button
                 onClick={() => setSelectedService(null)}
                 aria-label="Close strategy modal"
-                className="w-7 h-7 rounded-full bg-slate-200/90 hover:bg-slate-300 text-slate-700 hover:text-slate-950 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                className="w-7 h-7 rounded-full glass-subcard hover:bg-white text-slate-700 hover:text-slate-950 flex items-center justify-center transition-colors cursor-pointer shrink-0"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -652,7 +652,7 @@ export function ServicesSection() {
                   {selectedService.playbook.map((phase) => (
                     <div 
                       key={phase.step}
-                      className="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between"
+                      className="p-2 sm:p-2.5 rounded-xl glass-subcard flex flex-col justify-between shadow-2xs hover:shadow-sm transition-shadow"
                     >
                       <div>
                         <div className="flex items-center justify-between gap-1 mb-0.5">
@@ -674,7 +674,7 @@ export function ServicesSection() {
               </div>
 
               {/* Section 2: Core Tech Stack & Tools */}
-              <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="p-2 sm:p-2.5 rounded-xl glass-subcard shadow-2xs">
                 <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-slate-700 mb-1">
                   <Cpu className="w-2.5 h-2.5 text-purple-600" />
                   Core Tech Stack & Telemetry
@@ -683,7 +683,7 @@ export function ServicesSection() {
                   {selectedService.techStack.map((tool, tIdx) => (
                     <span 
                       key={tIdx}
-                      className="text-[8px] sm:text-[9px] px-1.5 py-0.2 rounded bg-white border border-slate-200 text-slate-800 font-mono font-bold"
+                      className="text-[8px] sm:text-[9px] px-1.5 py-0.2 rounded glass-subcard text-slate-800 font-mono font-bold"
                     >
                       {tool}
                     </span>
@@ -693,19 +693,19 @@ export function ServicesSection() {
 
               {/* Section 3: Expected Deliverables & SLA Guarantees */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-                <div className="p-1.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div className="p-1.5 rounded-xl glass-subcard shadow-2xs">
                   <span className="text-[7px] text-slate-500 uppercase tracking-wider block font-bold">Speed / SLA</span>
                   <span className="text-[8px] sm:text-[9px] font-bold text-cyan-700 mt-0.5 block leading-tight">{selectedService.deliverables.timeline}</span>
                 </div>
-                <div className="p-1.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div className="p-1.5 rounded-xl glass-subcard shadow-2xs">
                   <span className="text-[7px] text-slate-500 uppercase tracking-wider block font-bold">Reporting</span>
                   <span className="text-[8px] sm:text-[9px] font-bold text-purple-700 mt-0.5 block leading-tight">{selectedService.deliverables.reporting}</span>
                 </div>
-                <div className="p-1.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div className="p-1.5 rounded-xl glass-subcard shadow-2xs">
                   <span className="text-[7px] text-slate-500 uppercase tracking-wider block font-bold">Growth Pod</span>
                   <span className="text-[8px] sm:text-[9px] font-bold text-pink-700 mt-0.5 block leading-tight">{selectedService.deliverables.teamPod}</span>
                 </div>
-                <div className="p-1.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div className="p-1.5 rounded-xl glass-subcard shadow-2xs">
                   <span className="text-[7px] text-slate-500 uppercase tracking-wider block font-bold">Guarantee</span>
                   <span className="text-[8px] sm:text-[9px] font-bold text-emerald-700 mt-0.5 block leading-tight">{selectedService.deliverables.guarantee}</span>
                 </div>

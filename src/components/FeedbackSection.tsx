@@ -360,7 +360,7 @@ export function FeedbackSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Interactive Feedback Form */}
-          <div className="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md relative overflow-hidden bg-white/95">
+          <div className="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form 
@@ -377,7 +377,7 @@ export function FeedbackSection() {
                       Overall Experience Rating *
                     </label>
                     <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1.5 p-2 rounded-2xl bg-slate-50 border border-slate-200 w-fit">
+                      <div className="flex items-center gap-1.5 p-2 rounded-2xl glass-subcard shadow-xs w-fit">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <button
                             key={star}
@@ -421,8 +421,8 @@ export function FeedbackSection() {
                           onClick={() => setCategory(cat)}
                           className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
                             category === cat
-                              ? "bg-purple-600 text-white border-purple-600 shadow-xs"
-                              : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                              ? "bg-purple-600 text-white border-purple-600 shadow-xs scale-105"
+                              : "glass-subcard border-slate-200/80 text-slate-600 hover:bg-white hover:text-slate-900 hover:border-purple-300"
                           }`}
                         >
                           {cat}
@@ -438,64 +438,65 @@ export function FeedbackSection() {
                         Your Full Name *
                       </label>
                       <div className="relative">
-                        <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                         <input
                           type="text"
                           required
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="e.g. Rajesh Sharma"
-                          className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all font-medium"
+                          placeholder="e.g. Rahul Sharma"
+                          className="w-full pl-10 pr-3.5 py-2.5 rounded-xl glass-subcard text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-500 focus:bg-white transition-all"
                         />
                       </div>
                     </div>
 
                     <div>
                       <label className="text-xs font-bold text-slate-900 block mb-1.5">
-                        Email Address (For Verification)
+                        Email Address <span className="text-[10px] text-slate-400 font-normal">(Never Published)</span>
                       </label>
                       <div className="relative">
-                        <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                         <input
                           type="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="rajesh@company.com"
-                          className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all font-medium"
+                          placeholder="rahul@company.com"
+                          className="w-full pl-10 pr-3.5 py-2.5 rounded-xl glass-subcard text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-500 focus:bg-white transition-all"
                         />
                       </div>
                     </div>
                   </div>
 
-                  {/* Company / Brand Name */}
+                  {/* Designation / Role */}
                   <div>
                     <label className="text-xs font-bold text-slate-900 block mb-1.5">
-                      Company / Designation / Academy Batch (Optional)
+                      Your Role or Company <span className="text-slate-400 font-normal text-[10px]">(e.g. Founder, Marketing Head, Academy Student)</span>
                     </label>
                     <div className="relative">
-                      <Building2 className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <Building2 className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                       <input
                         type="text"
+                        required
                         value={company}
                         onChange={(e) => setCompany(e.target.value)}
-                        placeholder="e.g. Founder at Apex Retail / ROAS Academy Batch #12"
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all font-medium"
+                        placeholder="e.g. Co-Founder @ D2C Brand"
+                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl glass-subcard text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-500 focus:bg-white transition-all"
                       />
                     </div>
                   </div>
 
-                  {/* Feedback Textarea */}
+                  {/* Review Text */}
                   <div>
                     <label className="text-xs font-bold text-slate-900 block mb-1.5">
-                      Your Detailed Review & Suggestions *
+                      Your Verified Review & Feedback *
                     </label>
                     <textarea
                       required
-                      rows={4}
+                      rows={3}
                       value={feedback}
                       onChange={(e) => setFeedback(e.target.value)}
-                      placeholder="Share what went great, measurable results achieved, curriculum takeaways, or areas we can elevate..."
-                      className="w-full p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all resize-none font-medium leading-relaxed"
+                      placeholder="Share details regarding your experience with Himastech's ROAS, ad scaling, communication, or marketing training tracks..."
+                      className="w-full p-3.5 rounded-xl glass-subcard text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-500 focus:bg-white transition-all resize-none"
                     />
                   </div>
 
@@ -514,7 +515,7 @@ export function FeedbackSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 text-white font-bold text-xs sm:text-sm hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer border border-white/20"
+                    className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 text-white font-bold text-xs hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 hover:scale-[1.01]"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
@@ -542,7 +543,7 @@ export function FeedbackSection() {
                   <h3 className="text-xl font-bold text-slate-900">
                     Review Submitted Successfully!
                   </h3>
-                  <div className="bg-purple-50 border border-purple-200 rounded-2xl p-4 text-xs text-purple-900 max-w-md mx-auto leading-relaxed">
+                  <div className="glass-subcard border-purple-200 rounded-2xl p-4 text-xs text-purple-900 max-w-md mx-auto leading-relaxed shadow-sm">
                     <div className="font-bold flex items-center justify-center gap-1.5 mb-1 text-purple-950">
                       <Clock className="w-4 h-4 text-purple-600" /> Pending Admin QA Verification
                     </div>
@@ -551,13 +552,13 @@ export function FeedbackSection() {
                   <div className="pt-2 flex justify-center gap-3">
                     <button
                       onClick={handleReset}
-                      className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
+                      className="px-5 py-2 rounded-xl glass-subcard hover:bg-white text-slate-700 text-xs font-bold transition-colors cursor-pointer"
                     >
                       Submit Another Response
                     </button>
                     <button
                       onClick={() => setShowAdminModal(true)}
-                      className="px-4 py-2 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-800 text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5"
+                      className="px-4 py-2 rounded-xl bg-purple-100/80 hover:bg-purple-200 text-purple-800 text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 border border-purple-200"
                     >
                       <ShieldCheck className="w-3.5 h-3.5 text-purple-700" /> Admin Preview
                     </button>
@@ -571,7 +572,7 @@ export function FeedbackSection() {
           <div className="lg:col-span-5 space-y-4">
             
             {/* Quick Metrics Card */}
-            <div className="glass-card rounded-2xl p-5 border border-slate-200/80 shadow-sm bg-gradient-to-br from-purple-50/50 via-white to-cyan-50/40">
+            <div className="glass-card rounded-2xl p-5 border border-slate-200/90 shadow-md bg-gradient-to-br from-purple-50/50 via-white/80 to-cyan-50/40">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5 text-purple-600" />
@@ -609,7 +610,7 @@ export function FeedbackSection() {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="glass-card rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:border-purple-300 transition-all bg-white/90"
+                    className="glass-card rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:border-purple-400/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <div className="flex items-center gap-2">
@@ -652,12 +653,12 @@ export function FeedbackSection() {
       {/* ADMIN MODERATION CONTROL CENTER MODAL (Portal directly to body) */}
       {/* ========================================================= */}
       {mounted && showAdminModal && createPortal(
-        <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-5 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-5 bg-slate-950/70 backdrop-blur-md overflow-y-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
-            className="relative w-full max-w-3xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
+            className="relative w-full max-w-3xl glass-modal rounded-3xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
           >
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50/90">

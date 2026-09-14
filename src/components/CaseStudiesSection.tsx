@@ -52,7 +52,7 @@ export function CaseStudiesSection() {
       accentGradient: "from-blue-500 via-cyan-400 to-teal-400",
       borderColor: "hover:border-cyan-400/50 border-cyan-500/30",
       glowColor: "rgba(6, 182, 212, 0.25)",
-      totalGenerated: "$110M+",
+      totalGenerated: "₹120Cr+",
       avgRoas: "8.8x Avg ROAS",
       casesCount: 3,
     },
@@ -66,7 +66,7 @@ export function CaseStudiesSection() {
       accentGradient: "from-purple-500 via-pink-500 to-rose-400",
       borderColor: "hover:border-pink-400/50 border-purple-500/30",
       glowColor: "rgba(236, 72, 153, 0.25)",
-      totalGenerated: "$5.8M+",
+      totalGenerated: "₹45Cr+",
       avgRoas: "6.8x Avg ROAS",
       casesCount: 3,
     },
@@ -80,7 +80,7 @@ export function CaseStudiesSection() {
       accentGradient: "from-emerald-400 via-teal-400 to-cyan-400",
       borderColor: "hover:border-emerald-400/50 border-emerald-500/30",
       glowColor: "rgba(16, 185, 129, 0.25)",
-      totalGenerated: "$7.0M+",
+      totalGenerated: "₹55Cr+",
       avgRoas: "340% Avg Demo Surge",
       casesCount: 3,
     },
@@ -93,7 +93,7 @@ export function CaseStudiesSection() {
         category: "real-estate",
         categoryLabel: "Case 1 of 3",
         client: "Aura Luxury Residences",
-        headline: "$42M in Inventory Sold via Meta & Google Demand Funnels",
+        headline: "₹42Cr in Inventory Sold via Meta & Google Demand Funnels",
         summary: "Scaled high-intent buyer acquisition for luxury penthouses via custom geo-fencing, generative search ads (GEO), and virtual tour lead capture.",
         tags: ["Meta Ads", "Google P-Max", "Local SEO", "High-Ticket"],
         metrics: {
@@ -114,7 +114,7 @@ export function CaseStudiesSection() {
         category: "real-estate",
         categoryLabel: "Case 2 of 3",
         client: "The Sovereign Waterfront Villas",
-        headline: "$68M Off-Plan Sales via Private Meta VIP Access Funnels",
+        headline: "₹68Cr Off-Plan Sales via Private Meta VIP Access Funnels",
         summary: "Exclusive invitation-only Meta video campaigns targeting ultra-high-net-worth investors, with gated preview brochures and concierge dispatch.",
         tags: ["Meta High-Ticket", "Google Search", "VIP Funnels", "WhatsApp CRM"],
         metrics: {
@@ -158,13 +158,13 @@ export function CaseStudiesSection() {
         category: "ecommerce",
         categoryLabel: "Case 1 of 3",
         client: "Lumina Organic Apparel",
-        headline: "Scaled from $80k to $620k/Mo with Omnichannel Paid Media",
-        summary: "Restructured ad account architecture with high-volume UGC creator testing, automated Klaviyo flows, and TikTok Spark ads with continuous CRO.",
-        tags: ["TikTok Ads", "Meta Scaling", "Klaviyo Email", "CRO Testing"],
+        headline: "Scaled from ₹8L to ₹65L/Mo with Omnichannel Paid Media",
+        summary: "Restructured ad account architecture with high-volume UGC creator testing, automated Klaviyo flows, and Meta/Shorts ads with continuous CRO.",
+        tags: ["Meta Scaling", "Klaviyo Email", "Shorts Ads", "CRO Testing"],
         metrics: {
           primary: { value: "6.4x", label: "Blended ROAS", trend: "up" },
           secondary: { value: "+380%", label: "Repeat Rate", trend: "up" },
-          tertiary: { value: "$540k+", label: "Added Monthly Rev", trend: "up" },
+          tertiary: { value: "₹55L+", label: "Added Monthly Rev", trend: "up" },
         },
         strategy: [
           "Tested 40+ creative hooks weekly with algorithmic budget allocation",
@@ -179,9 +179,9 @@ export function CaseStudiesSection() {
         category: "ecommerce",
         categoryLabel: "Case 2 of 3",
         client: "Kura Botanicals Skincare",
-        headline: "Scaled to $1.4M/Month with TikTok Spark Ads & Klaviyo",
-        summary: "Viral paid-and-retention flywheel using native creator TikTok Spark Ads, personalized skin diagnostic quiz funnels, and automated replenishment SMS.",
-        tags: ["TikTok Spark", "Klaviyo SMS", "Quiz Funnel", "D2C Scaling"],
+        headline: "Scaled to ₹1.2Cr/Month with Meta, Shorts Ads & Klaviyo",
+        summary: "Viral paid-and-retention flywheel using native creator video ads, personalized skin diagnostic quiz funnels, and automated replenishment SMS.",
+        tags: ["Shorts & Reels", "Klaviyo SMS", "Quiz Funnel", "D2C Scaling"],
         metrics: {
           primary: { value: "+740%", label: "Revenue Scale", trend: "up" },
           secondary: { value: "5.8x", label: "Account ROAS", trend: "up" },
@@ -200,16 +200,16 @@ export function CaseStudiesSection() {
         category: "ecommerce",
         categoryLabel: "Case 3 of 3",
         client: "Veloce Performance Audio",
-        headline: "$3.8M Holiday Sales Blitz with 7.2x ROAS on Meta & P-Max",
+        headline: "₹3.8Cr Holiday Sales Blitz with 7.2x ROAS on Meta & P-Max",
         summary: "Multi-phase holiday sales blitz leveraging pre-launch VIP early access, dynamic catalog ads with live countdown badges, and cart-saver flows.",
-        tags: ["Google P-Max", "Meta Advantage+", "Black Friday", "Shopify Plus"],
+        tags: ["Google P-Max", "Meta Advantage+", "Festival Season", "Shopify Plus"],
         metrics: {
           primary: { value: "7.2x", label: "Holiday ROAS", trend: "up" },
           secondary: { value: "+610%", label: "New Buyers", trend: "up" },
           tertiary: { value: "-48%", label: "Cost / Purchase", trend: "down" },
         },
         strategy: [
-          "30-day pre-launch VIP lead collection at $0.85/lead",
+          "30-day pre-launch VIP lead collection at ₹65/lead",
           "Performance Max product feed optimization with custom labels",
           "1-click instant Shopify checkout customization",
         ],
@@ -228,7 +228,7 @@ export function CaseStudiesSection() {
         tags: ["LinkedIn Ads", "Google Search", "GEO / AI Search", "ABM Scaling"],
         metrics: {
           primary: { value: "+310%", label: "Demo Volume", trend: "up" },
-          secondary: { value: "$1.8M", label: "Pipeline in 90d", trend: "up" },
+          secondary: { value: "₹15Cr", label: "Pipeline in 90d", trend: "up" },
           tertiary: { value: "-38%", label: "Enterprise CAC", trend: "down" },
         },
         strategy: [
@@ -244,7 +244,7 @@ export function CaseStudiesSection() {
         category: "b2b",
         categoryLabel: "Case 2 of 3",
         client: "SecureStack Cyber Defense",
-        headline: "$5.2M Enterprise Pipeline in 120 Days via ABM & Search",
+        headline: "₹42Cr Enterprise Pipeline in 120 Days via ABM & Search",
         summary: "Targeted CISOs and VPs of Security with interactive cloud vulnerability benchmarks and intent-triggered Google Search campaigns.",
         tags: ["LinkedIn Ads", "Enterprise ABM", "Google Search", "Salesforce Sync"],
         metrics: {
@@ -359,7 +359,7 @@ export function CaseStudiesSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.45, delay: idx * 0.1 }}
                     whileHover={{ y: -6 }}
-                    className={`glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden border border-slate-200/80 group transition-all duration-300 shadow-sm hover:shadow-md`}
+                    className={`glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden border border-slate-200/90 group transition-all duration-300 shadow-md hover:shadow-2xl hover:-translate-y-1`}
                   >
                     {/* Top ambient glow */}
                     <div className={`absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl ${cat.color} rounded-bl-full blur-2xl opacity-40 group-hover:opacity-70 transition-opacity pointer-events-none`} />
@@ -368,7 +368,7 @@ export function CaseStudiesSection() {
                       {/* Category Header */}
                       <div className="flex items-center justify-between gap-2 mb-4 relative z-10">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/80 flex items-center justify-center text-slate-900 group-hover:scale-110 transition-transform shadow-sm">
+                          <div className="w-9 h-9 rounded-xl glass-subcard flex items-center justify-center text-slate-900 group-hover:scale-110 transition-transform shadow-xs">
                             <IconComp className="w-4 h-4 text-cyan-600" />
                           </div>
                           <div>
@@ -387,7 +387,7 @@ export function CaseStudiesSection() {
                       </div>
 
                       {/* Flagship Case Card Preview */}
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 mb-4 relative z-10 shadow-inner">
+                      <div className="p-4 rounded-xl glass-subcard mb-4 relative z-10 shadow-xs">
                         <div className="flex items-center justify-between text-[10px] text-slate-500 mb-1.5 font-medium">
                           <span>Featured Client:</span>
                           <span className="text-slate-900 font-bold">{featuredCase.client}</span>
@@ -458,19 +458,19 @@ export function CaseStudiesSection() {
               className="space-y-6"
             >
               {/* Back Bar and Active Category Indicator */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl glass-subcard mb-6 shadow-sm">
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-bold text-slate-600">
                     Showing 3 Deep-Dive Studies for:
                   </span>
-                  <span className="text-xs font-extrabold text-cyan-900 bg-cyan-100/70 px-3 py-1 rounded-full border border-cyan-200">
+                  <span className="text-xs font-extrabold text-cyan-900 bg-cyan-100/80 px-3 py-1 rounded-full border border-cyan-200 shadow-2xs">
                     {categories.find(c => c.id === selectedCategory)?.title}
                   </span>
                 </div>
 
                 <button
                   onClick={() => setSelectedCategory("overview")}
-                  className="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold flex items-center gap-1.5 border border-slate-300 transition-colors cursor-pointer shadow-sm"
+                  className="px-3.5 py-1.5 rounded-xl glass-subcard hover:bg-white text-slate-800 text-xs font-bold flex items-center gap-1.5 border border-slate-200 transition-colors cursor-pointer shadow-xs"
                 >
                   <RotateCcw className="w-3 h-3 text-cyan-600" /> Back to 3-Industry Overview
                 </button>
@@ -484,14 +484,14 @@ export function CaseStudiesSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 border border-slate-200/80 transition-all duration-300 shadow-sm hover:shadow-md"
+                    className="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group hover:border-cyan-400/50 border border-slate-200/90 transition-all duration-300 shadow-md hover:shadow-2xl hover:-translate-y-1"
                   >
                     <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${study.color} rounded-bl-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity pointer-events-none`} />
 
                     <div>
                       {/* Header Badge & Client Name */}
                       <div className="flex items-center justify-between gap-2 mb-3 relative z-10">
-                        <span className="text-[10px] font-bold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold text-slate-700 bg-slate-100/80 border border-slate-200 px-2.5 py-0.5 rounded-full">
                           {study.categoryLabel}
                         </span>
                         <span className="text-[11px] font-bold text-cyan-700 truncate max-w-[150px]">
@@ -509,7 +509,7 @@ export function CaseStudiesSection() {
                       </p>
 
                       {/* Compact Metrics Strip */}
-                      <div className="grid grid-cols-3 gap-1.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 mb-3.5">
+                      <div className="grid grid-cols-3 gap-1.5 p-2.5 rounded-xl glass-subcard mb-3.5 shadow-xs">
                         <div className="text-center">
                           <div className={`text-base font-black bg-clip-text text-transparent bg-gradient-to-r ${study.accentGradient}`}>
                             {study.metrics.primary.value}

@@ -102,7 +102,7 @@ export function ProcessSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs uppercase tracking-wider font-extrabold mb-3 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-subcard border-purple-300/40 text-purple-800 text-xs uppercase tracking-wider font-extrabold mb-3 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 animate-spin text-purple-600" /> Proprietary Methodology
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mb-3">
@@ -122,8 +122,8 @@ export function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: idx * 0.08 }}
-              whileHover={{ y: -6, scale: 1.01 }}
-              className={`glass-card rounded-2xl p-4.5 sm:p-5 relative overflow-hidden border border-slate-200/80 hover:border-slate-300 transition-all duration-300 ${item.accentBorder} group flex flex-col justify-between shadow-sm hover:shadow-md`}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className={`glass-card rounded-2xl p-4.5 sm:p-5 relative overflow-hidden transition-all duration-300 ${item.accentBorder} group flex flex-col justify-between shadow-md hover:shadow-xl`}
             >
               {/* Animated Floating Gradient Flare */}
               <motion.div 
@@ -143,7 +143,7 @@ export function ProcessSection() {
               <div>
                 {/* Header: Icon, Animated Step Node & Next Arrow */}
                 <div className="flex items-center justify-between mb-3.5 relative z-10">
-                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/80 flex items-center justify-center group-hover:scale-110 shadow-sm transition-all">
+                  <div className="w-8 h-8 rounded-lg glass-subcard flex items-center justify-center group-hover:scale-110 shadow-2xs transition-all">
                     {item.icon}
                   </div>
 
@@ -158,7 +158,7 @@ export function ProcessSection() {
                 </div>
 
                 {/* Tagline */}
-                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${item.accentBadge} inline-block mb-2 shadow-sm`}>
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${item.accentBadge} inline-block mb-2 shadow-2xs`}>
                   {item.tagline}
                 </span>
 
@@ -174,7 +174,7 @@ export function ProcessSection() {
               </div>
 
               {/* Key Deliverables (Compact Checklist) */}
-              <div className="pt-2.5 border-t border-slate-100 relative z-10">
+              <div className="pt-2.5 border-t border-slate-200/50 relative z-10">
                 <h4 className="text-[10px] uppercase font-bold text-slate-500 mb-2 tracking-wider">Key Outputs:</h4>
                 <ul className="space-y-1.5">
                   {item.deliverables.map((del, dIdx) => (

@@ -37,7 +37,7 @@ export function PartnersMarquee() {
           {duplicatedPartners.map((p, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white/90 border border-slate-200/80 hover:border-cyan-500/40 hover:bg-white transition-all group shrink-0 shadow-sm hover:shadow-md"
+              className="glass-card flex items-center gap-3 px-6 py-3.5 rounded-2xl hover:border-cyan-500/40 transition-all group shrink-0 shadow-xs hover:shadow-lg"
             >
               <div className={`w-2.5 h-2.5 rounded-full bg-gradient-to-r ${p.color} animate-pulse shadow-[0_0_8px_currentColor]`} />
               <div>

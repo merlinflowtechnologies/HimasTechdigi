@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, DollarSign, Users, ShieldCheck } from "lucide-react";
+import { TrendingUp, IndianRupee, Users, ShieldCheck } from "lucide-react";
 
 export function StatsBar() {
   const stats = [
     {
-      value: "$28.4M+",
+      value: "₹240Cr+",
       label: "Managed Ad Spend",
       sublabel: "Across Meta, Google & TikTok campaigns",
       badge: "Portfolio Benchmark",
-      icon: <DollarSign className="w-5 h-5 text-emerald-400" />,
+      icon: <IndianRupee className="w-5 h-5 text-emerald-400" />,
       accent: "from-emerald-500/25 to-teal-500/5",
       border: "hover:border-emerald-500/50",
     },
@@ -54,16 +54,16 @@ export function StatsBar() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              whileHover={{ y: -4 }}
-              className={`glass-card rounded-2xl p-6 relative overflow-hidden transition-all duration-300 ${stat.border} group border border-slate-200/80 shadow-sm hover:shadow-md`}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className={`glass-card rounded-2xl p-6 relative overflow-hidden transition-all duration-300 ${stat.border} group shadow-md hover:shadow-xl`}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-30 group-hover:opacity-60 transition-opacity`} />
               
               <div className="relative z-10 flex items-start justify-between mb-4">
-                <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+                <div className="p-2.5 rounded-xl glass-subcard shadow-xs group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
-                <span className="text-[10px] font-bold text-cyan-800 bg-cyan-50 px-2.5 py-1 rounded-full border border-cyan-200/80">
+                <span className="text-[10px] font-bold text-cyan-800 glass-subcard px-2.5 py-1 rounded-full border border-cyan-200/60 shadow-2xs">
                   {stat.badge}
                 </span>
               </div>

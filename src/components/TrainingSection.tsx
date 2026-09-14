@@ -20,7 +20,7 @@ import {
   Clock,
   Layers,
   Zap,
-  DollarSign,
+  IndianRupee,
   ChevronRight,
   X,
   Send,
@@ -71,7 +71,7 @@ export function TrainingSection() {
       badge: "Highest Demand Track",
       duration: "8 Weeks",
       level: "Beginner to Advanced",
-      avgSalary: "$85,000 - $130,000",
+      avgSalary: "₹8.5 LPA - ₹15 LPA",
       color: "cyan",
       glowColor: "rgba(6, 182, 212, 0.4)",
       accentGradient: "from-cyan-500 via-blue-500 to-indigo-600",
@@ -145,7 +145,7 @@ export function TrainingSection() {
       badge: "Next-Gen Search",
       duration: "6 Weeks",
       level: "Intermediate",
-      avgSalary: "$75,000 - $120,000",
+      avgSalary: "₹7.5 LPA - ₹14 LPA",
       color: "emerald",
       glowColor: "rgba(16, 185, 129, 0.4)",
       accentGradient: "from-emerald-400 via-teal-500 to-cyan-600",
@@ -219,7 +219,7 @@ export function TrainingSection() {
       badge: "High Engagement",
       duration: "6 Weeks",
       level: "All Experience Levels",
-      avgSalary: "$65,000 - $110,000",
+      avgSalary: "₹6.5 LPA - ₹12 LPA",
       color: "pink",
       glowColor: "rgba(236, 72, 153, 0.4)",
       accentGradient: "from-pink-500 via-rose-500 to-purple-600",
@@ -293,7 +293,7 @@ export function TrainingSection() {
       badge: "Highest ROI Focus",
       duration: "8 Weeks",
       level: "Intermediate to Advanced",
-      avgSalary: "$90,000 - $145,000",
+      avgSalary: "₹9.0 LPA - ₹18 LPA",
       color: "purple",
       glowColor: "rgba(168, 85, 247, 0.4)",
       accentGradient: "from-purple-500 via-indigo-500 to-cyan-500",
@@ -367,7 +367,7 @@ export function TrainingSection() {
       badge: "Complete 360° Mastery",
       duration: "12 Weeks",
       level: "All-in-One Comprehensive",
-      avgSalary: "$110,000 - $165,000",
+      avgSalary: "₹12 LPA - ₹24 LPA",
       color: "amber",
       glowColor: "rgba(245, 158, 11, 0.4)",
       accentGradient: "from-amber-400 via-orange-500 to-purple-600",
@@ -450,7 +450,7 @@ export function TrainingSection() {
 
   const [agencySubmitted, setAgencySubmitted] = useState(false);
   const [agencySubmitting, setAgencySubmitting] = useState(false);
-  const [agencyForm, setAgencyForm] = useState({ company: "", email: "", phone: "", rolesNeeded: "Media Buyer (Meta/Google)", spendRange: "$10k - $50k/mo" });
+  const [agencyForm, setAgencyForm] = useState({ company: "", email: "", phone: "", rolesNeeded: "Media Buyer (Meta/Google)", spendRange: "₹1L - ₹5L/mo" });
 
   useEffect(() => {
     setMounted(true);
@@ -537,9 +537,9 @@ export function TrainingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.08 }}
-              className={`glass-card rounded-xl p-4.5 text-center transition-all duration-300 border border-slate-200/80 shadow-xs hover:shadow-md ${pillar.border}`}
+              className={`glass-card rounded-xl p-4.5 text-center transition-all duration-300 border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 ${pillar.border}`}
             >
-              <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center mx-auto mb-3">
+              <div className="w-10 h-10 rounded-lg glass-subcard flex items-center justify-center mx-auto mb-3 shadow-xs">
                 {pillar.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 mb-1.5">{pillar.title}</h3>
@@ -566,8 +566,8 @@ export function TrainingSection() {
                   onClick={() => setSelectedTrack(track)}
                   className={`relative p-3.5 sm:p-4 rounded-xl text-left transition-all duration-300 flex flex-col justify-between cursor-pointer border overflow-hidden ${
                     isSelected
-                      ? `bg-blue-50 border-blue-500/80 shadow-md scale-[1.02]`
-                      : `glass-card border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 opacity-90 hover:opacity-100`
+                      ? `bg-blue-50/90 border-blue-500/80 shadow-md scale-[1.02]`
+                      : `glass-subcard border-slate-200/80 hover:border-blue-400/50 hover:bg-white/80 opacity-90 hover:opacity-100 hover:shadow-md`
                   }`}
                 >
                   {/* Subtle Corner Glow when selected */}
@@ -577,23 +577,20 @@ export function TrainingSection() {
 
                   <div className="relative z-10 w-full">
                     <div className="flex items-center justify-between gap-1.5 mb-2.5">
-                      <div className={`p-2 rounded-lg ${isSelected ? "bg-blue-600 text-white border border-blue-700" : "bg-slate-100 text-slate-700"}`}>
+                      <div className={`p-2 rounded-lg ${isSelected ? "bg-blue-600 text-white border border-blue-700" : "glass-subcard text-slate-700"}`}>
                         <IconComp className="w-4 h-4" />
                       </div>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isSelected ? "bg-blue-100 text-blue-800 border border-blue-200" : "bg-slate-100 text-slate-600"}`}>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isSelected ? "bg-blue-100 text-blue-800 border border-blue-200" : "glass-subcard text-slate-600"}`}>
                         {track.duration}
                       </span>
                     </div>
 
-                    <h4 className={`text-xs sm:text-sm font-bold leading-snug line-clamp-2 mb-1 ${isSelected ? "text-blue-900" : "text-slate-800"}`}>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1 leading-snug">
                       {track.shortTitle}
                     </h4>
-                  </div>
 
-                  <div className="relative z-10 w-full mt-2.5 pt-2 border-t border-slate-200/80 flex items-center justify-between text-[10px] text-slate-500">
-                    <span className="truncate">{track.level.split(" ")[0]}</span>
-                    <span className={isSelected ? "text-blue-600 font-bold" : "text-slate-500"}>
-                      {isSelected ? "Active View" : "Explore →"}
+                    <span className="text-[10px] text-slate-500 font-medium line-clamp-1">
+                      {track.level}
                     </span>
                   </div>
                 </button>
@@ -602,7 +599,7 @@ export function TrainingSection() {
           </div>
         </div>
 
-        {/* ----------------- ACTIVE TRACK OVERVIEW CARD ----------------- */}
+        {/* ----------------- ROADMAP HEADER BANNER ----------------- */}
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedTrack.id}
@@ -610,9 +607,9 @@ export function TrainingSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 max-w-6xl mx-auto mb-12 relative overflow-hidden shadow-xs"
+            className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200/90 max-w-6xl mx-auto mb-12 relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
           >
-            <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${selectedTrack.accentGradient} opacity-10 rounded-full blur-2xl pointer-events-none`} />
+            <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${selectedTrack.accentGradient} opacity-15 rounded-full blur-2xl pointer-events-none`} />
 
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
               <div className="max-w-3xl">
@@ -620,10 +617,10 @@ export function TrainingSection() {
                   <span className={`text-xs font-bold px-3 py-0.5 rounded-full bg-gradient-to-r ${selectedTrack.accentGradient} text-white shadow-xs`}>
                     {selectedTrack.badge}
                   </span>
-                  <span className="text-xs font-medium text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200 flex items-center gap-1">
+                  <span className="text-xs font-medium text-slate-700 glass-subcard px-2.5 py-0.5 rounded-full flex items-center gap-1">
                     <Clock className="w-3 h-3 text-slate-500" /> {selectedTrack.duration} Intensive
                   </span>
-                  <span className="text-xs font-medium text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200 flex items-center gap-1">
+                  <span className="text-xs font-medium text-slate-700 glass-subcard px-2.5 py-0.5 rounded-full flex items-center gap-1">
                     <Layers className="w-3 h-3 text-slate-500" /> {selectedTrack.level}
                   </span>
                 </div>
@@ -637,11 +634,11 @@ export function TrainingSection() {
               </div>
 
               {/* Fast stats pill box */}
-              <div className="flex lg:flex-col items-center sm:items-start justify-between sm:justify-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 shrink-0">
+              <div className="flex lg:flex-col items-center sm:items-start justify-between sm:justify-start gap-3 p-3.5 rounded-xl glass-subcard shrink-0 shadow-xs">
                 <div>
                   <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Target Placement Salary</span>
                   <span className="text-sm font-extrabold text-emerald-700 flex items-center gap-0.5">
-                    <DollarSign className="w-3.5 h-3.5 -mr-0.5" />{selectedTrack.avgSalary}
+                    <IndianRupee className="w-3.5 h-3.5 -mr-0.5" />{selectedTrack.avgSalary}
                   </span>
                 </div>
                 <div className="lg:pt-2 lg:border-t lg:border-slate-200">
@@ -820,8 +817,8 @@ export function TrainingSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto items-stretch">
           
           {/* Card 1: For Students / Career Switchers */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-purple-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md bg-white/95 h-full">
-            <div className="absolute top-0 right-0 w-44 h-44 bg-purple-500/5 rounded-bl-full blur-xl pointer-events-none" />
+          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-purple-200/90 relative overflow-hidden flex flex-col justify-between group shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
+            <div className="absolute top-0 right-0 w-44 h-44 bg-purple-500/10 rounded-bl-full blur-xl pointer-events-none" />
             
             <div>
               <span className="text-xs font-bold text-purple-700 uppercase tracking-wider block mb-2">
@@ -845,8 +842,8 @@ export function TrainingSection() {
           </div>
 
           {/* Card 2: For Brands & Agencies Looking to Hire */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-blue-200 relative overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-md bg-white/95 h-full">
-            <div className="absolute top-0 right-0 w-44 h-44 bg-blue-500/5 rounded-bl-full blur-xl pointer-events-none" />
+          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-blue-200/90 relative overflow-hidden flex flex-col justify-between group shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
+            <div className="absolute top-0 right-0 w-44 h-44 bg-blue-500/10 rounded-bl-full blur-xl pointer-events-none" />
             
             <div>
               <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-2">
@@ -939,7 +936,7 @@ export function TrainingSection() {
                         required
                         value={studentForm.name}
                         onChange={(e) => setStudentForm({ ...studentForm, name: e.target.value })}
-                        placeholder="e.g. Priya Sharma"
+                        placeholder="e.g. Student Name"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-purple-500 focus:outline-none"
                       />
                     </div>
@@ -950,7 +947,7 @@ export function TrainingSection() {
                         required
                         value={studentForm.email}
                         onChange={(e) => setStudentForm({ ...studentForm, email: e.target.value })}
-                        placeholder="priya@gmail.com"
+                        placeholder="student@example.com"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-purple-500 focus:outline-none"
                       />
                     </div>
@@ -1139,9 +1136,9 @@ export function TrainingSection() {
                         onChange={(e) => setAgencyForm({ ...agencyForm, spendRange: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none"
                       >
-                        <option value="$5k - $20k/mo">$5,000 - $20,000 / month</option>
-                        <option value="$20k - $100k/mo">$20,000 - $100,000 / month</option>
-                        <option value="$100k+/mo">$100,000+ / month (Enterprise)</option>
+                        <option value="₹50k - ₹2L/mo">₹50,000 - ₹2,00,000 / month</option>
+                        <option value="₹2L - ₹10L/mo">₹2,00,000 - ₹10,00,000 / month</option>
+                        <option value="₹10L+/mo">₹10,00,000+ / month (Enterprise)</option>
                       </select>
                     </div>
                   </div>

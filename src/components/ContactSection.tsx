@@ -68,7 +68,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="glass-card rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md relative overflow-hidden flex flex-col justify-between h-full bg-white/95"
+              className="glass-card rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full"
             >
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs uppercase tracking-wider font-bold mb-3 shadow-2xs">
@@ -83,7 +83,7 @@ export function ContactSection() {
                 </h3>
 
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Tell us about your brand goals. Our senior strategists will analyze your ad accounts and prepare a custom growth roadmap within 24 hours.
+                  Whether you need a dedicated media-buying squad, an end-to-end CRO funnel overhaul, or high-performing creative pipelines, our growth strategists are ready.
                 </p>
 
                 {/* Reach Us Through Heading & Direct Contact Cards */}
@@ -94,8 +94,8 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2.5">
-                  <div className="rounded-xl p-3 flex items-center gap-3 border border-slate-200 bg-slate-50/70 hover:border-blue-300 hover:bg-blue-50/40 transition-all group shadow-2xs">
-                    <div className="w-8 h-8 rounded-lg bg-blue-100/80 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="rounded-xl p-3 flex items-center gap-3 glass-subcard hover:border-blue-400/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+                    <div className="w-8 h-8 rounded-lg bg-blue-100/80 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
                       <Mail className="h-4 w-4 text-blue-600" />
                     </div>
                     <div className="min-w-0">
@@ -106,10 +106,10 @@ export function ContactSection() {
 
                   <a 
                     href="tel:+916304989071" 
-                    className="rounded-xl p-3 flex items-center justify-between border border-slate-200 bg-slate-50/70 hover:border-purple-300 hover:bg-purple-50/40 transition-all group cursor-pointer shadow-2xs"
+                    className="rounded-xl p-3 flex items-center justify-between glass-subcard hover:border-purple-400/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-purple-100/80 border border-purple-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <div className="w-8 h-8 rounded-lg bg-purple-100/80 border border-purple-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
                         <Phone className="h-4 w-4 text-purple-600" />
                       </div>
                       <div>
@@ -124,10 +124,10 @@ export function ContactSection() {
                     href="https://wa.me/916304989071?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20growth%20strategy" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl p-3 flex items-center justify-between border border-emerald-200 bg-emerald-50/60 hover:border-emerald-300 hover:bg-emerald-50 transition-all group cursor-pointer shadow-2xs"
+                    className="rounded-xl p-3 flex items-center justify-between glass-subcard hover:border-emerald-400/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-emerald-600">
+                      <div className="w-8 h-8 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-emerald-600 shadow-2xs">
                         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                           <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
                         </svg>
@@ -140,8 +140,8 @@ export function ContactSection() {
                     <span className="text-[9px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-200 font-bold">Chat 💬</span>
                   </a>
 
-                  <div className="rounded-xl p-3 flex items-center gap-3 border border-slate-200 bg-slate-50/70 hover:border-pink-300 hover:bg-pink-50/40 transition-all group shadow-2xs">
-                    <div className="w-8 h-8 rounded-lg bg-pink-100/80 border border-pink-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="rounded-xl p-3 flex items-center gap-3 glass-subcard hover:border-pink-400/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+                    <div className="w-8 h-8 rounded-lg bg-pink-100/80 border border-pink-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
                       <MapPin className="h-4 w-4 text-pink-600" />
                     </div>
                     <div>
@@ -161,7 +161,7 @@ export function ContactSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                  <span>Average strategy audit turnaround: 4 hours</span>
+                  <span>Guaranteed Growth Audit response within 2 business hours.</span>
                 </div>
               </div>
             </motion.div>
@@ -174,7 +174,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="glass-card rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md relative overflow-hidden flex flex-col justify-between h-full bg-white/95"
+              className="glass-card rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full"
             >
               <AnimatePresence mode="wait">
                 {!isSuccess ? (
@@ -265,9 +265,9 @@ export function ContactSection() {
                           aria-label="Monthly Ad Spend"
                           className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-purple-500 transition-colors cursor-pointer shadow-xs"
                         >
-                          <option value="$3,000 - $10,000">$3,000 - $10,000 / month</option>
-                          <option value="$10,000 - $30,000">$10,000 - $30,000 / month</option>
-                          <option value="$30,000 - $100,000+">$30,000 - $100,000+ / month</option>
+                          <option value="₹1,00,000 - ₹3,00,000">₹1,00,000 - ₹3,00,000 / month</option>
+                          <option value="₹3,00,000 - ₹10,00,000">₹3,00,000 - ₹10,00,000 / month</option>
+                          <option value="₹10,00,000+">₹10,00,000+ / month (Enterprise)</option>
                           <option value="Training / Hiring">Training / Hiring Marketers</option>
                         </select>
                       </div>

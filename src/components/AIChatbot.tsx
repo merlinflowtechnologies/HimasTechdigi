@@ -6,7 +6,6 @@ import {
   Bot, 
   Send, 
   X, 
-  Sparkles, 
   ArrowRight, 
   RotateCcw, 
   Phone, 
@@ -16,7 +15,7 @@ import {
   Calendar,
   MessageSquare,
   Building,
-  DollarSign
+  IndianRupee
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -32,6 +31,146 @@ interface ChatMessage {
     href: string;
     isExternal?: boolean;
   };
+}
+
+const MASTER_HIMASTECH_SUGGESTIONS: string[] = [
+  // CEO & Company
+  "🏢 Who is Founder & CEO Adduri Sai Kishore?",
+  "🎯 What is Himastech's core revenue philosophy?",
+  "📍 Where is your operational hub in Nagole, Hyderabad?",
+  "🚀 What makes Himastech different from other agencies?",
+
+  // Channels & Strategies
+  "⚡ How does Himastech achieve a 4.8x average ROAS?",
+  "📱 How do your Meta (FB & IG) ad funnels work?",
+  "🔍 What is your Google Ads & Performance Max strategy?",
+  "🤖 What is Generative Engine Optimization (GEO)?",
+  "🎥 Tell me about TikTok & viral UGC creator ads",
+  "📺 How does your YouTube Direct Response video strategy work?",
+  "💼 How do you run LinkedIn B2B Account-Based Marketing?",
+  "🔄 Tell me about your Klaviyo & WhatsApp retention flows",
+  "⚡ How do sub-second Next.js landing pages boost conversions?",
+
+  // Training Academy
+  "🎓 What are the 5 Career Tracks in your Academy?",
+  "💰 Tell me about the Paid Media & ROAS Acceleration track",
+  "📈 What is the Growth Hacking & CRO bootcamp?",
+  "💼 Do you provide live client ad budgets and 100% placement?",
+  "📅 When does the next Training Academy cohort start?",
+
+  // Free 48-Hour Growth Audit
+  "📊 What is included in the Free 48-Hour Growth Audit?",
+  "🛡️ Is the 48-Hour Ad Stack Audit covered by mutual NDA?",
+  "🔍 How do you diagnose broken Meta CAPI tracking?",
+
+  // Client Results & Case Studies
+  "📈 How did you generate ₹48Cr+ for Prestige Estates?",
+  "🛍️ How did Lumina Glow Skincare scale 310% MRR in 90 days?",
+  "🚀 What results did you achieve for B2B SaaS CloudScale?",
+  "⭐ What is your agency client retention rate?",
+
+  // Methodology & Process
+  "⚙️ Walk me through your 4-Step Revenue Multiplication Engine",
+  "🧪 What is Dynamic Creative Testing (DCT)?",
+  "🧮 Can I simulate my projected ROAS with your calculator?",
+
+  // Pricing & Collaboration
+  "💰 How does your performance-aligned pricing work?",
+  "🤝 Are there any long-term contract lock-ins?",
+  "💵 What is the minimum recommended monthly ad spend?",
+
+  // Enterprise Software
+  "🚀 Tell me about Merlinflow Cloud ERP suites",
+  "🏫 Tell me about the School & College IMS software",
+  "🏥 How does the Medical & Hospital ERP work?",
+  "🍽️ How does Restaurant OS handle digital QR & KOT sync?",
+
+  // Contact & Social Proof
+  "📞 What is CEO Adduri Sai Kishore's direct WhatsApp?",
+  "⚡ How do I book a 30-minute growth strategy call?",
+  "⭐ Where can I read verified client feedback and reviews?",
+  "💬 How do we get started working together?"
+];
+
+const MASTER_MERLINFLOW_SUGGESTIONS: string[] = [
+  "📞 What are the direct WhatsApp desk numbers?",
+  "🚀 Schedule a Guided 1-on-1 Software Demo",
+  "🏫 Tell me about the School & College IMS features",
+  "🏥 How does Medical & Hospital ERP track batch expiries?",
+  "🍽️ How does Restaurant OS handle digital QR & KOT sync?",
+  "🏢 What modules are in the Real Estate Brokerage ERP?",
+  "🛍️ How does the E-Commerce Cloud OS prevent COD fraud?",
+  "💼 Tell me about Corporate HRMS & Biometric Payroll",
+  "💰 What is the pricing and cloud deployment model?",
+  "🤝 How does Merlinflow collaborate with Himastech?"
+];
+
+const INITIAL_HIMASTECH_OPTIONS: string[] = [
+  "⚡ How fast can you scale our ROAS?",
+  "📊 What is included in the Free 48-Hr Audit?",
+  "🎓 Tell me about the 5 Training Tracks",
+  "🏢 Who is the CEO of Himastech?",
+  "💼 What services do you offer?",
+];
+
+function selectDynamicSuggestions(
+  userQuery: string,
+  preferredOptions: string[] | undefined,
+  alreadyShown: string[],
+  isMerlinflow: boolean,
+  count: number = 4
+): { suggestions: string[]; newShown: string[] } {
+  const pool = isMerlinflow ? MASTER_MERLINFLOW_SUGGESTIONS : MASTER_HIMASTECH_SUGGESTIONS;
+  const qLower = userQuery.toLowerCase();
+  const normalize = (s: string) => s.replace(/[^\w\s]/g, "").toLowerCase().trim();
+
+  // Filter out suggestions that are identical or directly ask about what was just answered
+  const isSimilarToQuery = (s: string) => {
+    const sNorm = normalize(s);
+    if (qLower.includes("ceo") && sNorm.includes("ceo")) return true;
+    if (qLower.includes("roas") && sNorm.includes("roas")) return true;
+    if (qLower.includes("audit") && sNorm.includes("audit")) return true;
+    if (qLower.includes("training") && sNorm.includes("training")) return true;
+    if (qLower.includes("pricing") && sNorm.includes("pricing")) return true;
+    if (qLower.includes("merlinflow") && sNorm.includes("merlinflow")) return true;
+    if (qLower.includes("prestige") && sNorm.includes("prestige")) return true;
+    if (qLower.includes("lumina") && sNorm.includes("lumina")) return true;
+    if (qLower.includes("geo") && sNorm.includes("geo")) return true;
+    if (qLower.includes("contact") && sNorm.includes("whatsapp")) return true;
+    return false;
+  };
+
+  const alreadyShownSet = new Set(alreadyShown.map(normalize));
+
+  // 1. Unshown suggestions from preferred options (if any)
+  const availablePreferred = (preferredOptions || []).filter(
+    (opt) => opt !== "🔄 More Topics" && !alreadyShownSet.has(normalize(opt)) && !isSimilarToQuery(opt)
+  );
+
+  // 2. Unshown candidates from the master pool
+  let unshownPool = pool.filter(
+    (item) => !alreadyShownSet.has(normalize(item)) && !isSimilarToQuery(item)
+  );
+
+  // If unshown pool is nearly exhausted, reset so conversation never runs out of topics
+  let resetTriggered = false;
+  if (unshownPool.length < count) {
+    unshownPool = pool.filter((item) => !isSimilarToQuery(item));
+    resetTriggered = true;
+  }
+
+  const candidates: string[] = [];
+  for (const p of availablePreferred) {
+    if (!candidates.includes(p)) candidates.push(p);
+    if (candidates.length >= count) break;
+  }
+  for (const item of unshownPool) {
+    if (!candidates.includes(item)) candidates.push(item);
+    if (candidates.length >= count) break;
+  }
+
+  const updatedShown = resetTriggered ? candidates : [...alreadyShown, ...candidates];
+  return { suggestions: candidates, newShown: updatedShown };
 }
 
 export function AIChatbot() {
@@ -56,19 +195,27 @@ export function AIChatbot() {
             "📞 What are the direct WhatsApp numbers?",
             "🚀 Schedule a Guided Software Demo",
             "🏢 Explore School IMS, Medical & Restaurant ERP",
-            "💰 Custom Pricing & Cloud Migration"
+            "💰 Custom Pricing & Cloud Migration",
+            "🔄 More Topics"
           ]
         : [
-            "⚡ How fast can you scale our ROAS?",
-            "📊 What is included in the Free 48-Hr Audit?",
-            "🎓 Tell me about the 5 Training Tracks",
-            "🏢 Who is the leadership team & founders?",
-            "💼 What services do you offer?",
+            ...INITIAL_HIMASTECH_OPTIONS,
+            "🔄 More Topics"
           ],
     },
   ];
 
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
+  const shownSuggestionsRef = useRef<string[]>(
+    isMerlinflow
+      ? [
+          "📞 What are the direct WhatsApp numbers?",
+          "🚀 Schedule a Guided Software Demo",
+          "🏢 Explore School IMS, Medical & Restaurant ERP",
+          "💰 Custom Pricing & Cloud Migration"
+        ]
+      : INITIAL_HIMASTECH_OPTIONS
+  );
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -81,26 +228,85 @@ export function AIChatbot() {
   }, [messages, isOpen, isTyping]);
 
   const generateBotReply = (userQuery: string): { text: string; cta?: { label: string; href: string; isExternal?: boolean }; options?: string[] } => {
-    const q = userQuery.toLowerCase().trim();
+    const raw = userQuery.toLowerCase().trim();
+    // Normalized query with edge spaces for clean phrase matching
+    const q = (" " + raw.replace(/[^\w\s\+]/g, " ").replace(/\s+/g, " ") + " ");
+    const words = q.trim().split(" ").filter(Boolean);
+    const hasWord = (...terms: string[]) => terms.some(t => words.includes(t.toLowerCase()));
+    const hasPhrase = (...phrases: string[]) => phrases.some(p => q.includes(" " + p.toLowerCase() + " ") || q.includes(p.toLowerCase()));
 
-    // 1. Phone / WhatsApp / Mobile / Contact Number / Strategy Desk
-    if (
-      q.includes("phone") || 
-      q.includes("mobile") || 
-      q.includes("number") || 
-      q.includes("whatsapp") || 
-      q.includes("call") || 
+    // REJECTION RESPONSE HELPER FOR UNRELATED QUERIES
+    const rejectionResponse = {
+      text: "⚠️ **Query Rejected: Outside Company Scope**\n\nI am the official AI Strategist for **Himastech** and **Merlinflow Technologies**. I can only assist with inquiries directly related to our company, digital marketing services, training academy, leadership, and enterprise software.\n\n👉 **Please enter a query related to our company.**\n\n*Examples of questions you can ask:*\n• **CEO & Leadership:** Who is the CEO of Himastech? (*Adduri Sai Kishore*)\n• **Marketing Services:** Meta & Google Ads, AI Search (GEO), Funnels & CRO\n• **Training Academy:** 5 Career Tracks, Roadmaps & Placement\n• **Free Growth Audit:** Complimentary 48-Hour Ad Stack Diagnostic\n• **Enterprise Software:** Merlinflow Cloud ERP Suites\n• **Contact Us:** Official WhatsApp (+91 6304989071) or Schedule a Strategy Call",
+      cta: { 
+        label: "Chat on WhatsApp (+91 6304989071)", 
+        href: "https://wa.me/916304989071?text=Hi%20Himastech%2C%20I%20have%20an%20inquiry%20regarding%20your%20company%20and%20services", 
+        isExternal: true 
+      },
+      options: [
+        "🏢 Who is the CEO of Himastech?",
+        "💼 What services do you offer?",
+        "🎓 Tell me about Training Academy",
+        "📊 Claim Free 48-Hour Audit"
+      ]
+    };
+
+    // 0. EXPLICIT UNRELATED DOMAINS FILTER (Strictly rejects out-of-the-box off-topic subjects)
+    const explicitUnrelatedWords = [
+      // Sports & Gaming
+      "cricket", "football", "soccer", "tennis", "basketball", "badminton", "chess", "hockey", "ipl", "fifa",
+      "batsman", "bowler", "wicket", "stadium", "messi", "ronaldo", "kohli", "dhoni", "pubg", "minecraft",
+      "fortnite", "gta", "anime", "manga", "gaming", "gamer", "videogame", "videogames",
+      // Pop Culture / Entertainment / Movies
+      "movie", "movies", "film", "films", "actor", "actress", "cinema", "song", "songs", "lyrics", "bollywood", "hollywood", "tollywood", "netflix",
+      "singer", "album", "trailer", "boxoffice", "celebrity",
+      // Food / Cooking / Recipes
+      "recipe", "recipes", "cooking", "cook", "bake", "baking", "biryani", "curry", "pizza", "burger", "noodles", "shawarma", "pasta", "sandwich",
+      // STEM / General Coding / Homework
+      "python", "java", "golang", "rust", "cpp", "leetcode", "physics", "chemistry", "biology", "math", "mathematics", "algebra", "geometry", "calculus", "homework", "assignment",
+      // Politics & Trivia
+      "politics", "election", "biden", "trump", "modi", "putin", "weather", "temperature",
+      // Casual bot banter / Creative writing
+      "joke", "jokes", "riddle", "riddles", "poem", "essay", "story"
+    ];
+
+    const hasUnrelatedWord = words.some(w => explicitUnrelatedWords.includes(w));
+    const hasBusinessContext =
+      q.includes("himastech") || q.includes("himas tech") || q.includes("merlinflow") ||
+      q.includes("adduri") || q.includes("sai kishore") || q.includes("kishore") ||
+      q.includes("marketing") || q.includes("ad") || q.includes("ads") || q.includes("agency") ||
+      q.includes("business") || q.includes("sales") || q.includes("revenue") || q.includes("leads") ||
+      q.includes("roas") || q.includes("audit") || q.includes("training") || q.includes("course");
+
+    if (hasUnrelatedWord && !hasBusinessContext) {
+      return rejectionResponse;
+    }
+
+    // Check if user is asking to contact / call / WhatsApp / reach someone
+    const isContactIntent =
+      hasWord("contact", "whatsapp", "email", "address", "phone") ||
       q.includes("contact") ||
-      q.includes("reach") ||
-      q.includes("email") ||
-      q.includes("address") ||
+      q.includes("phone number") ||
+      q.includes("contact number") ||
+      q.includes("whatsapp number") ||
+      q.includes("mobile number") ||
+      q.includes("how to contact") ||
+      q.includes("how to reach") ||
+      q.includes("where is your office") ||
+      q.includes("where are you located") ||
       q.includes("location") ||
-      q.includes("8374373753") ||
-      q.includes("8247716878")
-    ) {
-      if (isMerlinflow) {
+      q.includes("nagole") ||
+      q.includes("hyderabad") ||
+      q.includes("call you") ||
+      q.includes("call the team") ||
+      q.includes("reach out") ||
+      hasPhrase("6304989071", "8374373753", "8247716878", "desk 1", "desk 2");
+
+    // 1. Contact Details / Phone / WhatsApp / Email / Address / Location (Handles "Contact Adduri Sai Kishore's Team")
+    if (isContactIntent) {
+      if (isMerlinflow || q.includes("merlinflow") || q.includes("erp") || q.includes("desk 1") || q.includes("desk 2")) {
         return {
-          text: "📞 **Merlinflow Official Contact & Demo Desks:**\n\n• **Direct Solutions Desk 1:** +91 8374373753\n• **Direct Solutions Desk 2:** +91 8247716878\n• **Official Email:** info@merlinflow.in\n• **Operational Hub:** Merlinflow Technologies Pvt Ltd, Hyderabad, India\n\nOur senior software engineers are available on WhatsApp for immediate demo bookings and architecture planning.",
+          text: "📞 **Merlinflow Technologies Official Desks:**\n\n• **Direct Solutions Desk 1:** +91 8374373753\n• **Direct Solutions Desk 2:** +91 8247716878\n• **Official Email:** info@merlinflow.in\n• **Website:** https://www.merlinflow.in/\n• **Operational Hub:** Hyderabad, India\n\nOur solutions architects are available on WhatsApp for live demo walkthroughs and custom module proposals.",
           cta: { 
             label: "Chat with Desk 1 (+91 8374373753)", 
             href: "https://wa.me/918374373753?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20discuss%20our%20enterprise%20software%20requirements", 
@@ -109,208 +315,548 @@ export function AIChatbot() {
           options: [
             "⚡ Chat with Desk 2 (+91 8247716878)", 
             "🚀 Book Live Software Demo", 
-            "🏢 Explore ERP Modules"
+            "🏢 Himastech Marketing Contact"
           ]
         };
       }
 
+      const mentionsKishore = q.includes("adduri") || q.includes("sai kishore") || q.includes("kishore") || q.includes("ceo");
+
       return {
-        text: "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 6304989071\n• **WhatsApp Direct Desk:** +91 6304989071\n• **Official Email:** info@himastech.com\n• **Operational Hub:** Nagole, Hyderabad, Telangana, India\n\nOur senior directors are available on WhatsApp for immediate campaign consultation.",
+        text: mentionsKishore
+          ? "📞 **Contact Adduri Sai Kishore & Himastech Growth Desk:**\n\n• **Direct Strategy Call:** +91 6304989071\n• **Official WhatsApp Desk:** +91 6304989071\n• **Executive Email:** info@himastech.com\n• **Operational Center:** Nagole, Hyderabad, Telangana, India\n\nFounder & CEO Adduri Sai Kishore and our senior growth directors are available on WhatsApp for direct campaign roadmaps, ad account audits, and enterprise partnerships."
+          : "📞 **Himastech Official Contact Details:**\n\n• **Strategy Desk & Phone:** +91 6304989071\n• **WhatsApp Direct Desk:** +91 6304989071\n• **Official Email:** info@himastech.com\n• **Operational Center:** Nagole, Hyderabad, Telangana, India\n\nConnect directly with CEO Adduri Sai Kishore's growth team for marketing audits, campaign consulting, and academy enrollments.",
         cta: { 
-          label: "Chat Directly on WhatsApp (+91 6304989071)", 
-          href: "https://wa.me/916304989071?text=Hi%20Himastech%2C%20I%20would%20like%20to%20discuss%20our%20marketing%20growth%20strategy", 
+          label: "Chat on WhatsApp (+91 6304989071)", 
+          href: "https://wa.me/916304989071?text=Hi%20Adduri%20Sai%20Kishore%20and%20Himastech%20Team%2C%20I%20would%20like%20to%20discuss%20our%20growth%20strategy", 
           isExternal: true 
         },
-        options: ["📊 Request Free 48-Hr Audit", "🎓 Explore Training Academy", "⚡ What ROAS can you achieve?"]
+        options: ["📊 Request Free 48-Hr Audit", "💼 What services do you offer?", "🎓 Explore Training Academy"]
       };
     }
 
-    // 1b. Direct Desk 2 query
-    if (q.includes("desk 2") || q.includes("8247716878")) {
-      return {
-        text: "📞 **Merlinflow Direct Desk 2 (+91 8247716878):**\n\nConnect with our secondary solutions architect for rapid onboarding and custom ERP modules.",
-        cta: {
-          label: "Open WhatsApp (+91 8247716878)",
-          href: "https://wa.me/918247716878?text=Hi%20Merlinflow%2C%20I%20would%20like%20to%20inquire%20about%20custom%20ERP%20solutions",
-          isExternal: true
-        },
-        options: ["📞 Connect with Desk 1 (+91 8374373753)", "🚀 Book Live Software Demo"]
-      };
-    }
-
-    // 2. Leadership / Founders / Team / Who are you / About
+    // 2. CEO / Founder / Adduri Sai Kishore / Leadership Biography
     if (
-      q.includes("founder") || 
-      q.includes("leadership") || 
-      q.includes("team") || 
-      q.includes("who are you") || 
-      q.includes("about") || 
-      q.includes("aravind") || 
-      q.includes("priya") || 
-      q.includes("rohit")
+      hasPhrase("adduri", "sai kishore", "adduri sai kishore") ||
+      hasWord("ceo", "founder") ||
+      q.includes("who is the ceo") ||
+      q.includes("who is your ceo") ||
+      q.includes("who is the founder") ||
+      q.includes("who is the owner") ||
+      q.includes("owner of himastech") ||
+      q.includes("who runs himastech") ||
+      q.includes("who started himastech") ||
+      q.includes("leadership") ||
+      q.includes("management team") ||
+      q.includes("executive team")
     ) {
       return {
-        text: "🏢 **Himastech Executive Leadership:**\n\n• **Aravind Reddy** (Founder & Chief Growth Officer): Ex-Meta performance marketing specialist who has scaled ₹100Cr+ in client ad spend across D2C, B2B, and Real Estate.\n• **Priya Sharma** (Head of AI Search & GEO): Former Google Search engineer specializing in Generative Engine Optimization & LLM knowledge graph indexing.\n• **Rohit Verma** (Head of Creative & UGC Production): Direct-response creative director with 50M+ organic views generated.\n\nIn strategic collaboration with **Merlinflow Technologies Private Limited** for enterprise technology.",
+        text: "🏢 **Himastech Executive Leadership:**\n\n• **Adduri Sai Kishore** — Chief Executive Officer (CEO) & Founder\n\nAdduri Sai Kishore is the visionary Founder & CEO of Himastech. He leads the agency's data-driven digital marketing operations, high-converting revenue funnels, and enterprise client growth.\n\nUnder his leadership, Himastech operates in strategic technology collaboration with **Merlinflow Technologies Private Limited** to deliver cutting-edge ad tech, AI search optimization (GEO), and enterprise-grade scalability.",
         cta: { label: "Learn More in About Section", href: "#about" },
-        options: ["🚀 What is Merlinflow ERP?", "💼 What services do you offer?", "📊 Book Free Audit"]
+        options: [
+          "💼 What services does Himastech offer?",
+          "📊 Request Free 48-Hr Growth Audit",
+          "📞 Contact Adduri Sai Kishore's Team"
+        ]
       };
     }
 
-    // 2b. Merlinflow Technologies / SaaS Products / Cloud ERP
+    // 3. Conversational: Day & Well-being ("how was your day", "who was your day", "how is your day")
     if (
-      q.includes("merlinflow") || 
-      q.includes("merlin") || 
-      q.includes("erp") || 
-      q.includes("school ims") || 
-      q.includes("medical erp") || 
-      q.includes("restaurant erp") ||
-      q.includes("saas")
+      q.includes("was your day") ||
+      q.includes("is your day") ||
+      q.includes("your day") ||
+      q.includes("how was today") ||
+      q.includes("how is today") ||
+      q.includes("hows today")
     ) {
       return {
-        text: "🚀 **Strategic Collaboration with Merlinflow Technologies Private Limited:**\n\nHimastech collaborates with Merlinflow Technologies (https://www.merlinflow.in/) to provide enterprise-grade SaaS and automated cloud OS suites:\n\n1️⃣ **School IMS** (Education): Admissions, fee collection, gradebooks, parent portal, timetable sync.\n2️⃣ **Medical ERP** (Healthcare): Batch/expiry tracking, instant barcode POS billing, GST compliance.\n3️⃣ **Restaurant ERP** (Hospitality): Smart QR digital menus, real-time KOT kitchen sync, table booking.\n4️⃣ **E-Commerce Platform** (Commerce): Automated 1-click checkout, COD fraud filtering, Shiprocket logistics.\n\nAll systems feature real-time cloud sync, WhatsApp/SMS automation, and India GST/UPI compliance.",
-        cta: { label: "Visit Merlinflow.in", href: "https://www.merlinflow.in/", isExternal: true },
-        options: ["🏢 About Leadership", "💼 9 Marketing Services", "📞 Contact Desk (+91 6304989071)"]
+        text: "😊 **My day has been wonderful, thank you for asking!**\n\nI've been busy helping business owners audit their ad funnels and sharing data-driven growth strategies engineered by Founder & CEO **Adduri Sai Kishore**.\n\nHow has your day been going so far? Tell me a little about yourself or what you're working on today!",
+        cta: { label: "Explore Our Growth Services", href: "#services" },
+        options: [
+          "🏢 Who is the CEO of Himastech?",
+          "💼 What services do you offer?",
+          "📊 Claim Free 48-Hour Audit"
+        ]
       };
     }
 
-    // 3. Training / Academy / Courses / Syllabus / Roadmaps / Placement
+    // 3b. Conversational: User feeling / Mood ("i am good", "im fine", "doing well")
     if (
-      q.includes("train") || 
-      q.includes("course") || 
-      q.includes("academy") || 
-      q.includes("syllabus") || 
-      q.includes("roadmap") || 
-      q.includes("student") || 
-      q.includes("curriculum") || 
-      q.includes("cohort") || 
-      q.includes("placement") || 
-      q.includes("job") ||
-      q.includes("salary")
+      q.includes("i am good") ||
+      q.includes("im good") ||
+      q.includes("i m good") ||
+      q.includes("doing good") ||
+      q.includes("doing well") ||
+      q.includes("i am fine") ||
+      q.includes("im fine") ||
+      q.includes("all good") ||
+      q.includes("pretty good")
     ) {
       return {
-        text: "🎓 **Himastech Marketing Academy (5 Specialized Career Tracks):**\n\n1️⃣ **Paid Media & ROAS Acceleration** (8 Wks • $85k–$130k avg salary): Meta CAPI, Google P-Max, TikTok, live ad spend.\n2️⃣ **SEO, GEO & AI Search Mastery** (6 Wks • $75k–$120k avg salary): Core Web Vitals, Schema, ChatGPT & Perplexity optimization.\n3️⃣ **Social Media & Viral Content** (6 Wks • $65k–$110k avg salary): 3-sec hook formulas, CapCut, UGC creator seeding.\n4️⃣ **Growth Hacking & CRO** (8 Wks • $90k–$145k avg salary): Sub-second landing pages, Klaviyo/SMS flows, A/B testing.\n5️⃣ **Full-Stack Executive Bootcamp** (12 Wks • $110k–$165k avg salary): Complete 360° CMO training.\n\n✨ All tracks feature interactive curved serpentine roadmaps, live client ad budgets, and direct recruitment placement.",
-        cta: { label: "View Curved Progression Roadmaps", href: "#training" },
-        options: ["📞 WhatsApp for Next Cohort Seats", "📊 What are your Agency Services?", "💰 Course Placement Rates"]
-      };
-    }
-
-    // 4. Services / 9 Arsenal Channels / What do you do
-    if (
-      q.includes("service") || 
-      q.includes("channel") || 
-      q.includes("offer") || 
-      q.includes("arsenal") || 
-      q.includes("what do you do") ||
-      q.includes("facebook") ||
-      q.includes("meta") ||
-      q.includes("google ads") ||
-      q.includes("tiktok") ||
-      q.includes("linkedin") ||
-      q.includes("youtube") ||
-      q.includes("email") ||
-      q.includes("sms") ||
-      q.includes("cro")
-    ) {
-      return {
-        text: "💼 **Himastech 9-Channel Marketing Arsenal:**\n\n1. **Meta Ads (FB & IG)**: Broad AI targeting, CAPI server attribution & DCT testing.\n2. **Google Ads & P-Max**: High-intent Search sculpting & Shopping feed optimization.\n3. **SEO & Generative AI (GEO)**: Ranking on Google Search, ChatGPT, Perplexity & Claude.\n4. **TikTok & Viral Shorts**: Spark Ads & native UGC creator matrix.\n5. **Retention & Lifecycle (Klaviyo/SMS)**: Automated cart recovery & VIP loyalty flows.\n6. **CRO & Sub-Second Pages**: Next.js high-speed landing pages & multivariate tests.\n7. **LinkedIn B2B & ABM**: Matched audience C-suite pipeline generation.\n8. **YouTube Direct Response**: Video Action Campaigns (VAC) & long-form video funnels.\n9. **Programmatic & CTV / OTT**: Connected TV & household IP retargeting.",
-        cta: { label: "Explore the 9-Channel Arsenal", href: "#channels" },
-        options: ["⚡ What ROAS can you achieve?", "📊 Claim Free 48-Hr Audit", "📞 Call Strategy Desk"]
-      };
-    }
-
-    // 5. ROAS / Results / Case Studies / Metrics / Past Work
-    if (
-      q.includes("roas") || 
-      q.includes("case study") || 
-      q.includes("result") || 
-      q.includes("proof") || 
-      q.includes("real estate") || 
-      q.includes("ecommerce") || 
-      q.includes("saas") || 
-      q.includes("prestige") || 
-      q.includes("lumina") ||
-      q.includes("scale")
-    ) {
-      return {
-        text: "📈 **Proven Client Results & Verified Metrics:**\n\n• **Real Estate & High-Ticket:**\n  - Prestige Luxury Estates: **6.4x ROAS** (₹48Cr+ inventory sold)\n  - UrbanRise Luxury Villas: **5.8x ROAS** (₹32Cr booked)\n• **E-Commerce & D2C:**\n  - Lumina Glow Skincare: **4.2x ROAS** (310% MRR surge in 90 days)\n  - Aura Minimalist Apparel: **5.1x ROAS** (420% revenue scale)\n• **B2B SaaS & Enterprise:**\n  - CloudScale DevOps: **₹18M Closed Pipeline** (48% CAC reduction)\n  - NexusFlow CRM: **₹24M Enterprise ARR** (3.4x demo volume)\n\nAverage ROAS uplift: **+340%** with a 98.4% client retention rate.",
-        cta: { label: "View Detailed Case Studies", href: "#case-studies" },
-        options: ["📊 Get a Free Audit for My Brand", "💰 How does pricing work?", "📞 Talk to Growth Lead"]
-      };
-    }
-
-    // 6. Free Audit / Teardown / Review
-    if (
-      q.includes("audit") || 
-      q.includes("free") || 
-      q.includes("teardown") || 
-      q.includes("review") || 
-      q.includes("analysis")
-    ) {
-      return {
-        text: "📊 **Complimentary 48-Hour Growth & Ad Audit (Under Mutual NDA):**\n\nWe perform a forensic diagnostic of your current marketing stack:\n✓ **Server-Side Tracking Audit**: Identifying lost iOS/Android conversion telemetry.\n✓ **Creative Fatigue Index**: Pinpointing decaying ads and high-converting hook gaps.\n✓ **Audience Cannibalization**: Eliminating wasted ad spend across overlapping ad sets.\n✓ **Landing Page Drop-off Teardown**: Identifying exact form and checkout bottlenecks.\n\n100% free with zero obligation.",
+        text: "😄 **Glad to hear that!**\n\nWhat brings you to Himastech today? Are you looking to scale your business revenue with paid ads, exploring career opportunities in our Training Academy, or just checking out our website?",
         cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
-        options: ["⚡ Calculate ROI Potential", "📞 Call +91 6304989071", "🎓 Explore Training Academy"]
+        options: [
+          "💼 What services do you offer?",
+          "🏢 Who is the CEO?",
+          "🎓 Explore Training Academy",
+          "📊 Request Free 48-Hr Audit"
+        ]
       };
     }
 
-    // 7. Pricing / Cost / Retainer / Fees / Budget
+    // 3c. Conversational: Let's chat / Talk ("can we chat", "let's talk", "tell me something")
     if (
-      q.includes("price") || 
-      q.includes("cost") || 
-      q.includes("pricing") || 
-      q.includes("fee") || 
-      q.includes("retainer") || 
-      q.includes("budget") || 
-      q.includes("how much")
+      q.includes("can we chat") ||
+      q.includes("can we talk") ||
+      q.includes("let us chat") ||
+      q.includes("lets chat") ||
+      q.includes("let us talk") ||
+      q.includes("lets talk") ||
+      q.includes("talk to me") ||
+      q.includes("tell me something")
     ) {
       return {
-        text: "💰 **Pricing & Partnership Structure:**\n\n• **Aligned Incentive Model**: A transparent monthly base management fee + performance milestone bonuses once agreed ROAS targets are hit.\n• **No Long-Term Lock-Ins**: We operate on flexible monthly agreements because we earn our seat through measurable profit.\n• **Minimum Recommended Ad Spend**: Starting at ₹1,00,000 / $2,000 monthly ad spend to allow algorithmic testing & statistical significance.\n\nWe also provide customized enterprise tier proposals.",
+        text: "💬 **I'd love to chat!**\n\nWe can talk about anything from performance marketing strategies, how our Founder & CEO **Adduri Sai Kishore** scales brands to 4.8x ROAS, or career roadmaps in our Training Academy.\n\nWhat's on your mind today?",
+        cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
+        options: [
+          "🏢 Who is the CEO of Himastech?",
+          "💼 What services do you offer?",
+          "📊 Request Free 48-Hr Audit",
+          "📞 WhatsApp Strategy Desk"
+        ]
+      };
+    }
+
+    // 3d. Conversational: Well-being ("how are you")
+    if (
+      q.includes("how are you") ||
+      q.includes("how r u") ||
+      q.includes("how do you do") ||
+      q.includes("how is it going") ||
+      q.includes("hows it going") ||
+      q.includes("how s it going") ||
+      q.includes("what is up") ||
+      q.includes("whats up") ||
+      q.includes("what s up") ||
+      q.includes("what are you doing") ||
+      q.includes("how have you been")
+    ) {
+      return {
+        text: "😊 **I'm doing fantastic, thank you!**\n\nI am here 24/7 assisting business founders, CMOs, and marketers with data-driven growth strategies, algorithmic ad funnels, and enterprise software under Founder & CEO **Adduri Sai Kishore**.\n\nHow are you doing today? Tell me a little about your business or what growth goals you have in mind!",
+        cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
+        options: [
+          "🏢 Who is the CEO of Himastech?",
+          "💼 What services do you offer?",
+          "📊 Request Free 48-Hr Audit",
+          "📈 Calculate Projected ROAS"
+        ]
+      };
+    }
+
+    // 4. Conversational: Gratitude ("thank you", "thanks")
+    if (
+      hasWord("thanks", "thank", "thx", "tysm") ||
+      q.includes("thank you") ||
+      q.includes("appreciate it") ||
+      q.includes("thanks a lot") ||
+      q.includes("thank u")
+    ) {
+      return {
+        text: "🙏 **You're very welcome!**\n\nIt is our absolute pleasure to assist. Whether you need an ad stack audit, higher ROAS on Meta/Google, or industry-grade digital marketing training, CEO Adduri Sai Kishore's team is ready.\n\nLet us know whenever you want to schedule a strategy call or audit!",
+        cta: { label: "Schedule Strategy Call", href: "#contact" },
+        options: [
+          "📊 Request Free 48-Hr Audit",
+          "💼 What services do you offer?",
+          "📞 WhatsApp Strategy Desk"
+        ]
+      };
+    }
+
+    // 5. Conversational: Acknowledgements ("ok", "sure", "cool", "great", "nice", etc.)
+    const isAcknowledgement =
+      ["ok", "okay", "sure", "cool", "great", "nice", "awesome", "perfect", "good", "fine", "understood", "got it", "yes", "yeah", "yep", "alright", "done", "super"].includes(raw) ||
+      q.includes("sounds good") ||
+      q.includes("makes sense") ||
+      q.includes("no problem") ||
+      q.includes("all good") ||
+      q.includes("got it");
+
+    if (isAcknowledgement) {
+      return {
+        text: "👍 **Awesome!**\n\nWhat would you like to explore next? We can perform a deep forensic audit on your ad stack, simulate your projected ROAS, or connect you directly with Adduri Sai Kishore's growth desk.",
+        cta: { label: "Simulate Your ROI", href: "#roi-calculator" },
+        options: [
+          "📊 Claim Free 48-Hour Audit",
+          "💼 Explore 9 Channels",
+          "🎓 View Training Academy",
+          "📞 WhatsApp Strategy Desk"
+        ]
+      };
+    }
+
+    // 6. Conversational: Assistance Requests ("can you help me", "i need help")
+    if (
+      q.includes("help me") ||
+      q.includes("need help") ||
+      q.includes("can you help") ||
+      q.includes("have a question") ||
+      q.includes("can i ask") ||
+      q.includes("need advice") ||
+      q.includes("suggest me") ||
+      q.includes("guide me")
+    ) {
+      return {
+        text: "🤝 **Absolutely! I'm here to help you.**\n\nAs Himastech's official AI Strategist, I can guide you through:\n• **Performance Marketing**: Scaling Meta & Google ads to high ROAS\n• **Forensic Ad Audit**: 48-Hour diagnostic of tracking leaks and ad waste\n• **Generative Engine Optimization (GEO)**: Ranking your brand in AI search engines\n• **Training Academy**: Hands-on agency roadmaps & placement\n\nTell me a little about your brand, or what challenge you're facing right now!",
+        cta: { label: "Request Free 48-Hr Audit", href: "#contact" },
+        options: [
+          "💼 What services do you offer?",
+          "📊 Claim Free 48-Hour Audit",
+          "📈 Calculate Projected ROAS",
+          "🏢 Who is the CEO?"
+        ]
+      };
+    }
+
+    // 7. Conversational: Business Growth & Scaling ("grow my business", "increase sales")
+    if (
+      q.includes("grow my business") ||
+      q.includes("increase sales") ||
+      q.includes("more sales") ||
+      q.includes("boost sales") ||
+      q.includes("get more leads") ||
+      q.includes("get leads") ||
+      q.includes("more revenue") ||
+      q.includes("need customers") ||
+      q.includes("grow business") ||
+      q.includes("scale brand") ||
+      q.includes("scale my") ||
+      q.includes("promote my") ||
+      q.includes("run ads for")
+    ) {
+      return {
+        text: "🚀 **Scaling Predictable Revenue is Himastech's Core Specialty:**\n\nUnder Founder & CEO **Adduri Sai Kishore**, we turn digital marketing into a mathematical growth engine:\n\n• **Algorithmic Meta & Google Ads**: Engineered for sustainable scale, delivering an average **4.8x ROAS**.\n• **Bulletproof CAPI Tracking**: Server-side attribution to recover lost iOS & Android conversions.\n• **High-Converting Creative Sprints**: Direct-response UGC video hooks, angle testing, and sub-second landing page CRO.\n\nTell me about your business model (e.g. E-Commerce, Real Estate, Healthcare, B2B SaaS, or Local Services), and we can recommend a tailored scaling blueprint!",
+        cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
+        options: [
+          "📊 Request Free 48-Hr Audit",
+          "📈 Simulate Your ROI",
+          "📞 WhatsApp Strategy Desk"
+        ]
+      };
+    }
+
+    // 8. Conversational: Getting Started / Collaboration / Next Steps
+    if (
+      q.includes("how to start") ||
+      q.includes("where to start") ||
+      q.includes("how to begin") ||
+      q.includes("how can we work") ||
+      q.includes("how to work") ||
+      q.includes("hire you") ||
+      q.includes("get started") ||
+      q.includes("next step") ||
+      q.includes("collaborate") ||
+      q.includes("onboarding")
+    ) {
+      return {
+        text: "🚀 **How to Get Started with Himastech:**\n\nPartnering with us is seamless, transparent, and completely risk-free:\n\n1️⃣ **Step 1 — Free 48-Hour Growth Audit**: Our senior media buyers run a deep forensic scan on your ad stack under mutual NDA.\n2️⃣ **Step 2 — Strategic Roadmap**: CEO Adduri Sai Kishore and our growth directors present tailored ROAS projections and creative angles.\n3️⃣ **Step 3 — 14-Day Sprint Launch**: We deploy tracking fixes, dynamic creatives, and algorithmic campaigns.\n\nFlexible month-to-month contracts with zero long-term lock-ins. You can also chat directly with CEO Adduri Sai Kishore's desk on WhatsApp at **+91 6304989071**.",
+        cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
+        options: [
+          "📊 Claim Free 48-Hour Audit",
+          "📞 WhatsApp Strategy Desk (+91 6304989071)",
+          "💼 View Marketing Services"
+        ]
+      };
+    }
+
+    // 9. Conversational: Compliments / Positive feedback
+    if (
+      q.includes("good job") ||
+      q.includes("nice work") ||
+      q.includes("you are good") ||
+      q.includes("awesome bot") ||
+      q.includes("love this") ||
+      q.includes("cool website") ||
+      q.includes("impressive") ||
+      q.includes("great job")
+    ) {
+      return {
+        text: "✨ **Thank you so much!**\n\nOur entire team and Founder & CEO **Adduri Sai Kishore** are committed to delivering the absolute highest standard in performance marketing, transparent analytics, and enterprise software.\n\nWe would love to bring that same high standard to your brand's growth! How can we assist you today?",
+        cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
+        options: [
+          "📊 Claim Free 48-Hour Audit",
+          "💼 What services do you offer?",
+          "🏢 Who is the CEO of Himastech?"
+        ]
+      };
+    }
+
+    // 10. Greetings & Friendly Openers
+    const isGreeting =
+      hasWord("hi", "hello", "hey", "namaste", "greetings", "wassup") ||
+      q.includes("good morning") ||
+      q.includes("good afternoon") ||
+      q.includes("good evening") ||
+      q.includes("hey bro") ||
+      q.includes("hi bro") ||
+      q.includes("hello bro") ||
+      q.includes("hi there") ||
+      q.includes("hello there") ||
+      ["hi", "hello", "hey", "namaste", "start", "help"].includes(raw);
+
+    if (isGreeting) {
+      return {
+        text: isMerlinflow
+          ? "👋 Welcome to **Merlinflow Technologies**! I am your Enterprise Software Assistant. Ask me about our Cloud ERP suites (School IMS, Medical ERP, Restaurant OS, E-Commerce), schedule a 1-on-1 live demo, or connect with our solutions architects."
+          : "👋 Hello! Welcome to **Himastech**. I am your AI Growth & Strategy Assistant.\n\nI can assist you with:\n• **CEO & Leadership:** Adduri Sai Kishore (Founder & CEO)\n• **Services:** Meta & Google Ads, AI Search (GEO), CRO & Funnels (4.8x avg ROAS)\n• **Training Academy:** 5 Career Tracks & Placement\n• **Free 48-Hr Growth Audit:** Forensic diagnostic of your ad stack\n• **Enterprise Software:** Merlinflow Cloud ERP Suites\n\nHow can we help your business scale today?",
+        cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
+        options: [
+          "🏢 Who is the CEO of Himastech?",
+          "💼 What services do you offer?",
+          "📊 Request Free 48-Hr Audit",
+          "🎓 Explore Training Academy"
+        ]
+      };
+    }
+
+    // 4. About Company / About Himastech / Agency Details
+    if (
+      q.includes("company") ||
+      q.includes("agency") ||
+      q.includes("himastech") ||
+      q.includes("himas tech") ||
+      q.includes("business") ||
+      q.includes("firm") ||
+      q.includes("organization") ||
+      q.includes("about us") ||
+      q.includes("our story") ||
+      q.includes("who are you") ||
+      q.includes("what is this") ||
+      q.includes("what is himastech") ||
+      q.includes("who is himastech") ||
+      q.includes("why himastech") ||
+      q.includes("tell me about yourself")
+    ) {
+      return {
+        text: "🏢 **About Himastech:**\n\n• **Founded By:** Adduri Sai Kishore (CEO & Founder)\n• **Core Philosophy:** Digital marketing should be a predictable revenue generation engine, not a costly gamble.\n• **Operational Center:** Nagole, Hyderabad, Telangana, India\n• **Strategic Technology Alliance:** Merlinflow Technologies Private Limited\n• **Core Pillars:** Algorithmic Precision, Creative Science, Uncompromising Integrity (100% ad account ownership), and Compound Growth.",
+        cta: { label: "Read Our Full Story", href: "#about" },
+        options: ["🏢 Who is the CEO?", "💼 9-Channel Marketing Arsenal", "📊 Claim Free 48-Hour Audit"]
+      };
+    }
+
+    // 5. Free 48-Hour Growth Audit
+    if (
+      q.includes("audit") ||
+      q.includes("teardown") ||
+      q.includes("diagnostic") ||
+      q.includes("review my ad") ||
+      q.includes("account review") ||
+      q.includes("free 48")
+    ) {
+      return {
+        text: "📊 **Complimentary 48-Hour Growth & Ad Stack Audit (Under Mutual NDA):**\n\nOur senior media buyers perform a deep forensic diagnostic of your entire marketing stack:\n✓ **Server-Side Tracking Audit**: Identifying lost iOS/Android conversions & Meta CAPI telemetry gaps.\n✓ **Creative Fatigue Index**: Pinpointing decaying ad creatives and high-converting hook opportunities.\n✓ **Audience Cannibalization**: Eliminating budget wasted on overlapping ad sets.\n✓ **Landing Page Drop-off Teardown**: Uncovering friction points in forms, page speeds, and checkout steps.\n\n100% Free with zero obligation.",
+        cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
+        options: ["📞 WhatsApp Strategy Desk", "⚡ Calculate Projected ROAS", "💼 View Marketing Services"]
+      };
+    }
+
+    // 6. Services / 9-Channel Marketing Arsenal
+    if (
+      q.includes("service") ||
+      q.includes("services") ||
+      q.includes("what do you do") ||
+      q.includes("what does himastech do") ||
+      q.includes("how can you help") ||
+      q.includes("digital marketing") ||
+      q.includes("marketing agency") ||
+      q.includes("meta ads") ||
+      q.includes("facebook ads") ||
+      q.includes("fb ads") ||
+      q.includes("instagram ads") ||
+      q.includes("google ads") ||
+      q.includes("p-max") ||
+      q.includes("pmax") ||
+      q.includes("performance max") ||
+      q.includes("tiktok ads") ||
+      q.includes("linkedin ads") ||
+      q.includes("youtube ads") ||
+      q.includes("media buying") ||
+      q.includes("ad campaign") ||
+      q.includes("landing page") ||
+      q.includes("cro") ||
+      q.includes("funnel") ||
+      q.includes("lead generation") ||
+      q.includes("lead gen") ||
+      q.includes("retention marketing")
+    ) {
+      return {
+        text: "💼 **Himastech 9-Channel Revenue Arsenal:**\n\n1. **Meta Ads (Facebook & Instagram)**: Broad AI targeting, CAPI server attribution & DCT creative testing.\n2. **Google Ads & Performance Max**: High-intent search sculpting, Shopping feed optimization, and YouTube VAC.\n3. **Generative Engine Optimization (GEO)**: Semantic ranking on ChatGPT, Perplexity AI, Claude & Google AI Overviews.\n4. **TikTok & Viral Shorts**: Spark Ads & native UGC creator matrix with 3-second hook formulas.\n5. **Retention & Lifecycle (Klaviyo / WhatsApp / SMS)**: Automated cart recovery, VIP flows, and repeat-buyer nurture.\n6. **CRO & Sub-Second Pages**: Next.js custom landing pages engineered for instant load and high conversion.\n7. **LinkedIn B2B & ABM**: Account-Based Marketing targeting C-suite decision-makers.\n8. **YouTube Direct Response**: High-trust video sales letters (VSLs) and Action Campaigns.\n9. **Programmatic & CTV / OTT**: Connected TV household retargeting and premium digital placements.",
+        cta: { label: "Explore the 9 Channels", href: "#channels" },
+        options: ["⚡ What ROAS can you achieve?", "📊 Claim Free 48-Hr Audit", "🏢 Who is the CEO?"]
+      };
+    }
+
+    // 7. Generative Engine Optimization (GEO) & AI Search / SEO
+    if (
+      q.includes("seo") ||
+      q.includes("geo") ||
+      q.includes("generative engine") ||
+      q.includes("ai search") ||
+      q.includes("chatgpt ranking") ||
+      q.includes("perplexity") ||
+      q.includes("search engine optimization") ||
+      q.includes("google search ranking") ||
+      q.includes("organic ranking")
+    ) {
+      return {
+        text: "🔍 **Generative Engine Optimization (GEO) & AI Search:**\n\nTraditional keyword SEO is no longer enough. We engineer your brand authority to become the cited recommendation across LLM answer engines:\n• **ChatGPT & Perplexity AI Citations**: Optimizing schema and entity relationships for conversational recommendations.\n• **Google AI Overviews & Gemini Panels**: Structuring content to capture top AI summary boxes.\n• **Sub-Second Core Web Vitals**: Flawless Next.js architecture maximizing LCP, INP, and CLS scores.\n• **Topical Authority Hubs**: In-depth pillar content clusters that dominate search rankings.\n• **Tier-1 Digital PR**: High-authority citations and backlink flywheels.",
+        cta: { label: "Explore SEO & GEO Services", href: "#channels" },
+        options: ["📊 Audit My Website SEO", "💼 Full 9-Channel Arsenal", "📞 Contact Strategy Desk"]
+      };
+    }
+
+    // 8. Training Academy / Courses / Syllabus / Roadmaps / Placements
+    if (
+      q.includes("training") ||
+      q.includes("course") ||
+      q.includes("courses") ||
+      q.includes("academy") ||
+      q.includes("syllabus") ||
+      q.includes("curriculum") ||
+      q.includes("cohort") ||
+      q.includes("track") ||
+      q.includes("tracks") ||
+      q.includes("learn marketing") ||
+      q.includes("learn digital marketing") ||
+      q.includes("placement") ||
+      q.includes("career track") ||
+      q.includes("training track") ||
+      q.includes("marketing bootcamp") ||
+      q.includes("admission") ||
+      q.includes("enroll")
+    ) {
+      return {
+        text: "🎓 **Himastech Digital Marketing Academy (5 Elite Career Tracks):**\n\n1️⃣ **Paid Media & ROAS Acceleration** (8 Weeks • ₹8.5 LPA – ₹15 LPA avg salary): Meta CAPI, Google P-Max, live client ad spend.\n2️⃣ **SEO, GEO & AI Search Mastery** (6 Weeks • ₹7.5 LPA – ₹14 LPA avg salary): Core Web Vitals, Schema, ChatGPT & Perplexity indexing.\n3️⃣ **Social Media & Viral Content** (6 Weeks • ₹6.5 LPA – ₹12 LPA avg salary): 3-second hooks, CapCut, UGC creator seeding.\n4️⃣ **Growth Hacking & CRO** (8 Weeks • ₹9.0 LPA – ₹18 LPA avg salary): Sub-second landing pages, Klaviyo/SMS retention, A/B testing.\n5️⃣ **Full-Stack Executive Bootcamp** (12 Weeks • ₹12 LPA – ₹24 LPA avg salary): Complete 360° CMO & growth leadership training.\n\n✨ **Key Benefits:** Interactive curved roadmaps, real-time client ad budgets, 1-on-1 mentorship, and direct placement assistance.",
+        cta: { label: "View Academy Roadmaps & Syllabus", href: "#training" },
+        options: ["📞 WhatsApp for Next Cohort Seats", "💼 Agency Services", "🏢 About CEO Adduri Sai Kishore"]
+      };
+    }
+
+    // 9. Results / Case Studies / ROAS / Metrics / Portfolio
+    if (
+      q.includes("roas") ||
+      q.includes("case study") ||
+      q.includes("case studies") ||
+      q.includes("client result") ||
+      q.includes("client results") ||
+      q.includes("past work") ||
+      q.includes("portfolio") ||
+      q.includes("track record") ||
+      hasPhrase("prestige", "urbanrise", "lumina", "aura", "cloudscale", "nexusflow")
+    ) {
+      return {
+        text: "📈 **Verified Client Results & Proven ROAS:**\n\n• **Prestige Luxury Estates (Real Estate):** 6.4x ROAS | ₹48Cr+ Inventory Sold\n• **UrbanRise Luxury Villas (Real Estate):** 5.8x ROAS | ₹32Cr Booked\n• **Lumina Glow Skincare (D2C E-Commerce):** 4.2x ROAS | 310% MRR Surge in 90 Days\n• **Aura Minimalist Apparel (Fashion E-Com):** 5.1x ROAS | 420% Revenue Scale\n• **CloudScale DevOps (B2B SaaS):** ₹18M Pipeline Closed | 48% CAC Reduction\n• **NexusFlow CRM (B2B Tech):** ₹24M Enterprise ARR | 3.4x Demo Volume\n\n⭐ **Agency Benchmark:** 4.8x Average ROAS across active client portfolios and a 94%+ client retention rate.",
+        cta: { label: "View Detailed Case Studies", href: "#case-studies" },
+        options: ["📊 Claim Free 48-Hour Audit", "💰 How does pricing work?", "⚡ Simulate Projected ROI"]
+      };
+    }
+
+    // 10. Pricing / Budget / Retainer / Fees / Cost / Charges
+    if (
+      q.includes("pricing") ||
+      q.includes("retainer") ||
+      q.includes("agency fee") ||
+      q.includes("management fee") ||
+      q.includes("marketing budget") ||
+      q.includes("how much do you charge") ||
+      q.includes("service fee") ||
+      q.includes("price") ||
+      q.includes("cost") ||
+      q.includes("packages")
+    ) {
+      return {
+        text: "💰 **Pricing & Engagement Framework:**\n\n• **Performance-Aligned Structure**: Transparent base monthly retainer + performance milestone bonuses when agreed ROAS/revenue targets are surpassed.\n• **Zero Long-Term Lock-Ins**: Flexible month-to-month contracts because we earn our partnership through real revenue.\n• **Minimum Recommended Ad Spend**: Starting at ₹1,00,000 monthly ad spend to ensure statistical significance in algorithmic testing.\n• **Enterprise Proposals**: Custom-tailored multi-channel retainers available for enterprise brands and VC-backed startups.",
         cta: { label: "Request Custom Pricing Proposal", href: "#contact" },
         options: ["📊 Book Free Account Audit", "📈 Calculate Projected ROAS", "📞 WhatsApp Strategy Desk"]
       };
     }
 
-    // 8. SEO / GEO / Generative AI / ChatGPT / Perplexity
+    // 11. Process / 4-Step Revenue Engine / Methodology
     if (
-      q.includes("seo") || 
-      q.includes("geo") || 
-      q.includes("ai search") || 
-      q.includes("chatgpt") || 
-      q.includes("perplexity") || 
-      q.includes("google search")
+      q.includes("process") ||
+      q.includes("how it works") ||
+      q.includes("methodology") ||
+      q.includes("4 step") ||
+      q.includes("4-step") ||
+      q.includes("workflow")
     ) {
       return {
-        text: "🔍 **Generative Engine Optimization (GEO) & Semantic SEO:**\n\nTraditional SEO is no longer enough. We optimize your brand to become the primary recommended answer across AI Answer Engines:\n• **ChatGPT Search & Perplexity AI Citations**\n• **Google AI Overviews & Gemini Knowledge Panels**\n• **Topical Hub-and-Spoke Content Clusters**\n• **Sub-Second Core Web Vitals (LCP, INP, CLS) Performance**\n• **Digital PR Tier-1 Media Backlink Flywheels**",
-        cta: { label: "Explore SEO & GEO Services", href: "#channels" },
-        options: ["💼 Full 9-Channel Arsenal", "📊 Audit My Website SEO", "📞 WhatsApp Our SEO Director"]
-      };
-    }
-
-    // 9. Process / How it works / Steps
-    if (
-      q.includes("process") || 
-      q.includes("how it works") || 
-      q.includes("steps") || 
-      q.includes("methodology") || 
-      q.includes("engine")
-    ) {
-      return {
-        text: "⚙️ **The 4-Step Revenue Multiplication Engine:**\n\n1. **Deep Forensic Audit (Day 1-7)**: Fix broken CAPI telemetry and map unit economics.\n2. **High-Velocity Creative Sprint (Day 8-14)**: Produce 10+ direct response UGC hooks & landing page variants.\n3. **Algorithmic Media Buying (Day 15-30)**: Deploy Broad AI targeting, P-Max feeds, and Dynamic Creative Testing.\n4. **Compounding Scale & Retention (Day 30+)**: Automated email/SMS retention flows and multivariate CRO.",
+        text: "⚙️ **The 4-Step Revenue Multiplication Engine:**\n\n1️⃣ **Deep Forensic Audit (Day 1-7)**: Fix broken CAPI telemetry, resolve tracking blindspots, and establish baseline unit economics.\n2️⃣ **High-Velocity Creative Sprint (Day 8-14)**: Produce 10+ direct response UGC hooks and develop high-converting landing page variants.\n3️⃣ **Algorithmic Media Buying (Day 15-30)**: Deploy Broad AI targeting, Google P-Max feeds, and Dynamic Creative Testing (DCT).\n4️⃣ **Compounding Scale & Retention (Day 30+)**: Deploy Klaviyo/SMS retention sequences and ongoing multivariate CRO.",
         cta: { label: "View Our 4-Step Process", href: "#process" },
-        options: ["📊 Claim 48-Hr Growth Audit", "📈 Case Studies & Results", "📞 Call +91 6304989071"]
+        options: ["📊 Claim Free 48-Hr Audit", "📈 View Client Case Studies", "📞 Call +91 6304989071"]
       };
     }
 
-    // Default Comprehensive Fallback
+    // 12. Merlinflow Technologies / Cloud ERP / SaaS Suites
+    if (
+      q.includes("merlinflow") ||
+      q.includes("merlin") ||
+      q.includes("erp") ||
+      q.includes("school ims") ||
+      q.includes("medical erp") ||
+      q.includes("hospital erp") ||
+      q.includes("restaurant erp") ||
+      q.includes("real estate erp") ||
+      q.includes("cloud os") ||
+      q.includes("saas suite")
+    ) {
+      return {
+        text: "🚀 **Strategic Collaboration with Merlinflow Technologies Private Limited:**\n\nHimastech collaborates with Merlinflow Technologies (https://www.merlinflow.in/) to provide enterprise-grade SaaS and automated cloud OS suites:\n\n1️⃣ **Real Estate & Brokerage ERP**: Lead routing, inventory availability matrices, and broker commission payouts.\n2️⃣ **School & College IMS**: Admissions, biometric attendance, fee collection, and parent portals.\n3️⃣ **Medical & Hospital ERP**: Instant POS billing, pharmacy batch/expiry tracking, and NABH compliance.\n4️⃣ **Restaurant & Cloud Kitchen OS**: QR digital menus, real-time KOT kitchen sync, and table reservation management.\n5️⃣ **E-Commerce & Retail OS**: 1-click checkout, automated COD fraud filtering, and logistics sync.\n6️⃣ **Corporate HRMS & Payroll**: Biometric payroll, compliance filings, and employee self-service.\n\nAll suites feature real-time cloud sync, WhatsApp/SMS alerts, and India GST/UPI compliance.",
+        cta: { label: "Visit Merlinflow.in", href: "https://www.merlinflow.in/", isExternal: true },
+        options: ["📞 Connect with Desk 1 (+91 8374373753)", "⚡ Connect with Desk 2 (+91 8247716878)", "💼 Back to Himastech Marketing"]
+      };
+    }
+
+    // 13. Reviews / Feedback / Testimonials / Ratings
+    if (
+      q.includes("review") ||
+      q.includes("reviews") ||
+      q.includes("feedback") ||
+      q.includes("testimonial") ||
+      q.includes("testimonials") ||
+      q.includes("rating") ||
+      q.includes("ratings")
+    ) {
+      return {
+        text: "⭐ **Client & Academy Testimonials:**\n\n• **100% Verified Feedback**: Sourced directly from founders, marketing heads, and academy graduates after administrative review.\n• **Proven Impact**: High praise for transparent ROAS dashboards, zero vanity metrics, and direct access to senior media buyers.\n• **Academy Placements**: Graduates placed in top growth marketing roles with verified portfolio projects.",
+        cta: { label: "Read Verified Client Reviews", href: "#feedback" },
+        options: ["📊 Claim Free 48-Hour Audit", "🎓 View Training Academy", "🏢 Who is the CEO?"]
+      };
+    }
+
+    // 14. ROI Calculator / Simulator
+    if (
+      q.includes("roi") ||
+      q.includes("calculator") ||
+      q.includes("simulate")
+    ) {
+      return {
+        text: "🧮 **Interactive ROI & Revenue Simulator:**\n\nCurious about the revenue potential of scaling your ad spend with Himastech?\n• Use our interactive on-page calculator to model ad spend vs projected revenue.\n• Based on historical performance averages across Real Estate, E-Commerce, B2B SaaS, and Local Services.\n• Get realistic forecasts for CAC, CPA, and blended ROAS before spending a single rupee.",
+        cta: { label: "Launch ROI Calculator", href: "#roi-calculator" },
+        options: ["📊 Request Free 48-Hr Audit", "💼 Explore 9 Channels", "📞 Contact Strategy Desk"]
+      };
+    }
+
+    // 15. NATURAL CONVERSATIONAL ASSISTANCE (For general conversation building & friendly chat)
     return {
-      text: "⚡ **Himastech Digital Marketing & Academy:**\n\nWe specialize in:\n• **Full-Funnel Paid Media** (Meta, Google P-Max, TikTok)\n• **Generative Engine SEO & GEO** (ChatGPT, Perplexity, Google AI)\n• **High-Converting Landing Pages & CRO**\n• **Elite 5-Track Marketing Academy** with curved roadmaps & job placement.\n\n📞 Phone & WhatsApp: **+91 6304989071**\n✉️ Email: **info@himastech.com**\n\nHow can we help your business today?",
+      text: "I hear you! 😊 I'm always happy to chat and help out.\n\nWhether you're looking to scale your brand's revenue, curious about how our Founder & CEO **Adduri Sai Kishore** builds high-converting ad funnels (4.8x avg ROAS), or want to check out our 5-track Training Academy, I'm here for you.\n\nWhat would you like to explore together?",
       cta: { label: "Claim Free 48-Hour Audit", href: "#contact" },
       options: [
-        "📞 What is your phone / WhatsApp?",
-        "📊 Request Free Growth Audit",
-        "🎓 5 Training Tracks & Syllabus",
-        "📈 View Client Case Studies",
-      ],
+        "🏢 Who is the CEO of Himastech?",
+        "💼 What services do you offer?",
+        "📊 Claim Free 48-Hour Audit",
+        "📞 WhatsApp Strategy Desk (+91 6304989071)"
+      ]
     };
   };
 
@@ -332,18 +878,60 @@ export function AIChatbot() {
     // Simulate realistic AI processing
     setTimeout(() => {
       const replyData = generateBotReply(query);
+
+      // Dynamically select 4 new unshown suggestions from our comprehensive pool
+      const { suggestions: dynamicOptions, newShown } = selectDynamicSuggestions(
+        query,
+        replyData.options,
+        shownSuggestionsRef.current,
+        Boolean(isMerlinflow),
+        4
+      );
+      shownSuggestionsRef.current = newShown;
+
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: "bot",
         text: replyData.text,
         timestamp: "Just now",
         cta: replyData.cta,
-        options: replyData.options,
+        options: [...dynamicOptions, "🔄 More Topics"],
       };
 
       setIsTyping(false);
       setMessages((prev) => [...prev, botMessage]);
     }, 600);
+  };
+
+  const handleCycleMoreSuggestions = (messageId: string) => {
+    const pool = isMerlinflow ? MASTER_MERLINFLOW_SUGGESTIONS : MASTER_HIMASTECH_SUGGESTIONS;
+    const normalize = (s: string) => s.replace(/[^\w\s]/g, "").toLowerCase().trim();
+    const shownSet = new Set(shownSuggestionsRef.current.map(normalize));
+
+    let unshown = pool.filter((item) => !shownSet.has(normalize(item)));
+    let reset = false;
+    if (unshown.length < 4) {
+      unshown = pool;
+      reset = true;
+    }
+
+    const nextFour = unshown.slice(0, 4);
+    const updated = reset ? nextFour : [...shownSuggestionsRef.current, ...nextFour];
+    shownSuggestionsRef.current = updated;
+
+    setMessages((prev) =>
+      prev.map((m) =>
+        m.id === messageId ? { ...m, options: [...nextFour, "🔄 More Topics"] } : m
+      )
+    );
+  };
+
+  const handleOptionClick = (opt: string, messageId: string) => {
+    if (opt === "🔄 More Topics") {
+      handleCycleMoreSuggestions(messageId);
+      return;
+    }
+    handleSendMessage(opt);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -354,6 +942,14 @@ export function AIChatbot() {
   };
 
   const handleResetChat = () => {
+    shownSuggestionsRef.current = isMerlinflow
+      ? [
+          "📞 What are the direct WhatsApp numbers?",
+          "🚀 Schedule a Guided Software Demo",
+          "🏢 Explore School IMS, Medical & Restaurant ERP",
+          "💰 Custom Pricing & Cloud Migration",
+        ]
+      : INITIAL_HIMASTECH_OPTIONS;
     setMessages(initialMessages);
   };
 
@@ -367,13 +963,13 @@ export function AIChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="mb-3 w-[92vw] sm:w-[400px] h-[550px] max-h-[85vh] rounded-2xl bg-white/95 backdrop-blur-2xl border border-slate-200 flex flex-col shadow-2xl relative overflow-hidden"
+            className="mb-3 w-[92vw] sm:w-[400px] h-[550px] max-h-[85vh] rounded-3xl glass-modal flex flex-col shadow-2xl relative overflow-hidden"
           >
             {/* Top ambient glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-20 bg-gradient-to-b from-blue-500/10 to-transparent blur-xl pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-20 bg-gradient-to-b from-blue-500/15 to-transparent blur-xl pointer-events-none" />
 
             {/* Chatbot Header */}
-            <div className="flex items-center justify-between p-4 border-b border-slate-100 bg-slate-50/70 relative z-10">
+            <div className="flex items-center justify-between p-4 border-b border-slate-200/50 glass-subcard relative z-10">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-brand-purple flex items-center justify-center text-white shadow-xs">
@@ -384,7 +980,7 @@ export function AIChatbot() {
                 <div>
                   <h3 className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
                     {isMerlinflow ? "Merlinflow AI Assistant" : "Himastech AI Strategist"}
-                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 font-mono border border-blue-200">
+                    <span className="text-[10px] px-1.5 py-0.2 rounded glass-subcard text-blue-700 font-mono border border-blue-300/60">
                       100% Accurate
                     </span>
                   </h3>
@@ -423,8 +1019,8 @@ export function AIChatbot() {
                   <div
                     className={`max-w-[88%] rounded-2xl p-3 sm:p-3.5 leading-relaxed shadow-xs ${
                       msg.sender === "user"
-                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-tr-none font-medium"
-                        : "bg-slate-100 border border-slate-200 text-slate-800 rounded-tl-none"
+                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-tr-none font-medium shadow-sm"
+                        : "glass-subcard text-slate-800 rounded-tl-none border-slate-200/60"
                     }`}
                   >
                     <div className="whitespace-pre-line space-y-1">
@@ -460,15 +1056,22 @@ export function AIChatbot() {
                   {/* Suggestion Chips */}
                   {msg.options && (
                     <div className="flex flex-wrap gap-1.5 mt-2 max-w-full">
-                      {msg.options.map((opt, oIdx) => (
-                        <button
-                          key={oIdx}
-                          onClick={() => handleSendMessage(opt)}
-                          className="text-[11px] px-2.5 py-1 rounded-full bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 transition-all text-left cursor-pointer shadow-2xs"
-                        >
-                          {opt}
-                        </button>
-                      ))}
+                      {msg.options.map((opt, oIdx) => {
+                        const isCycle = opt === "🔄 More Topics";
+                        return (
+                          <button
+                            key={oIdx}
+                            onClick={() => handleOptionClick(opt, msg.id)}
+                            className={`text-[11px] px-2.5 py-1 rounded-full border transition-all text-left cursor-pointer shadow-2xs ${
+                              isCycle
+                                ? "glass-subcard border-purple-300 text-purple-700 font-semibold hover:bg-purple-100/60"
+                                : "glass-subcard hover:bg-blue-50/80 border-slate-200/70 hover:border-blue-300 text-slate-700 hover:text-blue-700"
+                            }`}
+                          >
+                            {opt}
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
 
@@ -478,7 +1081,7 @@ export function AIChatbot() {
 
               {/* Typing Indicator */}
               {isTyping && (
-                <div className="flex items-center gap-1.5 p-3 rounded-2xl bg-slate-100 border border-slate-200 w-20 rounded-tl-none">
+                <div className="flex items-center gap-1.5 p-3 rounded-2xl glass-subcard w-20 rounded-tl-none">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce" />
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-bounce [animation-delay:0.2s]" />
                   <span className="w-1.5 h-1.5 rounded-full bg-pink-600 animate-bounce [animation-delay:0.4s]" />
@@ -489,8 +1092,8 @@ export function AIChatbot() {
             </div>
 
             {/* Input Bar */}
-            <div className="p-3 border-t border-slate-100 bg-white relative z-10">
-              <div className="flex items-center gap-2 rounded-xl bg-slate-50 border border-slate-200 px-3 py-1.5 focus-within:border-blue-500 transition-colors shadow-xs">
+            <div className="p-3 border-t border-slate-200/50 glass-subcard relative z-10">
+              <div className="flex items-center gap-2 rounded-xl bg-white/80 border border-slate-200/80 px-3 py-1.5 focus-within:border-blue-500 transition-colors shadow-2xs">
                 <input
                   type="text"
                   value={inputText}
@@ -535,22 +1138,6 @@ export function AIChatbot() {
 
       {/* Floating Chatbot Trigger Button */}
       <div className="flex items-center gap-2.5">
-        {/* Floating Tooltip Pill */}
-        <AnimatePresence>
-          {!isOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-              onClick={() => setIsOpen(true)}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-slate-800 text-xs font-semibold shadow-md cursor-pointer hover:border-blue-300 hover:text-blue-600 transition-colors"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
-              {isMerlinflow ? "Ask Merlinflow AI" : "Ask AI Growth Bot"}
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.08 }}
