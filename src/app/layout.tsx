@@ -72,9 +72,12 @@ export const metadata: Metadata = {
     creator: "@himastech",
   },
   icons: {
-    icon: "/logo-main.png",
-    shortcut: "/logo-main.png",
-    apple: "/logo-main.png",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.webmanifest",
   verification: {
