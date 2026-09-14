@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -15,17 +14,10 @@ import {
   Layers, 
   Building2, 
   Cpu, 
-  CheckCircle2, 
-  X, 
-  FileText, 
-  Lock,
-  Heart,
   TrendingUp
 } from "lucide-react";
 
 export function Footer() {
-  const [legalModal, setLegalModal] = useState<"privacy" | "terms" | "sla" | null>(null);
-
   // Bulletproof smooth scroll handler for same-page section navigation
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("/#")) {
@@ -247,6 +239,22 @@ export function Footer() {
                   Frequently Asked Questions
                 </Link>
               </li>
+              <li>
+                <Link 
+                  href="/terms-and-conditions" 
+                  className="hover:text-purple-600 transition-colors block py-0.5 font-medium"
+                >
+                  Terms and Conditions
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/privacy-policy" 
+                  className="hover:text-purple-600 transition-colors block py-0.5 font-medium"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -414,28 +422,28 @@ export function Footer() {
               &copy; {new Date().getFullYear()} Himastech Digital Marketing. All rights reserved.
             </p>
             <span className="hidden sm:inline-block text-slate-300">•</span>
-            {/* Functional Legal Policy Triggers */}
-            <div className="flex items-center gap-3 font-semibold text-slate-600">
-              <button
-                onClick={() => setLegalModal("privacy")}
+            {/* Functional Legal Policy Direct Links & SLA Trigger */}
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 font-semibold text-slate-600">
+              <Link
+                href="/terms-and-conditions"
+                className="hover:text-blue-600 transition-colors underline cursor-pointer"
+              >
+                Terms and Conditions
+              </Link>
+              <span>•</span>
+              <Link
+                href="/privacy-policy"
                 className="hover:text-blue-600 transition-colors underline cursor-pointer"
               >
                 Privacy Policy
-              </button>
+              </Link>
               <span>•</span>
-              <button
-                onClick={() => setLegalModal("terms")}
-                className="hover:text-blue-600 transition-colors underline cursor-pointer"
-              >
-                Terms of Engagement
-              </button>
-              <span>•</span>
-              <button
-                onClick={() => setLegalModal("sla")}
+              <Link
+                href="/terms-and-conditions#clause-06"
                 className="hover:text-blue-600 transition-colors underline cursor-pointer"
               >
                 SLA & Performance Guarantee
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -453,91 +461,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Interactive Legal & Policy Modal */}
-      {legalModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="glass-modal rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[85vh] overflow-y-auto">
-            
-            {/* Header */}
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/50">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl glass-subcard flex items-center justify-center text-blue-600">
-                  {legalModal === "privacy" && <Lock className="w-4 h-4" />}
-                  {legalModal === "terms" && <FileText className="w-4 h-4" />}
-                  {legalModal === "sla" && <ShieldCheck className="w-4 h-4 text-emerald-600" />}
-                </div>
-                <h3 className="text-lg font-black text-slate-950">
-                  {legalModal === "privacy" && "Himastech Privacy & Data Protection Policy"}
-                  {legalModal === "terms" && "Terms of Service & Agency Engagement"}
-                  {legalModal === "sla" && "Performance SLA & Quality Assurance Standards"}
-                </h3>
-              </div>
-              <button
-                onClick={() => setLegalModal(null)}
-                className="p-1.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Modal Body Content */}
-            <div className="text-xs sm:text-sm text-slate-600 space-y-4 leading-relaxed">
-              {legalModal === "privacy" && (
-                <>
-                  <p>
-                    <strong>1. Client Data Confidentiality & Strict NDA:</strong> All proprietary business metrics, customer lists, CRM records, ad accounts, and conversion data shared with Himastech and Merlinflow Technologies Pvt Ltd are protected under reciprocal non-disclosure agreements.
-                  </p>
-                  <p>
-                    <strong>2. First-Party Tracking & Compliance:</strong> Our Meta CAPI and Google Analytics integrations adhere to strict GDPR, CCPA, and Indian Digital Personal Data Protection (DPDP) Act frameworks. We never sell, lease, or distribute visitor telemetric information.
-                  </p>
-                  <p>
-                    <strong>3. Enterprise Security:</strong> Data exchanges operate via TLS 1.3 encryption, secure webhooks, and restricted role-based authorization.
-                  </p>
-                </>
-              )}
-
-              {legalModal === "terms" && (
-                <>
-                  <p>
-                    <strong>1. Transparent Retainer Model:</strong> Services are billed on a flexible monthly retainer or performance-hybrid model with zero long-term hostage contracts. Clients maintain 100% full administrative ownership of all ad accounts, creatives, domain assets, and tracking pixels.
-                  </p>
-                  <p>
-                    <strong>2. Ad Spend & Budget Control:</strong> Ad spend is paid directly by the client to advertising platforms (Meta, Google, LinkedIn) without arbitrary agency markup.
-                  </p>
-                  <p>
-                    <strong>3. Mutual Termination:</strong> Either party may discontinue or modify the scope with a standard 30-day notice period.
-                  </p>
-                </>
-              )}
-
-              {legalModal === "sla" && (
-                <>
-                  <p>
-                    <strong>1. Guaranteed Attribution Integrity:</strong> We ensure 100% verified server-side CAPI tracking setup within 7 business days of onboarding.
-                  </p>
-                  <p>
-                    <strong>2. Rapid Creative Iteration SLA:</strong> Minimum 5 to 15 net-new creative variations and copy angles tested weekly for active paid media retainers.
-                  </p>
-                  <p>
-                    <strong>3. Direct Slack/WhatsApp Response:</strong> Dedicated senior growth strategist communication with under 2-hour turnaround during active market hours.
-                  </p>
-                </>
-              )}
-            </div>
-
-            {/* Footer Action */}
-            <div className="mt-6 pt-4 border-t border-slate-100 flex justify-end">
-              <button
-                onClick={() => setLegalModal(null)}
-                className="px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-colors cursor-pointer"
-              >
-                Close & Acknowledge
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </footer>
   );
 }
